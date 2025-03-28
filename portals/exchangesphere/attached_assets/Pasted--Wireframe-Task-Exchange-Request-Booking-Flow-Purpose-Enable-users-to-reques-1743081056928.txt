@@ -1,0 +1,69 @@
+**Wireframe Task: Exchange Request & Booking Flow**
+
+---
+
+### 🔹 Purpose
+Enable users to request, accept, schedule, and confirm an exchange on ExchangeSphere, facilitating a smooth and structured booking experience.
+
+---
+
+### 🔧 Components & Sections
+
+#### 1. **Request Exchange Modal**
+- **Trigger:** "Connect" button on a user's skill card or profile.
+- **Fields:**
+  - **Skill Offered:** Pre-filled based on selected profile.
+  - **Select Time Slot:** Dropdown or calendar picker based on other user's availability (fetched dynamically).
+  - **Optional Message:** Text area for sender to personalize the request.
+- **Actions:**
+  - Submit Request
+  - Cancel
+
+#### 2. **Pending Requests Page**
+- **Tabs:**
+  - **Incoming Requests:** List of pending exchange requests received by the user.
+  - **Outgoing Requests:** List of requests sent by the user.
+- **List Item for Each Request:**
+  - Profile picture + Name
+  - Skill being requested
+  - Requested date/time
+  - Message preview (expandable)
+  - **Action Buttons (Incoming):** Accept / Reschedule / Decline
+  - **Status Indicators (Outgoing):** Pending / Accepted / Declined
+
+#### 3. **Confirmed Booking View**
+- **Location:** Dashboard > Upcoming Exchanges widget or separate "Bookings" tab
+- **Sections:**
+  - **Confirmed Bookings:** Upcoming scheduled exchanges with status (Confirmed, Awaiting Confirmation, Reschedule Requested)
+  - **Completed Bookings:** Past exchanges (for review and feedback)
+- **Each Booking Item Includes:**
+  - Date & time
+  - Skill title
+  - Participant profile preview
+  - CTA buttons (e.g., View Details, Join Call, Complete Exchange)
+  - Badge icon for status
+- **Calendar View Toggle:**
+  - Switch between list and calendar grid to visualize scheduled exchanges.
+
+#### 4. **Exchange Completion Flow**
+- **Trigger:** "Mark as Complete" button after exchange time passes.
+- **Modal UI:**
+  - Confirmation checkbox: "This exchange has occurred."
+  - Star Rating (1-5)
+  - Optional written review
+  - Feedback tags (e.g., Helpful, Friendly, On Time)
+- **Actions:**
+  - Submit Review
+  - Skip Review
+
+---
+
+### ✅ Success Criteria
+- Users can seamlessly request exchanges and receive confirmations.
+- Admins can monitor the status of all booking-related actions.
+- Completed exchanges trigger the Impact dashboard update and feedback modal.
+
+---
+
+Let me know when you’re ready to start on the next wireframe task!
+

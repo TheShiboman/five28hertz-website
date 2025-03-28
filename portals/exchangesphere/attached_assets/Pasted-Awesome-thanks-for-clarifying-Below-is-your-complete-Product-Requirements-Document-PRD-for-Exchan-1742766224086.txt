@@ -1,0 +1,178 @@
+Awesome—thanks for clarifying. Below is your complete Product Requirements Document (PRD) for ExchangeSphere, optimized for briefing Replit AI and enabling fluid collaboration via screen sharing and prompt iteration.
+
+⸻
+
+Product Requirements Document (PRD): ExchangeSphere Portal & App
+
+1. Product Overview
+
+Product Name: ExchangeSphere
+Type: Cross-platform (Web Portal + Mobile App for iOS/Android)
+Core Idea: A universal sharing economy platform that enables individuals to exchange services, skills, and experiences globally, powered by trust, personalization, and sustainability.
+
+Vision:
+To empower a connected world where everyone has the freedom to experience their dreams.
+
+Purpose:
+To build a vibrant, user-driven portal for meaningful exchanges—fostering generosity, trust, and mutual benefit.
+
+⸻
+
+2. Target Users
+
+Primary Audiences:
+	•	Millennials and Gen Z (18–40 years old)
+	•	Creators, freelancers, professionals, and learners
+	•	Global users with interest in sustainable living and cultural exchange
+	•	Both urban and underserved/rural digital adopters
+
+⸻
+
+3. Core Features & Modules
+
+A. User Onboarding & Profiles
+	•	Signup/Login (Email, Google, Facebook)
+	•	Guided onboarding flow:
+	•	Select offered skills/services
+	•	Choose desired experiences (bucket list)
+	•	Personal interest tagging
+	•	Profile creation (public/private toggles, photo, location, time zone)
+	•	Community verification (ratings, skill endorsements, optional ID check)
+
+⸻
+
+B. Exchange & Matching
+	•	AI-powered matchmaking:
+	•	Suggest services based on interest, location, availability, reputation
+	•	Exchange types supported:
+	•	Barter
+	•	Time-banking (1 hour = 1 credit)
+	•	Direct scheduling/booking
+	•	Transaction module:
+	•	Booking interface (date/time, terms, mutual agreement)
+	•	In-app chat with secure messaging
+
+⸻
+
+C. Bucket List Explorer
+	•	Visual interface to create/edit a “dream list”
+	•	Users can “grant” or match items from others’ lists
+	•	Track fulfillment of dreams
+
+⸻
+
+D. Community Layer
+	•	Forum for users to:
+	•	Ask for help
+	•	Share reviews or impact stories
+	•	Create themed local groups or chapters
+	•	Review & trust system:
+	•	5-star experience rating
+	•	Optional badges (Green Giver, Culture Connector, Mentor, etc.)
+
+⸻
+
+E. Dashboard
+	•	Personalized homepage/dashboard:
+	•	“Today’s Matches”
+	•	Upcoming exchanges
+	•	Suggested new goals or opportunities
+	•	Impact Tracker (gamified):
+	•	Progress bar toward life goals
+	•	Map of completed exchanges
+	•	Sustainability and time saved metrics
+
+⸻
+
+F. Admin Panel (Phase 2)
+	•	Approve flagged accounts or disputes
+	•	View analytics (active users, engagement rate, category trends)
+	•	Feature user stories and impact stats
+
+⸻
+
+4. UI/UX Design Requirements
+
+Design System: “Harmonic Flow” Hybrid Theme
+	•	Primary: Emerald Green #27AE60
+	•	Secondary: Serene Teal #48C9B0
+	•	Accent: Solar Gold #F5B041
+	•	Backgrounds: Misty Pearl (Light Mode) / Deep Indigo (Dark Mode)
+	•	Typography: Rounded modern sans-serif (e.g., Inter, Poppins)
+
+Design Scope:
+	•	Mobile App (iOS/Android) and Web Portal
+	•	Responsive and accessible design (WCAG 2.1 compliant)
+	•	Include both light and dark mode
+
+Key Screens:
+	1.	Splash Screen (with logo and tagline “A Connected World”)
+	2.	Homepage (inspirational banner + CTA)
+	3.	Onboarding flow (interests, goals, services offered)
+	4.	User Dashboard
+	5.	Exchange Confirmation Page
+	6.	Review Submission Page
+	7.	Impact Dashboard
+	8.	Community Feed
+	9.	Profile Page
+	10.	Admin Portal (web only, Phase 2)
+
+⸻
+
+5. Tech Stack (Recommended for Replit AI)
+	•	Frontend: React (Web), React Native or Expo (Mobile)
+	•	Backend: Node.js + Express or Firebase Functions
+	•	Database: Firestore or Supabase
+	•	Authentication: Firebase Auth or Auth0
+	•	AI Matching: Simple recommender using vector-based similarity (Phase 1), LLM-enhanced (Phase 2)
+	•	Hosting: Replit backend deployment + Vercel/Netlify for frontends
+
+⸻
+
+6. Key Flows
+
+User Exchange Flow
+	1.	New user signs up → creates profile
+	2.	Adds to their bucket list
+	3.	Matches appear on dashboard
+	4.	User selects match → initiates chat
+	5.	Agreement reached → exchange booked
+	6.	Post-exchange review submitted
+	7.	Dashboard updates impact stats
+
+Community Flow
+	1.	User joins a local group
+	2.	Participates in forum or event
+	3.	Builds reputation via reviews
+	4.	Becomes eligible for community badges
+
+⸻
+
+7. Non-Functional Requirements
+	•	Scalability for global user base
+	•	End-to-end encryption for messaging
+	•	GDPR and CCPA compliant
+	•	Mobile offline caching (Phase 2)
+	•	Localization-ready
+
+⸻
+
+8. Milestones & Phases
+
+Phase	Deliverables
+Phase 1	Core user onboarding, exchange flow, dashboard, community module, light mode UI
+Phase 2	Admin tools, dark mode, AI enhanced matching, mobile offline support
+Phase 3	Local chapter systems, certification/insurance integration, marketplace extensions
+
+
+
+⸻
+
+9. Branding
+	•	Logo: Use provided image file (ExchangeSphere with planetary grid)
+	•	Tagline: “A Connected World”
+	•	Tone: Inclusive, trustworthy, uplifting
+
+⸻
+
+Let me know when you’ve briefed this to Replit AI and if you want micro-prompts for developing specific modules (e.g., login screen, AI matcher, impact tracker, etc.). I’ll also help you review Replit’s code or screens if you share them back.

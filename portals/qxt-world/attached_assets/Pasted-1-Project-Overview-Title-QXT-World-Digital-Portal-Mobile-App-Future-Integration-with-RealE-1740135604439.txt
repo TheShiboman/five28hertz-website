@@ -1,0 +1,88 @@
+1. Project Overview
+Title:
+🚀 QXT World Digital Portal & Mobile App (Future Integration with RealEyes AI)
+Objective:
+QXT World is a comprehensive digital ecosystem built to modernize cue sports through technology. This platform will provide:
+Tournament management & real-time scoring
+Player profile & ranking system
+AI-enhanced coaching & analytics
+eCommerce for cue sports equipment
+Community engagement & networking
+Future AI-powered integration with RealEyes for automated scoring & analytics
+
+2. Core Features & Requirements
+🌐 Web Portal Features
+✅ User Authentication & Profiles
+User registration & login (OAuth2, Google/Facebook sign-in)
+Role-based access (Players, Coaches, Referees, Admins)
+Player stats & performance tracking
+✅ Tournament Management System
+Create & manage cue sports tournaments
+Live brackets, match results, automated seeding
+Real-time scoring interface (manual for now, AI-powered later)
+✅ Live Scoring & Match Tracking
+Interface for referees to update scores in real-time
+Leaderboards & rankings
+WebSocket-powered real-time match updates
+✅ eCommerce Marketplace
+Buy/sell cue sports equipment, tables, accessories
+Payment gateway integration (Stripe, PayPal)
+✅ Community Features
+Forums, discussion boards
+Player challenges & event registrations
+Chat & messaging for players & teams
+✅ Analytics Dashboard
+Player statistics & match history
+Insights into tournament performance
+Future AI-powered coaching recommendations
+✅ Admin Panel
+User management (approve coaches, referees)
+Content moderation (blogs, forums)
+Revenue & transaction tracking for eCommerce
+
+3. Future Integration with RealEyes AI
+AI-Powered Features (Phase 2)
+✅ Automated Scoring System
+AI-powered real-time shot tracking & validation
+Integration with RealEyes AI model for snooker table recognition & rule enforcement
+✅ Augmented Reality Coaching
+AI-assisted shot visualization overlays
+Personalized training programs based on RealEyes analytics
+✅ Multiplayer & AI-Enhanced Gameplay
+AI-driven performance tracking during live matches
+Voice command & gesture-based training features
+🔹 API & Tech Stack Considerations for Future Integration
+Backend: Node.js (Express) / Python (FastAPI)
+Frontend: React.js / Next.js (for UI scalability)
+Database: Firebase Firestore / PostgreSQL
+Real-time updates: WebSockets / GraphQL Subscriptions
+Mobile App: Flutter (for iOS & Android compatibility)
+AI/ML Integration: TensorFlow Lite for on-device RealEyes AI model processing
+Cloud Storage: AWS S3 for match videos & RealEyes data sync
+
+4. AI Platform Development Instructions
+📌 How to Build This Using AI
+1️⃣ Define structured user roles (Players, Coaches, Referees, Admins).
+ 2️⃣ Create API-driven tournament & scoring system.
+ 3️⃣ Build scalable microservices to accommodate RealEyes AI later.
+ 4️⃣ Ensure WebSocket-based real-time updates for live scores.
+ 5️⃣ Use a modular design for easy AI enhancements in the future.
+ 6️⃣ Enable cloud storage compatibility (AWS S3) for match history.
+📌 Development Roadmap & Priorities
+Phase
+Task
+Dependencies
+Phase 1
+Build Tournament & Player Management System
+Independent
+Phase 2
+Implement Live Score Tracking UI
+Needs RealEyes API
+Phase 3
+Integrate AI-Powered Scoring & Training
+Dependent on AI Stability
+Phase 4
+Add Augmented Reality Coaching
+Requires Stable AI Models
+
+

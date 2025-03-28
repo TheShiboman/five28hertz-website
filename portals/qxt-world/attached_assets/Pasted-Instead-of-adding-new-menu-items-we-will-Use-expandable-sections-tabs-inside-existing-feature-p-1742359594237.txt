@@ -1,0 +1,97 @@
+Instead of adding new menu items, we will:
+
+Use expandable sections & tabs inside existing feature pages.
+Leverage contextual navigation, ensuring users access new features when they need them.
+Keep the discipline-based filtering consistent across all pages.
+🛠 Recommended Integration for Missing Sections
+Below is how each missing section can be incorporated without adding extra menu clutter:
+
+1️⃣ Match Page (Live & Past Matches) → Integrate into Tournaments
+🔹 Where to Add:
+
+Inside Tournaments Page, introduce a new "Live Matches" Tab.
+Inside each Tournament Details Page, add a "Match Analysis" sub-section.
+🔹 UX Improvement:
+✅ Users don’t need to go to a separate page to find live/past matches—just click on Tournaments > Live Matches.
+✅ AI-powered match tracking & analysis will be accessible within each ongoing/past tournament.
+
+🔹 Implementation Example:
+
+Tabs inside Tournaments:
+📅 Ongoing (Live Matches)
+🏆 Upcoming
+📜 Past Tournaments (Match History & Replays)
+📊 Match Analysis (AI Breakdown)
+2️⃣ Venues & Clubs Directory → Integrate into Community & Tournaments
+🔹 Where to Add:
+
+Under Community, add a "Clubs & Venues" Section.
+Inside Tournaments, allow tournament organizers to list their venue.
+🔹 UX Improvement:
+✅ Players can find clubs easily without a new menu item.
+✅ Tournaments can display their venue details for easy location access.
+
+🔹 Implementation Example:
+
+Inside Community:
+📍 Find a Club
+⭐ Club Ratings & Reviews
+🔄 Memberships & Benefits
+Inside Tournaments:
+📍 Tournament Venue (With Directions & Booking)
+3️⃣ Sponsorship & Monetization → Integrate into Leaderboards & Profile
+🔹 Where to Add:
+
+Under Leaderboards, add a "Sponsorships" tab.
+Under Profile Settings, add a section for "Apply for Sponsorship."
+Inside Community, add Crowdfunding & Player Support.
+🔹 UX Improvement:
+✅ Players can apply for sponsorship directly from their profile page.
+✅ Fans & brands can support players through the Community hub.
+
+🔹 Implementation Example:
+
+Inside Leaderboards:
+💰 Sponsored Players (List)
+📢 Available Sponsorships (For Players to Apply)
+Inside Profile:
+🎯 Apply for Sponsorship
+🏆 View Active Sponsorships
+Inside Community:
+🔹 Fan Donations & Crowdfunding for Upcoming Talents
+4️⃣ Support & Help Center → Integrate into Profile & Floating Button
+🔹 Where to Add:
+
+Add a floating "Help" button on all pages.
+Under Profile Settings, add a Support Center Tab.
+🔹 UX Improvement:
+✅ Users don’t need to search for help; the floating button makes it always accessible.
+✅ The Profile Settings area keeps support requests organized.
+
+🔹 Implementation Example:
+
+🆘 Floating Button on All Pages:
+💬 Live Chat
+📜 FAQs & Knowledge Base
+📩 Submit a Ticket
+Inside Profile Settings:
+🎯 Help Center
+🆘 Contact Support
+📑 FAQ Documentation
+5️⃣ Multi-Discipline Expansion → Ensure Cross-Page Filtering
+🔹 Where to Improve:
+
+The Discipline Selector should filter tournaments, leaderboards, and training pages dynamically.
+Users should not need to reselect their discipline every time they navigate.
+🔹 UX Improvement:
+✅ If a player chooses "American Pool," all pages automatically show only American Pool content.
+✅ Their selection is remembered, avoiding unnecessary re-selections.
+
+🔹 Implementation Example:
+
+Make Discipline Selector Sticky Across Pages
+Auto-Filter Content Based on Selection
+Tournaments: Only shows discipline-specific tournaments.
+Training: Personalized training for the selected discipline.
+Leaderboards: Only shows relevant players.
+Store: Equipment tailored to the selected discipline

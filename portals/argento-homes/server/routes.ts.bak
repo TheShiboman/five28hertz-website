@@ -1,0 +1,928 @@
+import type { Express } from "express";
+import { createServer, type Server } from "http";
+import { storage } from "./storage";
+import { setupAuth } from "./auth";
+import { 
+  insertPropertySchema, 
+  insertTaskSchema, 
+  insertVendorSchema, 
+  insertMessageSchema, 
+  insertSustainabilityMetricSchema,
+  insertBookingSchema,
+  UserRole,
+  ApprovalStatus
+} from "@shared/schema";
+import { z } from "zod";
+
+export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup authentication routes
+  setupAuth(app);
+
+  // Middleware to check if user is authenticated
+  const isAuthenticated = (req: any, res: any, next: any) => {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.status(401).json({ message: "Not authenticated" });
+  };
+
+  // Property routes
+  app.get("/api/properties", isAuthenticated, async (req, res, next) => {
+    try {
+      const userId = req.user?.id;
+      if (!userId) {
+        return res.status(400).json({ message: "User ID is required" });
+      }
+      const properties = await storage.getPropertiesByUser(userId);
+      res.json(properties);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/api/properties/:id", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.id);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      res.json(property);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.post("/api/properties", isAuthenticated, async (req, res, next) => {
+    try {
+      const validation = insertPropertySchema.safeParse(req.body);
+      if (!validation.success) {
+        return res.status(400).json({ message: "Invalid property data", errors: validation.error.errors });
+      }
+      
+      // Make sure userId is provided and is a number
+      if (!req.user?.id) {
+        return res.status(400).json({ message: "User ID is required" });
+      }
+      
+      const property = await storage.createProperty({
+        ...validation.data,
+        userId: req.user.id,
+        // Ensure these fields are properly typed
+        features: validation.data.features || [],
+        propertyType: validation.data.propertyType || 'apartment'
+      });
+      
+      res.status(201).json(property);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.put("/api/properties/:id", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.id);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const updatedProperty = await storage.updateProperty(propertyId, req.body);
+      res.json(updatedProperty);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.delete("/api/properties/:id", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.id);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      await storage.deleteProperty(propertyId);
+      res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Admin routes for property approval
+  app.get("/api/admin/properties/pending", isAuthenticated, async (req, res, next) => {
+    try {
+      // Check if user is admin
+      if (req.user?.role !== 'DEVELOPER') {
+        return res.status(403).json({ message: "Access denied. Admin role required." });
+      }
+      
+      // Get all properties from all users
+      const users = await storage.getAllUsers();
+      let allProperties = [];
+      
+      for (const user of users) {
+        const userProperties = await storage.getPropertiesByUser(user.id);
+        allProperties = [...allProperties, ...userProperties];
+      }
+      
+      const pendingProperties = allProperties.filter(property => property.approvalStatus === 'PENDING');
+      
+      res.json(pendingProperties);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to approve a property
+  app.put("/api/admin/properties/:id/approve", isAuthenticated, async (req, res, next) => {
+    try {
+      // Check if user is admin
+      if (req.user?.role !== 'DEVELOPER') {
+        return res.status(403).json({ message: "Access denied. Admin role required." });
+      }
+      
+      const propertyId = parseInt(req.params.id);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      const updatedProperty = await storage.updateProperty(propertyId, { 
+        approvalStatus: 'APPROVED',
+        adminNotes: req.body.adminNotes
+      });
+      
+      res.json(updatedProperty);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to reject a property
+  app.put("/api/admin/properties/:id/reject", isAuthenticated, async (req, res, next) => {
+    try {
+      // Check if user is admin
+      if (req.user?.role !== 'DEVELOPER') {
+        return res.status(403).json({ message: "Access denied. Admin role required." });
+      }
+      
+      const propertyId = parseInt(req.params.id);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      const updatedProperty = await storage.updateProperty(propertyId, { 
+        approvalStatus: 'REJECTED',
+        adminNotes: req.body.adminNotes
+      });
+      
+      res.json(updatedProperty);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  // Task routes
+  app.get("/api/properties/:propertyId/tasks", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.propertyId);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const tasks = await storage.getTasksByProperty(propertyId);
+      res.json(tasks);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.post("/api/properties/:propertyId/tasks", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.propertyId);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const validation = insertTaskSchema.safeParse({
+        ...req.body,
+        propertyId
+      });
+      
+      if (!validation.success) {
+        return res.status(400).json({ message: "Invalid task data", errors: validation.error.errors });
+      }
+      
+      const task = await storage.createTask(validation.data);
+      res.status(201).json(task);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  // Vendor routes
+  app.get("/api/vendors", async (req, res, next) => {
+    try {
+      const vendors = await storage.getAllVendors();
+      
+      // Join with user data to get vendor details
+      const vendorsWithDetails = await Promise.all(
+        vendors.map(async (vendor) => {
+          const user = await storage.getUser(vendor.userId);
+          return {
+            ...vendor,
+            fullName: user?.fullName,
+            email: user?.email,
+          };
+        })
+      );
+      
+      res.json(vendorsWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to get the current user's vendor profile (if they are a vendor)
+  app.get("/api/vendors/my-profile", isAuthenticated, async (req, res, next) => {
+    try {
+      if (req.user?.role !== UserRole.VENDOR) {
+        return res.status(403).json({ message: "Access denied. Vendor role required." });
+      }
+      
+      const vendor = await storage.getVendorByUserId(req.user.id);
+      
+      if (!vendor) {
+        return res.status(404).json({ message: "Vendor profile not found" });
+      }
+      
+      // Add user details to the vendor profile
+      const vendorWithDetails = {
+        ...vendor,
+        fullName: req.user.fullName,
+        email: req.user.email,
+      };
+      
+      res.json(vendorWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to update the current user's vendor profile
+  app.put("/api/vendors/my-profile", isAuthenticated, async (req, res, next) => {
+    try {
+      if (req.user?.role !== UserRole.VENDOR) {
+        return res.status(403).json({ message: "Access denied. Vendor role required." });
+      }
+      
+      const vendor = await storage.getVendorByUserId(req.user.id);
+      
+      if (!vendor) {
+        return res.status(404).json({ message: "Vendor profile not found" });
+      }
+      
+      // If vendor is trying to update approval status, prevent it
+      if (req.body.approvalStatus && req.body.approvalStatus !== vendor.approvalStatus) {
+        return res.status(403).json({ 
+          message: "You cannot change the approval status. It can only be changed by an admin." 
+        });
+      }
+      
+      // Update the vendor profile
+      const updatedVendor = await storage.updateVendor(vendor.id, req.body);
+      
+      // Add user details to the response
+      const updatedVendorWithDetails = {
+        ...updatedVendor,
+        fullName: req.user.fullName,
+        email: req.user.email,
+      };
+      
+      res.json(updatedVendorWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to get pending vendors for approval
+  app.get("/api/admin/vendors/pending", isAuthenticated, async (req, res, next) => {
+    try {
+      // Check if user is admin
+      if (req.user?.role !== 'DEVELOPER') {
+        return res.status(403).json({ message: "Access denied. Admin role required." });
+      }
+      
+      const vendors = await storage.getAllVendors();
+      const pendingVendors = vendors.filter(vendor => vendor.approvalStatus === 'PENDING');
+      
+      // Join with user data to get vendor details
+      const vendorsWithDetails = await Promise.all(
+        pendingVendors.map(async (vendor) => {
+          const user = await storage.getUser(vendor.userId);
+          return {
+            ...vendor,
+            fullName: user?.fullName,
+            email: user?.email,
+          };
+        })
+      );
+      
+      res.json(vendorsWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to approve a vendor
+  app.put("/api/admin/vendors/:id/approve", isAuthenticated, async (req, res, next) => {
+    try {
+      // Check if user is admin
+      if (req.user?.role !== 'DEVELOPER') {
+        return res.status(403).json({ message: "Access denied. Admin role required." });
+      }
+      
+      const vendorId = parseInt(req.params.id);
+      const vendor = await storage.getVendor(vendorId);
+      
+      if (!vendor) {
+        return res.status(404).json({ message: "Vendor not found" });
+      }
+      
+      const updatedVendor = await storage.updateVendor(vendorId, { 
+        approvalStatus: 'APPROVED',
+        adminNotes: req.body.adminNotes
+      });
+      
+      res.json(updatedVendor);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Route to reject a vendor
+  app.put("/api/admin/vendors/:id/reject", isAuthenticated, async (req, res, next) => {
+    try {
+      // Check if user is admin
+      if (req.user?.role !== 'DEVELOPER') {
+        return res.status(403).json({ message: "Access denied. Admin role required." });
+      }
+      
+      const vendorId = parseInt(req.params.id);
+      const vendor = await storage.getVendor(vendorId);
+      
+      if (!vendor) {
+        return res.status(404).json({ message: "Vendor not found" });
+      }
+      
+      const updatedVendor = await storage.updateVendor(vendorId, { 
+        approvalStatus: 'REJECTED',
+        adminNotes: req.body.adminNotes
+      });
+      
+      res.json(updatedVendor);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.get("/api/vendors/category/:category", async (req, res, next) => {
+    try {
+      const category = req.params.category;
+      const vendors = await storage.getVendorsByCategory(category);
+      
+      // Join with user data to get vendor details
+      const vendorsWithDetails = await Promise.all(
+        vendors.map(async (vendor) => {
+          const user = await storage.getUser(vendor.userId);
+          return {
+            ...vendor,
+            fullName: user?.fullName,
+            email: user?.email,
+          };
+        })
+      );
+      
+      res.json(vendorsWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  app.get("/api/vendors/:id", async (req, res, next) => {
+    try {
+      const vendorId = parseInt(req.params.id);
+      
+      if (isNaN(vendorId)) {
+        return res.status(400).json({ message: "Invalid vendor ID" });
+      }
+      
+      const vendor = await storage.getVendor(vendorId);
+      
+      if (!vendor) {
+        return res.status(404).json({ message: "Vendor not found" });
+      }
+      
+      // Get user details for the vendor
+      const user = await storage.getUser(vendor.userId);
+      
+      // Combine vendor and user data
+      const vendorWithDetails = {
+        ...vendor,
+        fullName: user?.fullName,
+        email: user?.email,
+      };
+      
+      res.json(vendorWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  // Messages routes
+  app.get("/api/messages", isAuthenticated, async (req, res, next) => {
+    try {
+      const userId = req.user?.id;
+      if (!userId) {
+        return res.status(400).json({ message: "User ID is required" });
+      }
+      
+      const messages = await storage.getMessagesByUser(userId);
+      
+      // Add sender and receiver details to messages
+      const messagesWithDetails = await Promise.all(
+        messages.map(async (message) => {
+          const sender = await storage.getUser(message.senderId);
+          const receiver = await storage.getUser(message.receiverId);
+          return {
+            ...message,
+            sender: {
+              id: sender?.id,
+              fullName: sender?.fullName,
+              username: sender?.username,
+            },
+            receiver: {
+              id: receiver?.id,
+              fullName: receiver?.fullName,
+              username: receiver?.username,
+            },
+          };
+        })
+      );
+      
+      res.json(messagesWithDetails);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.post("/api/messages", isAuthenticated, async (req, res, next) => {
+    try {
+      const validation = insertMessageSchema.safeParse({
+        ...req.body,
+        senderId: req.user?.id,
+      });
+      
+      if (!validation.success) {
+        return res.status(400).json({ message: "Invalid message data", errors: validation.error.errors });
+      }
+      
+      const message = await storage.createMessage(validation.data);
+      res.status(201).json(message);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.put("/api/messages/:id/read", isAuthenticated, async (req, res, next) => {
+    try {
+      const messageId = parseInt(req.params.id);
+      const message = await storage.getMessage(messageId);
+      
+      if (!message) {
+        return res.status(404).json({ message: "Message not found" });
+      }
+      
+      if (message.receiverId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      await storage.markMessageAsRead(messageId);
+      res.status(200).json({ success: true });
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  // Sustainability metrics routes
+  app.get("/api/properties/:propertyId/sustainability", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.propertyId);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const metrics = await storage.getSustainabilityMetric(propertyId);
+      
+      if (!metrics) {
+        // Initialize with default values if not found
+        const defaultMetrics = await storage.createSustainabilityMetric({
+          propertyId,
+          energyEfficiency: 50,
+          waterConservation: 50,
+          wasteReduction: 50,
+        });
+        return res.json(defaultMetrics);
+      }
+      
+      res.json(metrics);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.put("/api/properties/:propertyId/sustainability", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.propertyId);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const existingMetrics = await storage.getSustainabilityMetric(propertyId);
+      
+      if (!existingMetrics) {
+        // Create new metrics if they don't exist
+        const validation = insertSustainabilityMetricSchema.safeParse({
+          ...req.body,
+          propertyId,
+        });
+        
+        if (!validation.success) {
+          return res.status(400).json({ message: "Invalid metrics data", errors: validation.error.errors });
+        }
+        
+        const metrics = await storage.createSustainabilityMetric(validation.data);
+        return res.status(201).json(metrics);
+      }
+      
+      // Update existing metrics
+      const updatedMetrics = await storage.updateSustainabilityMetric(existingMetrics.id, req.body);
+      res.json(updatedMetrics);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  // Routes for tasks
+  app.get("/api/tasks", isAuthenticated, async (req, res, next) => {
+    try {
+      const userId = req.user?.id;
+      if (!userId) {
+        return res.status(400).json({ message: "User ID is required" });
+      }
+      
+      // Get all properties for this user
+      const properties = await storage.getPropertiesByUser(userId);
+      
+      // Get tasks for all properties
+      const allTasks = [];
+      for (const property of properties) {
+        const tasks = await storage.getTasksByProperty(property.id);
+        allTasks.push(...tasks);
+      }
+      
+      res.json(allTasks);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.post("/api/tasks", isAuthenticated, async (req, res, next) => {
+    try {
+      const validation = insertTaskSchema.safeParse(req.body);
+      
+      if (!validation.success) {
+        return res.status(400).json({ message: "Invalid task data", errors: validation.error.errors });
+      }
+      
+      // Check if the property belongs to the user
+      const property = await storage.getProperty(validation.data.propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const task = await storage.createTask(validation.data);
+      res.status(201).json(task);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  app.delete("/api/tasks/:id", isAuthenticated, async (req, res, next) => {
+    try {
+      const taskId = parseInt(req.params.id);
+      const task = await storage.getTask(taskId);
+      
+      if (!task) {
+        return res.status(404).json({ message: "Task not found" });
+      }
+      
+      // Check if the property belongs to the user
+      const property = await storage.getProperty(task.propertyId);
+      
+      if (!property || property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      await storage.deleteTask(taskId);
+      res.status(204).send();
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  // Routes for sustainability metrics
+  app.get("/api/sustainability", isAuthenticated, async (req, res, next) => {
+    try {
+      const userId = req.user?.id;
+      if (!userId) {
+        return res.status(400).json({ message: "User ID is required" });
+      }
+      
+      // Get all properties for this user
+      const properties = await storage.getPropertiesByUser(userId);
+      
+      // Get sustainability metrics for all properties
+      const allMetrics = [];
+      for (const property of properties) {
+        const metrics = await storage.getSustainabilityMetric(property.id);
+        if (metrics) {
+          allMetrics.push(metrics);
+        }
+      }
+      
+      res.json(allMetrics);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Routes for bookings
+  app.get("/api/bookings", isAuthenticated, async (req, res, next) => {
+    try {
+      const userId = req.user?.id;
+      if (!userId) {
+        return res.status(400).json({ message: "User ID is required" });
+      }
+      
+      // Get all properties for this user
+      const properties = await storage.getPropertiesByUser(userId);
+      
+      // Get bookings for all properties
+      const allBookings = [];
+      for (const property of properties) {
+        const bookings = await storage.getBookingsByProperty(property.id);
+        allBookings.push(...bookings);
+      }
+      
+      res.json(allBookings);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  app.get("/api/properties/:propertyId/bookings", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.propertyId);
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const bookings = await storage.getBookingsByProperty(propertyId);
+      res.json(bookings);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  app.get("/api/bookings/:id", isAuthenticated, async (req, res, next) => {
+    try {
+      const bookingId = parseInt(req.params.id);
+      const booking = await storage.getBooking(bookingId);
+      
+      if (!booking) {
+        return res.status(404).json({ message: "Booking not found" });
+      }
+      
+      res.json(booking);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+  // Create a new booking
+  app.post("/api/bookings", isAuthenticated, async (req, res, next) => {
+    try {
+      console.log("[Bookings] Creating new booking:", req.body);
+      
+      const userId = req.user?.id;
+      if (!userId) {
+        return res.status(401).json({ message: "User ID not found in session" });
+      }
+      
+      const validation = insertBookingSchema.safeParse({
+        ...req.body,
+        userId: req.body.userId || userId,
+      });
+      
+      if (!validation.success) {
+        return res.status(400).json({ 
+          message: "Invalid booking data", 
+          errors: validation.error.errors 
+        });
+      }
+      
+      const newBooking = await storage.createBooking(validation.data);
+      console.log("[Bookings] Booking created successfully:", newBooking);
+      res.status(201).json(newBooking);
+    } catch (error) {
+      console.error("[Bookings] Error creating booking:", error);
+      next(error);
+    }
+  });
+  
+  // Create a booking for a specific property (alternate endpoint)
+  app.post("/api/properties/:propertyId/bookings", isAuthenticated, async (req, res, next) => {
+    try {
+      const propertyId = parseInt(req.params.propertyId);
+      console.log(`[Bookings] Creating new booking for property #${propertyId}:`, req.body);
+      
+      const property = await storage.getProperty(propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      const validation = insertBookingSchema.safeParse({
+        ...req.body,
+        propertyId,
+        userId: req.user.id,
+      });
+      
+      if (!validation.success) {
+        return res.status(400).json({ 
+          message: "Invalid booking data", 
+          errors: validation.error.errors 
+        });
+      }
+      
+      const newBooking = await storage.createBooking(validation.data);
+      console.log("[Bookings] Booking created successfully:", newBooking);
+      res.status(201).json(newBooking);
+    } catch (error) {
+      console.error(`[Bookings] Error creating booking for property #${req.params.propertyId}:`, error);
+      next(error);
+    }
+  });
+  
+  // Update a booking
+  app.patch("/api/bookings/:id", isAuthenticated, async (req, res, next) => {
+    try {
+      const bookingId = parseInt(req.params.id);
+      console.log(`[Bookings] Updating booking #${bookingId}:`, req.body);
+      
+      const updatedBooking = await storage.updateBooking(bookingId, req.body);
+      
+      if (!updatedBooking) {
+        return res.status(404).json({ message: "Booking not found" });
+      }
+      
+      console.log("[Bookings] Booking updated successfully:", updatedBooking);
+      res.json(updatedBooking);
+    } catch (error) {
+      console.error(`[Bookings] Error updating booking #${req.params.id}:`, error);
+      next(error);
+    }
+  });
+  
+  // Cancel a booking
+  app.post("/api/bookings/:id/cancel", isAuthenticated, async (req, res, next) => {
+    try {
+      const bookingId = parseInt(req.params.id);
+      console.log(`[Bookings] Cancelling booking #${bookingId}`);
+      
+      const cancelled = await storage.cancelBooking(bookingId);
+      
+      if (!cancelled) {
+        return res.status(404).json({ message: "Booking not found or couldn't be cancelled" });
+      }
+      
+      console.log(`[Bookings] Booking #${bookingId} cancelled successfully`);
+      res.status(200).json({ success: true });
+    } catch (error) {
+      console.error(`[Bookings] Error cancelling booking #${req.params.id}:`, error);
+      next(error);
+    }
+  });
+
+  app.post("/api/sustainability", isAuthenticated, async (req, res, next) => {
+    try {
+      const validation = insertSustainabilityMetricSchema.safeParse(req.body);
+      
+      if (!validation.success) {
+        return res.status(400).json({ message: "Invalid sustainability metrics data", errors: validation.error.errors });
+      }
+      
+      // Check if the property belongs to the user
+      const property = await storage.getProperty(validation.data.propertyId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      if (property.userId !== req.user?.id) {
+        return res.status(403).json({ message: "Access denied" });
+      }
+      
+      // Check if metrics already exist for this property
+      const existingMetrics = await storage.getSustainabilityMetric(validation.data.propertyId);
+      
+      if (existingMetrics) {
+        // Update existing metrics
+        const updatedMetrics = await storage.updateSustainabilityMetric(existingMetrics.id, validation.data);
+        return res.json(updatedMetrics);
+      }
+      
+      // Create new metrics
+      const metrics = await storage.createSustainabilityMetric(validation.data);
+      res.status(201).json(metrics);
+    } catch (error) {
+      next(error);
+    }
+  });
+  
+
+
+  const httpServer = createServer(app);
+
+  return httpServer;
+}
