@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Home",
+    "vision": "Vision & Purpose",
+    "projects": "Our Brands & Projects",
+    "legacy": "Legacy",
+    "blog": "528Hz Blog & Podcast",
+    "getInvolved": "Get Involved",
+    "getStarted": "Get Started",
+    "language": "Language"
+  },
+  "home": {
+    "hero": {
+      "title": "Elevating Human Consciousness",
+      "subtitle": "Pioneering Purpose-Driven Platforms & Businesses"
+    }
+  },
+  "footer": {
+    "exploreLabel": "Explore",
+    "resourcesLabel": "Resources",
+    "connectLabel": "Connect",
+    "copyrightText": "All rights reserved."
+  }
+}

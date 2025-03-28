@@ -1,0 +1,115 @@
+/* 528Hz Blog & Podcast Portal Styles */
+
+/* Audio wave animation */
+@keyframes soundwave {
+  0% { height: 10%; }
+  100% { height: 90%; }
+}
+
+/* Pulse animation for the play button and audio indicators */
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Special styles for the 528Hz frequency branding */
+.frequency-badge {
+  background: linear-gradient(to right, #6A50A7, #8B6AAD);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.frequency-badge::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 9999px;
+  animation: pulse 2s infinite;
+}
+
+/* Card hover effects */
+.episode-card {
+  transition: all 0.3s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(106, 80, 167, 0.1);
+}
+
+/* Gradient text for headings */
+.gradient-text {
+  background: linear-gradient(to right, #6A50A7, #8B6AAD);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Audio player controls */
+.audio-control {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(106, 80, 167, 0.1);
+  color: #6A50A7;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.audio-control:hover {
+  background-color: rgba(106, 80, 167, 0.2);
+  transform: scale(1.05);
+}
+
+.audio-control.playing {
+  background-color: #6A50A7;
+  color: white;
+}
+
+/* Progress bar for audio playback */
+.audio-progress {
+  height: 4px;
+  background-color: rgba(106, 80, 167, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.audio-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #6A50A7, #8B6AAD);
+  transition: width 0.1s linear;
+}
+
+/* Article card with purple accent */
+.article-card {
+  border-left: 4px solid #6A50A7;
+}
+
+/* Custom scrollbar for the podcast list */
+.podcast-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.podcast-list::-webkit-scrollbar-track {
+  background: rgba(106, 80, 167, 0.1);
+  border-radius: 4px;
+}
+
+.podcast-list::-webkit-scrollbar-thumb {
+  background: rgba(106, 80, 167, 0.3);
+  border-radius: 4px;
+}
+
+.podcast-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(106, 80, 167, 0.5);
+}

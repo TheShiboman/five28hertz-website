@@ -1,0 +1,335 @@
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/open-sans/400.css";
+@import "@fontsource/open-sans/500.css";
+@import "@fontsource/open-sans/600.css";
+@import "@fontsource/open-sans/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 25% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 20%;
+    --primary: 25 75% 51%;  /* #E25822 - Golden Orange */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 170 88% 19%; /* #06554E - Teal Green */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 305 59% 55%; /* #BB3DB0 - Purple */
+    --accent-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 25 75% 51%;
+    --radius: 0.5rem;
+    --brand-primary: #34A399;
+    --brand-secondary: #2A8A8F;
+    --brand-tertiary: #1E6A7A;
+    --golden-orange: #F8A227;
+    --deep-teal: #06554E;
+    --ocean-blue: #1E6A7A;
+    --deep-indigo: #3730A3;
+    --deep-violet: #BB3DB0;
+    --deep-red: #E25822; /* Updated to match the logo's deep red-orange swirl */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  p {
+    @apply leading-relaxed text-base md:text-lg;
+  }
+
+  /* Smooth scrolling and transitions */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  /* Brand gradients and backgrounds */
+  .brand-gradient {
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary;
+  }
+
+  .brand-gradient-soft {
+    @apply bg-gradient-to-r from-brand-primary/10 via-brand-secondary/10 to-brand-tertiary/10;
+  }
+
+  .brand-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary;
+  }
+
+  /* Section backgrounds */
+  .section-light {
+    @apply bg-background/95 backdrop-blur-sm;
+  }
+
+  .section-dark {
+    @apply bg-foreground text-background;
+  }
+
+  .section-brand {
+    @apply bg-brand-primary/5 backdrop-blur-sm;
+  }
+
+  .section-gradient {
+    @apply bg-gradient-to-br from-brand-primary/5 via-brand-secondary/5 to-brand-tertiary/5;
+  }
+  
+  .section-ocean {
+    @apply bg-gradient-to-br from-[#1E6A7A] via-[#1A5F70] to-[#155465] text-white;
+  }
+
+  /* Interactive elements */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-brand-primary/20;
+  }
+
+  /* Card styles */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-brand-primary/10 hover:-translate-y-1;
+  }
+
+  /* Dividers */
+  .divider-brand {
+    @apply h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent;
+  }
+}
+
+/* Button styles and hover effects */
+.btn, button {
+  @apply transform transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+}
+
+/* Hero section backgrounds */
+.hero-bg {
+  @apply relative bg-gradient-to-br from-primary/95 via-primary/90 to-primary/85 text-white;
+}
+
+.hero-bg::before {
+  @apply absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent)];
+  content: "";
+}
+
+/* Footer styling */
+.footer-bg {
+  @apply bg-gradient-to-b from-foreground to-foreground/95 text-background;
+}
+
+/* Interactive elements */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply bg-[#E25822] text-white hover:bg-[#E25822]/90 hover:shadow-lg hover:shadow-[#E25822]/20 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply bg-[#06554E] text-white hover:bg-[#06554E]/90 hover:shadow-lg hover:shadow-[#06554E]/20 transition-all duration-300;
+}
+
+.btn-outline {
+  @apply border-2 border-[#BB3DB0] text-[#BB3DB0] bg-transparent hover:bg-transparent hover:text-[#BB3DB0]/80 hover:border-[#BB3DB0]/80 hover:shadow-md hover:shadow-[#BB3DB0]/10 transition-all duration-300;
+}
+
+.btn-golden {
+  @apply bg-[#F8A227] text-white hover:bg-[#E39020] hover:shadow-lg hover:shadow-[#F8A227]/20 transition-all duration-300;
+}
+
+.btn-teal {
+  @apply bg-[#06554E] text-white hover:bg-[#044640] hover:shadow-lg hover:shadow-[#06554E]/20 transition-all duration-300;
+}
+
+.btn-ocean {
+  @apply bg-[#1E6A7A] text-white hover:bg-[#195A68] hover:shadow-lg hover:shadow-[#1E6A7A]/20 transition-all duration-300;
+}
+
+.btn-violet {
+  @apply bg-[#BB3DB0] text-white hover:bg-[#A934A0] hover:shadow-lg hover:shadow-[#BB3DB0]/20 transition-all duration-300;
+}
+
+/* Link styling */
+.link-brand {
+  @apply text-primary hover:text-primary/80 underline-offset-4 hover:underline;
+}
+
+/* Card styles */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1;
+}
+
+/* Highlight cards */
+.highlight-card {
+  @apply bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer h-full flex flex-col justify-between hover:translate-y-[-5px] border-b-4;
+}
+
+.highlight-card-ocean {
+  @apply border-[#1E6A7A] hover:shadow-[0_0_15px_rgba(30,106,122,0.4)];
+}
+
+.highlight-card-golden {
+  @apply border-[#F8A227] hover:shadow-[0_0_15px_rgba(248,162,39,0.4)];
+}
+
+.highlight-card-red {
+  @apply border-[#E25822] hover:shadow-[0_0_20px_rgba(226,88,34,0.6)];
+}
+
+.highlight-card-teal {
+  @apply border-[#06554E] hover:shadow-[0_0_15px_rgba(6,85,78,0.4)];
+}
+
+.highlight-card-violet {
+  @apply border-[#BB3DB0] hover:shadow-[0_0_15px_rgba(187,61,176,0.4)];
+}
+
+/* Journey tiles */
+.journey-tile {
+  @apply relative rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+}
+
+.journey-tile-teal {
+  @apply hover:shadow-[0_0_20px_rgba(6,85,78,0.3)] border border-transparent hover:border-[#06554E]/20;
+}
+
+.journey-tile-ocean {
+  @apply hover:shadow-[0_0_20px_rgba(30,106,122,0.3)] border border-transparent hover:border-[#1E6A7A]/20;
+}
+
+.journey-tile-indigo {
+  @apply hover:shadow-[0_0_20px_rgba(55,48,163,0.3)] border border-transparent hover:border-[#3730A3]/20;
+}
+
+.journey-tile-violet {
+  @apply hover:shadow-[0_0_20px_rgba(187,61,176,0.4)] border border-transparent hover:border-[#BB3DB0]/30;
+}
+
+.journey-tile-red {
+  @apply hover:shadow-[0_0_25px_rgba(226,88,34,0.6)] border border-transparent hover:border-[#E25822]/40;
+}
+
+.journey-tile-golden {
+  @apply hover:shadow-[0_0_20px_rgba(248,162,39,0.3)] border border-transparent hover:border-[#F8A227]/20;
+}
+
+/* Dividers */
+.divider-brand {
+  @apply h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent;
+}
+
+/* Animation utilities */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.5s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* AI Assistant and Presentation specific styles */
+.presentation-container {
+  @apply rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800;
+}
+
+.presentation-header {
+  @apply p-3 bg-gray-100 dark:bg-gray-800 flex items-center justify-between;
+}
+
+.assistant-container {
+  @apply rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-800;
+}
+
+/* Assistant color themes */
+.assistant-teal {
+  @apply bg-[#06554E]/5 border-[#06554E]/30;
+}
+  
+.assistant-ocean {
+  @apply bg-[#1E6A7A]/5 border-[#1E6A7A]/30;
+}
+
+.assistant-violet {
+  @apply bg-[#BB3DB0]/5 border-[#BB3DB0]/30;
+}
+
+.assistant-red {
+  @apply bg-[#E25822]/5 border-[#E25822]/30;
+}
+
+.assistant-golden {
+  @apply bg-[#F8A227]/5 border-[#F8A227]/30;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

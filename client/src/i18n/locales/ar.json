@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "vision": "الرؤية والهدف",
+    "projects": "علاماتنا التجارية ومشاريعنا",
+    "legacy": "الإرث",
+    "blog": "مدونة و بودكاست 528 هرتز",
+    "getInvolved": "شارك معنا",
+    "getStarted": "ابدأ",
+    "language": "اللغة"
+  },
+  "home": {
+    "hero": {
+      "title": "رفع الوعي البشري",
+      "subtitle": "منصات وأعمال رائدة مدفوعة بالهدف"
+    }
+  },
+  "footer": {
+    "exploreLabel": "استكشاف",
+    "resourcesLabel": "الموارد",
+    "connectLabel": "تواصل",
+    "copyrightText": "جميع الحقوق محفوظة."
+  }
+}

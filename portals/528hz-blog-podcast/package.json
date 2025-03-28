@@ -1,0 +1,20 @@
+{
+  "name": "528hz-blog-podcast",
+  "version": "1.0.0",
+  "description": "The 528Hz Blog & Podcast platform for five28hertz",
+  "main": "index.tsx",
+  "scripts": {
+    "build": "vite build",
+    "start": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^10.16.4",
+    "wouter": "^2.11.0",
+    "@radix-ui/react-avatar": "^1.0.3",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-scroll-area": "^1.0.4"
+  }
+}
