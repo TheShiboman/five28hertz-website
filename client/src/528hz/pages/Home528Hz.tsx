@@ -1,0 +1,3 @@
+export default function Home528Hz() {
+  return <section className="mx-auto max-w-4xl px-6 pb-28 pt-24 md:px-10 md:pt-36"><p className="mb-8 text-xs uppercase tracking-[0.28em] text-[#7faaa2]">Listening Room</p><h1 className="max-w-3xl font-serif text-5xl leading-tight md:text-7xl">Some things are not meant to be consumed.</h1><p className="mt-10 max-w-2xl text-lg leading-8 text-[#aeb8b2]">528Hz is a place for ideas to arrive without urgency — a voice station within five28hertz.</p><div className="mt-14"><a className="text-sm tracking-[0.16em] text-[#7faaa2]" href="/field">Enter the field →</a></div></section>;
+}
