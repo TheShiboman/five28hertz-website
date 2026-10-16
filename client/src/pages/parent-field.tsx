@@ -157,7 +157,7 @@ const ParentField = () => {
           <p className="max-w-xl font-playfair text-3xl leading-tight md:text-5xl">When something here resonates, the address is enough.</p>
           <div className="text-right">
             <p className="text-xs uppercase tracking-[0.28em] text-[#414943]">Quiet contact</p>
-            <a className="mt-4 inline-block text-2xl tracking-tight underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 md:text-3xl" href="mailto:shehab@five28hertz.com">shehab@five28hertz.com</a>
+            <a className="mt-4 inline-block text-2xl tracking-tight underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 md:text-3xl" href="mailto:field@five28hertz.com">field@five28hertz.com</a>
           </div>
         </motion.div>
       </section>
