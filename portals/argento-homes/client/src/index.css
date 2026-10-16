@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-brand-background text-brand-text;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Brand text colors */
+  .text-charcoal {
+    @apply text-brand-text dark:text-gray-100;
+  }
+  
+  /* Brand button variants */
+  .btn-brand {
+    @apply bg-brand text-white hover:bg-brand-hover px-4 py-2 rounded-xl shadow-md transition-all duration-200;
+  }
+  
+  .btn-brand-secondary {
+    @apply bg-brand-secondary text-white hover:bg-brand-secondary/90 px-4 py-2 rounded-xl shadow-md transition-all duration-200;
+  }
+  
+  .btn-brand-outline {
+    @apply border-2 border-brand bg-transparent text-brand hover:bg-brand/5 px-4 py-2 rounded-xl shadow-sm transition-all duration-200;
+  }
+  
+  .btn-brand-success {
+    @apply bg-brand-success text-white hover:bg-brand-success/90 px-4 py-2 rounded-xl shadow-md transition-all duration-200;
+  }
+  
+  .btn-brand-warning {
+    @apply bg-brand-warning text-brand-text hover:bg-brand-warning/90 px-4 py-2 rounded-xl shadow-md transition-all duration-200;
+  }
+  
+  .btn-brand-danger {
+    @apply bg-brand-danger text-white hover:bg-brand-danger/90 px-4 py-2 rounded-xl shadow-md transition-all duration-200;
+  }
+  
+  /* Approval status badges */
+  .badge-approved {
+    @apply bg-brand-success/20 text-brand-success px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-pending {
+    @apply bg-brand-warning/20 text-brand-warning px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-rejected {
+    @apply bg-brand-danger/20 text-brand-danger px-2 py-1 rounded-full text-xs font-medium;
+  }
+  
+  /* Brand Card styles */
+  .card-brand {
+    @apply bg-brand-background border border-brand-border/40 shadow-sm hover:shadow-md hover:border-brand-border/60 transition-all duration-200;
+  }
+  
+  .card-brand-success {
+    @apply bg-brand-background border border-brand-success/20 shadow-sm hover:shadow-md hover:border-brand-success/40 transition-all duration-200;
+  }
+  
+  .card-brand-warning {
+    @apply bg-brand-background border border-brand-warning/20 shadow-sm hover:shadow-md hover:border-brand-warning/40 transition-all duration-200;
+  }
+  
+  .card-brand-danger {
+    @apply bg-brand-background border border-brand-danger/20 shadow-sm hover:shadow-md hover:border-brand-danger/40 transition-all duration-200;
+  }
+  
+  /* Input styles with brand focus */
+  .input-brand {
+    @apply bg-white border-brand-border/50 focus:border-brand focus:ring-brand focus:ring-opacity-20 rounded-lg shadow-sm;
+  }
+  
+  /* Background colors with opacity variants */
+  .bg-brand-surface {
+    @apply bg-brand-background dark:bg-gray-900;
+  }
+  
+  .bg-brand-card {
+    @apply bg-brand-card;
+  }
+  
+  .bg-brand-highlight {
+    @apply bg-brand/5;
+  }
+  
+  /* Navigation related */
+  .nav-brand {
+    @apply bg-brand-text text-white;
+  }
+  
+  .nav-item-brand {
+    @apply hover:bg-brand/10 transition-colors duration-200;
+  }
+  
+  .nav-item-brand-active {
+    @apply bg-brand text-white;
+  }
+  
+  /* Shadows and depth */
+  .shadow-brand {
+    @apply shadow-[0_4px_20px_rgba(46,204,113,0.15)];
+  }
+  
+  .shadow-brand-hover {
+    @apply hover:shadow-[0_8px_30px_rgba(46,204,113,0.2)] transition-shadow duration-200;
+  }
+}

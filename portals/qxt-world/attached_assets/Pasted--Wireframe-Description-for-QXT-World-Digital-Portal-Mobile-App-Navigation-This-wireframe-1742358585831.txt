@@ -1,0 +1,169 @@
+### **Wireframe Description for QXT World Digital Portal & Mobile App Navigation**
+
+This wireframe description outlines how the **QXT World** platform should be structured to maintain **logical grouping, seamless navigation, and easy access to features** while allowing users to **choose their preferred cue sports discipline**.
+
+---
+
+## **1. Home Page (Entry Point)**
+### **Wireframe Layout**
+📌 **Top Section (Discipline Selection)**
+- A **dropdown or tab-based selector** where users choose their **cue sports discipline** (Snooker, American Pool, Chinese Pool, Carom, etc.).
+- This filters content throughout the platform.
+
+📌 **Main Content Area**
+- Three large clickable **feature tiles**:
+  - 🏆 **Tournaments** – View or create tournaments.
+  - 👤 **Players & Rankings** – View player stats and leaderboards.
+  - 🛍️ **Equipment Shop** – Browse gear related to the selected discipline.
+
+📌 **Upcoming Tournaments**
+- Horizontal **scrollable cards** showing upcoming events.
+- Clickable for full details.
+
+📌 **Quick Links**
+- Access to **Training, Live Matches, Community, and QXT Academy**.
+
+---
+
+## **2. Dashboard (Personalized)**
+### **Wireframe Layout**
+📌 **Top Bar (Quick Info)**
+- User Profile
+- Selected Discipline **(Can be changed here)**
+- Notifications Bell Icon
+
+📌 **Main Dashboard Sections**
+- **Recent Matches** (Shows match results, AI insights)
+- **Performance Stats** (Win rate, Highest Breaks, Tournament Played)
+- **Upcoming Tournaments** (List of user-relevant events)
+- **Recent Notifications** (Platform updates, messages)
+
+📌 **Expandable Widgets**
+- Users can add **Custom Widgets** (e.g., Favorite Players, AI Training Recommendations).
+
+---
+
+## **3. Tournaments Page (Main Tournament Hub)**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- **📅 Ongoing** (Live Tournaments)
+- **🛠 Upcoming** (Register for New Events)
+- **📜 Past Tournaments** (Match History & Replays)
+- **📊 Insights** (AI Analysis of Past Performance)
+
+📌 **Tournament Cards**
+- Each card displays:
+  - Event Name
+  - Discipline Type (Snooker, Pool, etc.)
+  - Prize Pool
+  - Status (Live / Registration Open / Completed)
+  - Number of Participants
+- Clicking a card opens the **Tournament Details Page**.
+
+---
+
+## **4. Training & Player Development**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- 🎯 **AI Training Plans**
+- 🏹 **Skill-Based Drills**
+- 🎓 **Coaching Hub**
+- 📺 **Video Library**
+
+📌 **Main Section (Grid Format)**
+- Each section has **expandable tiles** showing content related to the user’s selected **cue sports discipline**.
+
+📌 **Live Training Sessions**
+- **Calendar-based section** for upcoming coaching sessions.
+
+---
+
+## **5. Leaderboards & Rankings**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- 🌍 **Global Rankings**
+- 📍 **Regional & Club Rankings**
+- 🏆 **Tournament Performance**
+- 📊 **Player Statistics & Trends**
+
+📌 **Dynamic Ranking Tables**
+- Players can **filter by discipline, region, or tournament series**.
+
+---
+
+## **6. Community & Social Hub**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- 💬 **Discussion Forums**
+- 🏁 **Player Challenges**
+- 📸 **Content Sharing**
+- 📰 **News & Blogs**
+
+📌 **Featured Content**
+- **Trending topics** from the forum.
+- **Best Shot of the Week** (Voted by the community).
+
+---
+
+## **7. QXT World Academy**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- 🎓 **Courses & Certifications**
+- 🌱 **Grassroots Development**
+- 🎥 **Virtual Training**
+- 🎖 **Q School & Q Zone**
+
+📌 **Structured Learning Paths**
+- Players can **track progress** through levels.
+
+---
+
+## **8. Equipment Store**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- 🎱 **Cues & Accessories**
+- 🏓 **Tables & Equipment**
+- 👕 **Apparel & Merchandise**
+- 🌟 **AI Recommended Gear**
+
+📌 **Store Items**
+- Grid-based **product listing** with filter options.
+
+---
+
+## **9. Live Streaming & Media**
+### **Wireframe Layout**
+📌 **Top Navigation (Tabs)**
+- 📺 **Live Tournament Broadcasts**
+- 🎬 **Match Highlights**
+- 🌟 **Pro Player Content**
+- 🎥 **On-Demand Lessons**
+
+📌 **Video Section**
+- **Featured Live Stream**
+- **Recent Match Highlights**
+- **Upcoming Events with Live Streaming**
+
+---
+
+## **10. Profile Settings & Admin**
+### **Wireframe Layout**
+📌 **User Role Information**
+- Displays current **User Role (Player, Coach, Admin)**.
+
+📌 **Expandable Settings Sections**
+- **General Settings**
+- **Preferred Cue Sports Discipline**
+- **Privacy & Notifications**
+- **Admin Controls (for system admins)**
+
+---
+
+## **Conclusion**
+This structure ensures:
+✔ **All features are grouped logically**  
+✔ **Navigation remains simple and decluttered**  
+✔ **Users only see content relevant to their cue sports discipline**  
+✔ **Easy scalability for future additions (Billiards, Blackball, Russian Pyramid, etc.)**  
+
+Would you like me to refine any section further? 🚀

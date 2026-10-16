@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "vision": "Vision et Objectif",
+    "projects": "Nos Marques et Projets",
+    "legacy": "Héritage",
+    "blog": "Blog et Podcast 528Hz",
+    "getInvolved": "S'impliquer",
+    "getStarted": "Commencer",
+    "language": "Langue"
+  },
+  "home": {
+    "hero": {
+      "title": "Élever la Conscience Humaine",
+      "subtitle": "Pionnier des Plateformes et Entreprises Axées sur la Mission"
+    }
+  },
+  "footer": {
+    "exploreLabel": "Explorer",
+    "resourcesLabel": "Ressources",
+    "connectLabel": "Connecter",
+    "copyrightText": "Tous droits réservés."
+  }
+}
