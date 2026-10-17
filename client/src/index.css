@@ -422,3 +422,20 @@ article, .field-prose { overflow-wrap: break-word; }
 .published-page .field-prose {background:rgba(255,255,255,.65);border-left:4px solid #4B9B9B;padding:clamp(1.25rem,4vw,3.75rem);box-shadow:0 14px 65px rgba(24,72,75,.07);}
 .published-page .field-prose h1 {font-size:clamp(2.4rem,4.5vw,4.2rem);}
 @media(max-width:640px){.field-page-hero__ring{right:-85%;width:550px;height:550px}.published-page .field-prose{padding:1.25rem}}
+
+/* Candidate 05 — living field: a luminous vector Core, not a flattened corporate PNG. */
+.living-hero {background:radial-gradient(ellipse at 35% 43%,#1B6974 0%,#125162 32%,#0B3749 67%,#082C3C 100%);color:#FFF5E6;}
+.living-hero__light {position:absolute;inset:0;background:radial-gradient(ellipse at 26% 55%,rgba(61,210,189,.16),transparent 40%),radial-gradient(ellipse at 80% 5%,rgba(237,158,89,.08),transparent 48%);pointer-events:none;}
+.living-core {position:relative;width:100%;max-width:820px;aspect-ratio:1;margin:auto;filter:drop-shadow(0 20px 70px rgba(21,201,187,.18));}
+.living-core svg {display:block;width:100%;height:100%;overflow:visible;}
+.living-core__flow {transform-origin:50% 50%;animation:livingCoreBreath 22s ease-in-out infinite;}
+@keyframes livingCoreBreath {0%,100%{transform:rotate(-2deg) scale(.985)}50%{transform:rotate(3deg) scale(1.025)}}
+.living-hero__expressions a {position:relative;display:flex;flex-direction:column;gap:.5rem;border:1px solid rgba(151,219,204,.28);background:rgba(8,48,60,.43);padding:1rem 1.15rem;color:#FFF1DA;transition:background .25s,border-color .25s;}
+.living-hero__expressions a:before {content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#F2AD6B,#51D2C0);}
+.living-hero__expressions a:hover,.living-hero__expressions a:focus-visible {background:rgba(44,121,132,.55);border-color:#E8BC86;}
+.living-hero__expressions span {font-family:var(--field-font-display);font-size:1.35rem;}
+.living-hero__expressions small {color:#BCD9D4;font-size:.72rem;letter-spacing:.06em;}
+.field-page-hero {background:radial-gradient(ellipse at 80% 45%,#236F79,#145263 42%,#0B3749 100%);}
+.field-page-hero__core .living-core {max-width:320px;}
+@media(max-width:1023px){.living-hero .living-core{max-width:520px;}.living-hero{padding-top:7rem;}.living-hero__expressions span{font-size:1.12rem;}}
+@media(prefers-reduced-motion:reduce){.living-core__flow{animation:none!important;}}

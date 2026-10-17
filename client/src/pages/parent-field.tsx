@@ -1,3 +1,4 @@
+import LivingCore from "@/components/LivingCore";
 import { motion } from "framer-motion";
 
 const expressions = [
@@ -51,34 +52,31 @@ const reveal = {
 const ParentField = () => {
   return (
     <div className="bg-[#FCFAF6] text-[#17201D] selection:bg-[#D9C89E]/60">
-      <section id="orientation" className="core-hero relative isolate overflow-hidden px-6 pb-24 pt-40 md:px-12 md:pb-36 md:pt-44">
-        <div className="core-hero__glow" aria-hidden="true" />
-        <div className="core-hero__orbit core-hero__orbit--one" aria-hidden="true" />
-        <div className="core-hero__orbit core-hero__orbit--two" aria-hidden="true" />
-        <div className="core-hero__orbit core-hero__orbit--three" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:min-h-[680px] lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="relative z-10 order-2 lg:order-1">
-            <p className="mb-8 text-xs uppercase tracking-[0.36em] text-[#A9DBD6]">five28hertz · the parent field</p>
-            <h1 className="max-w-[850px] font-playfair text-[clamp(3.5rem,6vw,6.9rem)] font-medium leading-[1.02] tracking-[-0.045em] text-[#FFF8E9]">
-              Ideas become real when they are given a form true enough to live.
-            </h1>
-            <p className="mt-9 max-w-2xl text-lg leading-8 text-[#D4E5E0] md:text-xl">
-              A living architecture for turning thoughts, dreams and aspirations into independent expressions — each allowed to find its own form, meet reality, and evolve through what it proves.
-            </p>
-            <div className="mt-12 flex flex-wrap items-center gap-6">
-              <a className="core-hero__action" href="#architecture">Explore the architecture <span aria-hidden="true">↗</span></a>
-              <span className="text-xs uppercase tracking-[0.2em] text-[#C4D9D3]">Different expressions. One coherent source.</span>
-            </div>
+      <section id="orientation" className="living-hero relative isolate overflow-hidden px-6 pb-20 pt-36 md:px-12 md:pb-24 md:pt-44">
+        <div className="living-hero__light" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-[1500px] items-center gap-6 lg:min-h-[650px] lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="relative order-1 min-w-0 lg:-ml-14">
+            <LivingCore />
           </div>
-          <div className="core-hero__visual relative order-1 mx-auto flex w-full max-w-[560px] items-center justify-center lg:order-2" aria-label="The original five28hertz corporate logo, the stable Core and its evolving expressions">
-            <div className="core-hero__halo" aria-hidden="true" />
-            <div className="core-hero__halo core-hero__halo--outer" aria-hidden="true" />
-            <img src={import.meta.env.BASE_URL + "assets/five28hertz-spiral-cutout.png"} alt="five28hertz multicolored spiral — the original Core motif" className="core-hero__logo relative z-10 h-auto w-[min(68vw,440px)] rounded-full object-contain" />
-            <span className="core-hero__satellite core-hero__satellite--a" aria-hidden="true" />
-            <span className="core-hero__satellite core-hero__satellite--b" aria-hidden="true" />
+          <div className="relative z-10 order-2 pb-10 lg:pl-4">
+            <p className="mb-7 text-xs uppercase tracking-[0.34em] text-[#B9E5DB]">five28hertz · the parent field</p>
+            <h1 className="max-w-2xl font-playfair text-[clamp(3.2rem,5.3vw,6.2rem)] leading-[1.04] tracking-[-0.04em] text-[#FFF5E6]">Ideas become real when they are given a form true enough to live.</h1>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-[#D6EAE5]">A living architecture for turning thoughts, dreams and aspirations into independent expressions — each allowed to find its own form, meet reality, and evolve through what it proves.</p>
+            <a className="core-hero__action mt-10" href="#architecture">Explore the architecture <span aria-hidden="true">↗</span></a>
+            <p className="mt-7 text-xs uppercase tracking-[0.19em] text-[#B5D9D4]">Different expressions. One coherent source.</p>
           </div>
         </div>
-        <div className="core-hero__spectrum absolute inset-x-0 bottom-0 h-2" aria-hidden="true" />
+        <div className="relative mx-auto mt-2 max-w-7xl border-t border-[#9FD9CD]/25 pt-7">
+          <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-[#E7BD8C]">Distinct expressions · coherent at the source</p>
+          <div className="living-hero__expressions grid grid-cols-2 gap-3 md:grid-cols-4">
+            <a href="#expressions"><span>QXT World</span><small>Cue sports infrastructure</small></a>
+            <a href="#expressions"><span>528Hz Studio</span><small>Creative expression</small></a>
+            <a href="#expressions"><span>Argento Homes</span><small>Hospitality experience</small></a>
+            <a href="#lineage"><span>ExchangeSphere</span><small>Recognition / watch</small></a>
+          </div>
+          <p className="mt-5 text-xs text-[#AFCFCA]">RealEyes remains a sensory subsystem within QXT World, not a separate parent manifestation.</p>
+        </div>
+        <div className="core-hero__spectrum absolute inset-x-0 bottom-0 h-1.5" aria-hidden="true" />
       </section>
 
       <section id="existing" className="field-section field-section--warm border-t border-black/10 px-6 py-20 md:px-12 md:py-28">
