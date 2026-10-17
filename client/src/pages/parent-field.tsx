@@ -50,9 +50,10 @@ const reveal = {
 
 const ParentField = () => {
   return (
-    <div className="bg-[#F6F2EA] text-[#17201D] selection:bg-[#D9C89E]/60">
-      <section id="orientation" className="min-h-screen flex items-center px-6 py-28 md:px-12">
-        <motion.div {...reveal} className="mx-auto w-full max-w-6xl">
+    <div className="bg-[#FCFAF6] text-[#17201D] selection:bg-[#D9C89E]/60">
+      <section id="orientation" className="relative isolate min-h-screen flex items-center overflow-hidden px-6 py-28 md:px-12">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-24 h-[30rem] w-[30rem] rounded-full border border-[#B9AC91]/20 bg-[radial-gradient(circle,rgba(216,204,178,0.17)_0%,rgba(252,250,246,0)_70%)] blur-2xl motion-safe:animate-[fieldBreath_24s_ease-in-out_infinite] md:h-[42rem] md:w-[42rem]" />
+        <motion.div {...reveal} className="relative mx-auto w-full max-w-6xl">
           <p className="mb-8 text-xs uppercase tracking-[0.35em] text-[#414943]">five28hertz</p>
           <h1 className="max-w-5xl font-playfair text-5xl font-medium leading-[1.04] md:text-7xl lg:text-8xl">
             Ideas become real when they are given a form true enough to live.
@@ -64,7 +65,7 @@ const ParentField = () => {
         </motion.div>
       </section>
 
-      <section id="existing" className="border-t border-black/10 bg-[#EDE7DB] px-6 py-20 md:px-12 md:py-28">
+      <section id="existing" className="border-t border-black/10 bg-[#F4F0E8] px-6 py-20 md:px-12 md:py-28">
         <div className="mx-auto max-w-6xl">
           <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">The existing five28hertz experience</p>
           <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">The work already here remains.</h2>
@@ -76,7 +77,7 @@ const ParentField = () => {
               {name:"The Field",description:"The original threshold for correspondence, with its own invitation and address.",href:"https://five28hertz.com/field"},
               {name:"Interior Archive",description:"The Translation Premise, The Anti-Fragmentation Thesis and The Cyclical Journey.",href:"https://five28hertz.com/field"},
             ].map(item => (
-              <a key={item.name} href={item.href} className="block bg-[#EDE7DB] p-7 transition-colors hover:bg-[#E5DCCA] focus-visible:outline-2 focus-visible:outline-offset-2">
+              <a key={item.name} href={item.href} className="block bg-[#F4F0E8] p-7 transition-colors hover:bg-[#ECE5D9] focus-visible:outline-2 focus-visible:outline-offset-2">
                 <h3 className="font-playfair text-2xl">{item.name} <span aria-hidden="true">↗</span></h3>
                 <p className="mt-4 leading-7 text-[#414943]">{item.description}</p>
                 <span className="mt-5 block text-xs uppercase tracking-[0.18em] text-[#554724]">Read existing published page</span>
@@ -143,7 +144,7 @@ const ParentField = () => {
         </div>
       </section>
 
-      <section id="evidence" className="border-t border-black/10 bg-[#EDE7DB] px-6 py-28 md:px-12 md:py-36">
+      <section id="evidence" className="border-t border-black/10 bg-[#F4F0E8] px-6 py-28 md:px-12 md:py-36">
         <div className="mx-auto max-w-6xl">
           <motion.div {...reveal} className="max-w-4xl">
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Evidence</p>
@@ -153,7 +154,7 @@ const ParentField = () => {
 
           <div className="mt-20 grid gap-px bg-black/10 md:grid-cols-3">
             {evidence.map((item) => (
-              <motion.article key={item.label} {...reveal} className="bg-[#EDE7DB] p-8 md:p-10">
+              <motion.article key={item.label} {...reveal} className="bg-[#F4F0E8] p-8 md:p-10">
                 <p className="text-xs uppercase tracking-[0.28em] text-[#554724]">{item.label}</p>
                 <h3 className="mt-6 font-playfair text-2xl leading-tight md:text-3xl">{item.title}</h3>
                 <p className="mt-7 leading-7 text-[#414943]">{item.body}</p>

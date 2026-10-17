@@ -9,7 +9,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <div className="min-h-screen bg-[#F6F2EA] text-[#17201D]">
+        <div className="min-h-screen bg-[#FCFAF6] text-[#17201D]">
           <MinimalIdentityShell />
           <main>
             <ParentField />
