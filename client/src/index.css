@@ -341,3 +341,19 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+
+/* five28hertz typography system — review proposal, not ratified canon.
+   Applies to all pages once they are integrated into this app. */
+:root {
+  --field-font-display: "Playfair Display", Georgia, serif;
+  --field-font-text: "Open Sans", "Segoe UI", sans-serif;
+  --field-reading-width: 68ch;
+}
+html { font-family: var(--field-font-text); font-synthesis: none; text-rendering: optimizeLegibility; }
+body { font-family: var(--field-font-text); line-height: 1.7; }
+h1,h2,h3,h4,h5,h6 { font-family: var(--field-font-display); font-synthesis: none; line-height: 1.16; }
+button,input,select,textarea { font-family: var(--field-font-text); }
+article p, .field-prose p { max-width: var(--field-reading-width); }
+article, .field-prose { overflow-wrap: break-word; }
+@media (max-width: 640px) { body { line-height: 1.65; } }
