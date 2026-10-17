@@ -410,3 +410,15 @@ article, .field-prose { overflow-wrap: break-word; }
 @media (prefers-reduced-motion:reduce){.core-hero__halo{animation:none!important}}
 @media (max-width:1023px){.core-hero__orbit{left:50%;top:24%;}.core-hero__visual{min-height:290px}.core-hero__logo{width:min(62vw,370px)}}
 @media (max-width:640px){.core-hero__visual{max-width:340px;min-height:260px}.core-hero__orbit{width:620px;height:620px}.core-hero__orbit--two{width:490px;height:490px}.core-hero__orbit--three{width:380px;height:380px}}
+
+
+/* Candidate 03: original Core motif merges into the teal field, and every writing has a branded threshold. */
+.core-hero__logo {box-shadow:none!important;border-radius:0!important;filter:drop-shadow(0 24px 40px rgba(0,0,0,.2));}
+.core-hero__visual {isolation:isolate;}
+.field-page-hero {background:radial-gradient(ellipse at 82% 42%,#1F6872 0%,#17535F 34%,#103A43 78%);color:#FFF8E9;}
+.field-page-hero__ring {position:absolute;top:50%;right:-5%;width:720px;height:720px;border:1px solid rgba(135,222,202,.32);border-radius:45% 55% 58% 42%;transform:translateY(-50%) rotate(24deg);box-shadow:0 0 0 95px rgba(66,185,178,.035),0 0 0 195px rgba(235,145,81,.025);pointer-events:none;}
+.field-page-hero__core {filter:drop-shadow(0 20px 28px rgba(0,0,0,.25));}
+.published-page {background:radial-gradient(ellipse at 100% 10%,rgba(47,154,170,.12),transparent 38%),radial-gradient(ellipse at 0% 70%,rgba(227,112,60,.10),transparent 44%),#F5F1E8;}
+.published-page .field-prose {background:rgba(255,255,255,.65);border-left:4px solid #4B9B9B;padding:clamp(1.25rem,4vw,3.75rem);box-shadow:0 14px 65px rgba(24,72,75,.07);}
+.published-page .field-prose h1 {font-size:clamp(2.4rem,4.5vw,4.2rem);}
+@media(max-width:640px){.field-page-hero__ring{right:-85%;width:550px;height:550px}.published-page .field-prose{padding:1.25rem}}

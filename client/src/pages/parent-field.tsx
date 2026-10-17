@@ -73,7 +73,7 @@ const ParentField = () => {
           <div className="core-hero__visual relative order-1 mx-auto flex w-full max-w-[560px] items-center justify-center lg:order-2" aria-label="The original five28hertz corporate logo, the stable Core and its evolving expressions">
             <div className="core-hero__halo" aria-hidden="true" />
             <div className="core-hero__halo core-hero__halo--outer" aria-hidden="true" />
-            <img src={import.meta.env.BASE_URL + "assets/five28hertz%20Corporate%20Logo.png"} alt="five28hertz corporate logo — a multicolored organic spiral around its core" className="core-hero__logo relative z-10 h-auto w-[min(68vw,440px)] rounded-full object-contain" />
+            <img src={import.meta.env.BASE_URL + "assets/five28hertz-core-blended.png"} alt="five28hertz multicolored spiral — the original Core motif" className="core-hero__logo relative z-10 h-auto w-[min(68vw,440px)] rounded-full object-contain" />
             <span className="core-hero__satellite core-hero__satellite--a" aria-hidden="true" />
             <span className="core-hero__satellite core-hero__satellite--b" aria-hidden="true" />
           </div>
