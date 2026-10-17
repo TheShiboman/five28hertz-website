@@ -72,19 +72,19 @@ const ParentField = () => {
           <p className="mt-8 max-w-3xl text-lg leading-8 text-[#46504A]">This new orientation adds a way into five28hertz. It does not supersede the existing Vision, Instruments, Field or Interior Archive. Those writings and pathways retain their own place and identity.</p>
           <div className="mt-12 grid gap-px bg-black/10 md:grid-cols-2">
             {[
-              {name:"Vision",description:"The existing full statement of purpose, vision, structure, unfinishedness, invitation and stewardship.",href:"https://five28hertz.com/vision"},
-              {name:"The Instruments",description:"The existing expression portraits, retained as their own published text rather than rewritten into the new overview.",href:"https://five28hertz.com/legacy"},
-              {name:"The Field",description:"The original threshold for correspondence, with its own invitation and address.",href:"https://five28hertz.com/field"},
-              {name:"Interior Archive",description:"The Translation Premise, The Anti-Fragmentation Thesis and The Cyclical Journey.",href:"https://five28hertz.com/field"},
+              {name:"Vision",description:"The existing full statement of purpose, vision, structure, unfinishedness, invitation and stewardship.",href:"/vision"},
+              {name:"The Instruments",description:"The existing expression portraits, retained as their own published text rather than rewritten into the new overview.",href:"/legacy"},
+              {name:"The Field",description:"The original threshold for correspondence, with its own invitation and address.",href:"/field"},
+              {name:"Interior Archive",description:"The Translation Premise, The Anti-Fragmentation Thesis and The Cyclical Journey.",href:"/interior/translation-premise"},
             ].map(item => (
-              <a key={item.name} href={item.href} className="block bg-[#F4F0E8] p-7 transition-colors hover:bg-[#ECE5D9] focus-visible:outline-2 focus-visible:outline-offset-2">
+              <a key={item.name} href={item.href.startsWith("/") ? import.meta.env.BASE_URL + item.href.slice(1) : item.href} className="block bg-[#F4F0E8] p-7 transition-colors hover:bg-[#ECE5D9] focus-visible:outline-2 focus-visible:outline-offset-2">
                 <h3 className="font-playfair text-2xl">{item.name} <span aria-hidden="true">↗</span></h3>
                 <p className="mt-4 leading-7 text-[#414943]">{item.description}</p>
-                <span className="mt-5 block text-xs uppercase tracking-[0.18em] text-[#554724]">Read existing published page</span>
+                <span className="mt-5 block text-xs uppercase tracking-[0.18em] text-[#554724]">Explore integrated page</span>
               </a>
             ))}
           </div>
-          <p className="mt-8 max-w-3xl text-sm leading-6 text-[#46504A]">Review-stage preservation: these links open the current published pages. Their content and routes must be carried into the eventual release before any production replacement is authorized.</p>
+          <p className="mt-8 max-w-3xl text-sm leading-6 text-[#46504A]">These preserved writings now appear within the shared review design. Their final fidelity remains subject to Founder acceptance.</p>
         </div>
       </section>
 

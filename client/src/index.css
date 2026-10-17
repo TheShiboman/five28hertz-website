@@ -357,3 +357,32 @@ button,input,select,textarea { font-family: var(--field-font-text); }
 article p, .field-prose p { max-width: var(--field-reading-width); }
 article, .field-prose { overflow-wrap: break-word; }
 @media (max-width: 640px) { body { line-height: 1.65; } }
+
+/* Logo-derived, non-canonical parent visual proposal.
+   The logo combines a stable warm core with organically differentiated orbiting hues. */
+:root {
+ --field-ink: #193F4C;
+ --field-deep: #214E59;
+ --field-cyan: #159FC0;
+ --field-teal: #328E90;
+ --field-leaf: #799E4D;
+ --field-ember: #E26A32;
+ --field-coral: #C86A63;
+ --field-cream: #F8E0BF;
+}
+.field-spectrum { background: linear-gradient(90deg,#E26A32 0%,#C86A63 20%,#799E4D 43%,#159FC0 68%,#193F4C 100%); }
+.field-orbit-mark { display:inline-block; width:2rem;height:2rem;border-radius:50%; border:3px solid #159FC0; border-left-color:#E26A32;border-bottom-color:#799E4D;box-shadow:inset 0 0 0 5px #FAF8F3,inset 0 0 0 8px #E9B783;transform:rotate(-35deg); }
+.published-page { background: radial-gradient(ellipse at 95% 4%,rgba(21,159,192,.09),transparent 32%),radial-gradient(ellipse at 0% 48%,rgba(226,106,50,.06),transparent 36%),#FCFAF6; color:var(--field-ink); }
+.field-prose { font-family:var(--field-font-text);font-size:1.08rem;line-height:1.9; }
+.field-prose h1,.field-prose h2,.field-prose h3 { font-family:var(--field-font-display);color:var(--field-deep);max-width:22ch;line-height:1.17;letter-spacing:-.025em; }
+.field-prose h1 { font-size:clamp(2.8rem,6vw,5.5rem);margin:0 0 2.4rem; }
+.field-prose h2 { font-size:clamp(1.8rem,3.4vw,2.8rem);margin:3.7rem 0 1.3rem; }
+.field-prose h3 { font-size:1.65rem;margin:2.5rem 0 1rem; }
+.field-prose p { margin:0 0 1.5rem;max-width:68ch; }
+.field-prose ul,.field-prose ol { margin:1.5rem 0 2rem;padding-left:1.8rem;max-width:68ch; }
+.field-prose li { margin-bottom:.6rem; }
+.field-prose blockquote { border-left:3px solid var(--field-ember);padding:.6rem 1.5rem;margin:2rem 0;color:#315866;background:rgba(226,106,50,.045); }
+.field-prose a,.field-back { color:#136A7B;text-decoration:underline;text-decoration-color:#E26A32;text-underline-offset:5px; }
+.field-essay-link { display:flex;justify-content:space-between;gap:1rem;border:1px solid #BED1D0;padding:1rem 1.25rem;color:#1B5865;background:#FFFFFFA8; }
+.field-essay-link:hover,.field-essay-link:focus-visible { border-color:#E26A32;background:#FFF7ED; }
+@media (max-width:640px) {.field-prose{font-size:1rem;line-height:1.8}}
