@@ -25,7 +25,7 @@ export default function PublishedPage({ path }: { path: string }) {
           <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{entries.find(x=>x.path===path)?.label}</h1>
           <p className="mt-6 max-w-lg text-base leading-7 text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>
         </div>
-        <img src={base + "assets/five28hertz-core-blended.png"} alt="" className="field-page-hero__core relative z-10 mx-auto h-auto w-56 shrink-0 md:mx-0 md:w-72" />
+        <img src={base + "assets/five28hertz-spiral-cutout.png"} alt="" className="field-page-hero__core relative z-10 mx-auto h-auto w-56 shrink-0 md:mx-0 md:w-72" />
       </div>
     </section>
     <div className="h-2 w-full field-spectrum" aria-hidden="true" />
