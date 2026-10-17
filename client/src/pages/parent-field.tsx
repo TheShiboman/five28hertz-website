@@ -64,6 +64,29 @@ const ParentField = () => {
         </motion.div>
       </section>
 
+      <section id="existing" className="border-t border-black/10 bg-[#EDE7DB] px-6 py-20 md:px-12 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">The existing five28hertz experience</p>
+          <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">The work already here remains.</h2>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-[#46504A]">This new orientation adds a way into five28hertz. It does not supersede the existing Vision, Instruments, Field or Interior Archive. Those writings and pathways retain their own place and identity.</p>
+          <div className="mt-12 grid gap-px bg-black/10 md:grid-cols-2">
+            {[
+              {name:"Vision",description:"The existing full statement of purpose, vision, structure, unfinishedness, invitation and stewardship.",href:"https://five28hertz.com/vision"},
+              {name:"The Instruments",description:"The existing expression portraits, retained as their own published text rather than rewritten into the new overview.",href:"https://five28hertz.com/legacy"},
+              {name:"The Field",description:"The original threshold for correspondence, with its own invitation and address.",href:"https://five28hertz.com/field"},
+              {name:"Interior Archive",description:"The Translation Premise, The Anti-Fragmentation Thesis and The Cyclical Journey.",href:"https://five28hertz.com/field"},
+            ].map(item => (
+              <a key={item.name} href={item.href} className="block bg-[#EDE7DB] p-7 transition-colors hover:bg-[#E5DCCA] focus-visible:outline-2 focus-visible:outline-offset-2">
+                <h3 className="font-playfair text-2xl">{item.name} <span aria-hidden="true">↗</span></h3>
+                <p className="mt-4 leading-7 text-[#414943]">{item.description}</p>
+                <span className="mt-5 block text-xs uppercase tracking-[0.18em] text-[#554724]">Read existing published page</span>
+              </a>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-sm leading-6 text-[#46504A]">Review-stage preservation: these links open the current published pages. Their content and routes must be carried into the eventual release before any production replacement is authorized.</p>
+        </div>
+      </section>
+
       <section id="architecture" className="border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.3fr_0.7fr]">
           <motion.div {...reveal}>
