@@ -386,3 +386,27 @@ article, .field-prose { overflow-wrap: break-word; }
 .field-essay-link { display:flex;justify-content:space-between;gap:1rem;border:1px solid #BED1D0;padding:1rem 1.25rem;color:#1B5865;background:#FFFFFFA8; }
 .field-essay-link:hover,.field-essay-link:focus-visible { border-color:#E26A32;background:#FFF7ED; }
 @media (max-width:640px) {.field-prose{font-size:1rem;line-height:1.8}}
+
+/* Candidate 02 — a visual field derived from the original five28hertz logo. */
+.core-hero { background: radial-gradient(ellipse at 78% 38%,#1B6270 0%,#164A57 27%,#103A43 62%,#0C3039 100%);color:#FFF8E9; }
+.core-hero__glow { position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 74% 40%,rgba(43,205,187,.2),transparent 34%),radial-gradient(circle at 88% 75%,rgba(235,124,58,.13),transparent 27%); }
+.core-hero__orbit { position:absolute;left:65%;top:49%;width:950px;height:950px;border:1px solid rgba(130,218,203,.18);border-radius:48% 52% 61% 39%;transform:translate(-50%,-50%) rotate(-24deg);pointer-events:none; }
+.core-hero__orbit--two { width:760px;height:760px;border-color:rgba(238,152,74,.24);border-radius:56% 44% 47% 53%;transform:translate(-50%,-50%) rotate(34deg); }
+.core-hero__orbit--three { width:590px;height:590px;border-color:rgba(130,218,203,.28);border-radius:45% 55% 52% 48%;transform:translate(-50%,-50%) rotate(-58deg); }
+.core-hero__visual { min-height:370px;aspect-ratio:1; }
+.core-hero__logo { filter:drop-shadow(0 18px 58px rgba(0,0,0,.4));box-shadow:0 0 0 1px rgba(255,236,203,.2),0 0 90px rgba(50,184,180,.22); }
+.core-hero__halo { position:absolute;inset:5%;border:1px solid rgba(254,202,131,.45);border-radius:52% 48% 47% 53%;transform:rotate(22deg);animation:fieldOrbit 46s linear infinite; }
+.core-hero__halo--outer { inset:-5%;border-color:rgba(98,213,204,.45);border-radius:47% 53% 55% 45%;animation-duration:70s;animation-direction:reverse; }
+.core-hero__satellite { position:absolute;width:15px;height:15px;border-radius:50%;background:#F7A443;box-shadow:0 0 26px #F7A443AA;top:9%;right:23%; }
+.core-hero__satellite--b {width:10px;height:10px;top:auto;right:auto;bottom:18%;left:5%;background:#48D2C1;box-shadow:0 0 25px #48D2C1AA;}
+.core-hero__action {display:inline-flex;align-items:center;gap:2.5rem;padding:1rem 1.4rem;border:1px solid #E9B474;color:#FFF8E9;background:rgba(244,171,82,.13);font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;transition:background .25s;}
+.core-hero__action:hover,.core-hero__action:focus-visible {background:rgba(244,171,82,.28);}
+.core-hero__spectrum {background:linear-gradient(90deg,#E56C37 0%,#D08B6E 20%,#E8B95F 37%,#80B55C 56%,#39B7BB 74%,#18647A 100%);}
+.field-section {position:relative;background:radial-gradient(ellipse at 98% 0%,rgba(45,161,173,.09),transparent 40%),#FCFAF6;}
+.field-section--warm {background:radial-gradient(ellipse at 0% 100%,rgba(227,112,60,.10),transparent 38%),#F4F0E8;}
+.field-section:before {content:"";position:absolute;top:0;left:0;width:min(20vw,190px);height:3px;background:linear-gradient(90deg,#E56C37,#4AB6AF);opacity:.7;}
+.published-page__aura {position:absolute;top:5rem;right:0;width:min(35vw,480px);height:480px;pointer-events:none;opacity:.7;background:radial-gradient(circle,rgba(49,161,174,.13),transparent 66%);}
+@keyframes fieldOrbit {to{transform:rotate(382deg)}}
+@media (prefers-reduced-motion:reduce){.core-hero__halo{animation:none!important}}
+@media (max-width:1023px){.core-hero__orbit{left:50%;top:24%;}.core-hero__visual{min-height:290px}.core-hero__logo{width:min(62vw,370px)}}
+@media (max-width:640px){.core-hero__visual{max-width:340px;min-height:260px}.core-hero__orbit{width:620px;height:620px}.core-hero__orbit--two{width:490px;height:490px}.core-hero__orbit--three{width:380px;height:380px}}

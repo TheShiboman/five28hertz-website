@@ -16,10 +16,11 @@ export default function PublishedPage({ path }: { path: string }) {
   const base = import.meta.env.BASE_URL;
   if (!content) return <main className="mx-auto max-w-4xl px-6 pt-40 pb-28"><h1>Page not found</h1><a href={base}>Return to orientation</a></main>;
   return <main className="published-page relative min-h-screen pt-36 pb-28">
-    <div className="absolute left-0 top-0 h-1 w-full field-spectrum" aria-hidden="true" />
+    <div className="absolute left-0 top-0 h-2 w-full field-spectrum" aria-hidden="true" />
+    <div className="published-page__aura" aria-hidden="true" />
     <div className="mx-auto max-w-5xl px-6 md:px-12">
       <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>
-      <div className="mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>
+      <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>
       <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:content.replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
       <nav aria-label="Explore preserved writings" className="mt-24 border-t border-[#234C56]/20 pt-10">
         <h2 className="text-2xl">Continue through the field</h2>

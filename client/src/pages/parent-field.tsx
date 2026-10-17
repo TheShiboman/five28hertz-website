@@ -51,21 +51,37 @@ const reveal = {
 const ParentField = () => {
   return (
     <div className="bg-[#FCFAF6] text-[#17201D] selection:bg-[#D9C89E]/60">
-      <section id="orientation" className="relative isolate min-h-screen flex items-center overflow-hidden px-6 py-28 md:px-12">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-24 h-[30rem] w-[30rem] rounded-full border border-[#B9AC91]/20 bg-[radial-gradient(circle,rgba(216,204,178,0.17)_0%,rgba(252,250,246,0)_70%)] blur-2xl motion-safe:animate-[fieldBreath_24s_ease-in-out_infinite] md:h-[42rem] md:w-[42rem]" />
-        <motion.div {...reveal} className="relative mx-auto w-full max-w-6xl">
-          <p className="mb-8 text-xs uppercase tracking-[0.35em] text-[#414943]">five28hertz</p>
-          <h1 className="max-w-5xl font-playfair text-5xl font-medium leading-[1.04] md:text-7xl lg:text-8xl">
-            Ideas become real when they are given a form true enough to live.
-          </h1>
-          <p className="mt-10 max-w-3xl text-lg leading-8 text-[#46504A] md:text-xl">
-            five28hertz is a living architecture for turning thoughts, dreams and aspirations into independent expressions — each allowed to find its own form, meet reality, and evolve through what it proves.
-          </p>
-          <p className="mt-16 text-sm tracking-[0.18em] text-[#414943]">Different expressions. One coherent source.</p>
-        </motion.div>
+      <section id="orientation" className="core-hero relative isolate overflow-hidden px-6 pb-24 pt-40 md:px-12 md:pb-36 md:pt-44">
+        <div className="core-hero__glow" aria-hidden="true" />
+        <div className="core-hero__orbit core-hero__orbit--one" aria-hidden="true" />
+        <div className="core-hero__orbit core-hero__orbit--two" aria-hidden="true" />
+        <div className="core-hero__orbit core-hero__orbit--three" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:min-h-[680px] lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="relative z-10 order-2 lg:order-1">
+            <p className="mb-8 text-xs uppercase tracking-[0.36em] text-[#A9DBD6]">five28hertz · the parent field</p>
+            <h1 className="max-w-[850px] font-playfair text-[clamp(3.5rem,6vw,6.9rem)] font-medium leading-[1.02] tracking-[-0.045em] text-[#FFF8E9]">
+              Ideas become real when they are given a form true enough to live.
+            </h1>
+            <p className="mt-9 max-w-2xl text-lg leading-8 text-[#D4E5E0] md:text-xl">
+              A living architecture for turning thoughts, dreams and aspirations into independent expressions — each allowed to find its own form, meet reality, and evolve through what it proves.
+            </p>
+            <div className="mt-12 flex flex-wrap items-center gap-6">
+              <a className="core-hero__action" href="#architecture">Explore the architecture <span aria-hidden="true">↗</span></a>
+              <span className="text-xs uppercase tracking-[0.2em] text-[#C4D9D3]">Different expressions. One coherent source.</span>
+            </div>
+          </div>
+          <div className="core-hero__visual relative order-1 mx-auto flex w-full max-w-[560px] items-center justify-center lg:order-2" aria-label="The original five28hertz corporate logo, the stable Core and its evolving expressions">
+            <div className="core-hero__halo" aria-hidden="true" />
+            <div className="core-hero__halo core-hero__halo--outer" aria-hidden="true" />
+            <img src={import.meta.env.BASE_URL + "assets/five28hertz%20Corporate%20Logo.png"} alt="five28hertz corporate logo — a multicolored organic spiral around its core" className="core-hero__logo relative z-10 h-auto w-[min(68vw,440px)] rounded-full object-contain" />
+            <span className="core-hero__satellite core-hero__satellite--a" aria-hidden="true" />
+            <span className="core-hero__satellite core-hero__satellite--b" aria-hidden="true" />
+          </div>
+        </div>
+        <div className="core-hero__spectrum absolute inset-x-0 bottom-0 h-2" aria-hidden="true" />
       </section>
 
-      <section id="existing" className="border-t border-black/10 bg-[#F4F0E8] px-6 py-20 md:px-12 md:py-28">
+      <section id="existing" className="field-section field-section--warm border-t border-black/10 px-6 py-20 md:px-12 md:py-28">
         <div className="mx-auto max-w-6xl">
           <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">The existing five28hertz experience</p>
           <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">The work already here remains.</h2>
@@ -88,7 +104,7 @@ const ParentField = () => {
         </div>
       </section>
 
-      <section id="architecture" className="border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
+      <section id="architecture" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.3fr_0.7fr]">
           <motion.div {...reveal}>
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Living Architecture</p>
@@ -110,7 +126,7 @@ const ParentField = () => {
         </div>
       </section>
 
-      <section id="expressions" className="border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
+      <section id="expressions" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
         <div className="mx-auto max-w-6xl">
           <motion.div {...reveal} className="max-w-3xl">
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Expressions</p>
@@ -144,7 +160,7 @@ const ParentField = () => {
         </div>
       </section>
 
-      <section id="evidence" className="border-t border-black/10 bg-[#F4F0E8] px-6 py-28 md:px-12 md:py-36">
+      <section id="evidence" className="field-section field-section--warm border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
         <div className="mx-auto max-w-6xl">
           <motion.div {...reveal} className="max-w-4xl">
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Evidence</p>
@@ -164,7 +180,7 @@ const ParentField = () => {
         </div>
       </section>
 
-      <section id="lineage" className="border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
+      <section id="lineage" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
         <motion.div {...reveal} className="mx-auto max-w-5xl">
           <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Lineage</p>
           <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">Before five28hertz, there was ProAct World.</h2>
@@ -176,7 +192,7 @@ const ParentField = () => {
         </motion.div>
       </section>
 
-      <section id="contact" className="border-t border-black/10 px-6 py-32 md:px-12 md:py-40">
+      <section id="contact" className="field-section border-t border-black/10 px-6 py-32 md:px-12 md:py-40">
         <motion.div {...reveal} className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p className="max-w-xl font-playfair text-3xl leading-tight md:text-5xl">When something here resonates, the address is enough.</p>
           <div className="text-right">
