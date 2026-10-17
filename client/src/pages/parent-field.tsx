@@ -1,4 +1,3 @@
-import LivingCore from "@/components/LivingCore";
 import { motion } from "framer-motion";
 
 const expressions = [
@@ -56,7 +55,7 @@ const ParentField = () => {
         <div className="living-hero__light" aria-hidden="true" />
         <div className="relative mx-auto grid max-w-[1500px] items-center gap-6 lg:min-h-[650px] lg:grid-cols-[1.12fr_0.88fr]">
           <div className="relative order-1 min-w-0 lg:-ml-14">
-            <LivingCore />
+            <img src={import.meta.env.BASE_URL + "assets/original-five28hertz-logo.svg"} alt="five28hertz original corporate logo" className="living-core block h-auto w-full object-contain" />
           </div>
           <div className="relative z-10 order-2 pb-10 lg:pl-4">
             <p className="mb-7 text-xs uppercase tracking-[0.34em] text-[#B9E5DB]">five28hertz · the parent field</p>
