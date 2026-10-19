@@ -21,7 +21,7 @@ export default function PublishedPage({ path }: { path: string }) {
     if (!isVision || !content) return "";
     const parser = /(<p\b[^>]*>[\s\S]*?<\/p>)/gi;
     let n = 0;
-    return content.replace(parser, (paragraph: string) => {
+    return content.replace(/<\/p>\s*·\s*(?=<(?:h2|p)\b)/g, '</p><hr class="vision-editorial__separator" aria-hidden="true" />').replace(parser, (paragraph: string) => {
       const current = n++;
       const label = current === 0 ? "Opening premise" : current === 1 ? "The context" : current === 4 ? "The purpose" : current === 7 ? "The horizon" : "";
       return label ? `<div class="vision-editorial__passage"><span class="vision-editorial__label">${label}</span>${paragraph}</div>` : paragraph;
@@ -48,7 +48,7 @@ export default function PublishedPage({ path }: { path: string }) {
       <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>
       <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>
       <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:(isVision ? visionContent : content).replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
-      <nav aria-label="Explore preserved writings" className="mt-24 border-t border-[#234C56]/20 pt-10">
+      <nav aria-label="Explore preserved writings" className={isVision ? "vision-editorial__continuation mt-24 border-t border-[#234C56]/20 pt-10" : "mt-24 border-t border-[#234C56]/20 pt-10"}>
         <h2 className="text-2xl">Continue through the field</h2>
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
           {entries.filter(x=>x.path!==path).map(x=><a className="field-essay-link" href={base + x.path.slice(1) + "/"} key={x.path}>{x.label}<span aria-hidden="true"> ↗</span></a>)}
