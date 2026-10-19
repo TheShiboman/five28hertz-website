@@ -19,7 +19,8 @@ export default function PublishedPage({ path }: { path: string }) {
   const visionContent = useMemo(() => {
     if (!isVision || !content) return "";
     // Preserve original Vision prose; compose its existing six titled sections.
-    const sections = content.split(/(?=<h2\b)/i);
+    const cleanVision = content.replace(/<\/p>\s*[^<\w\s]\s*(?=<h2\b)/gi, "</p>").replace(/<br><\/br>/g, "</p><p>");
+    const sections = cleanVision.split(/(?=<h2\b)/i);
     const intro = sections.shift() || "";
     const ending = sections.length ? sections[sections.length - 1] : "";
     const lastHeading = ending.indexOf("Continue<p>");
@@ -55,7 +56,7 @@ export default function PublishedPage({ path }: { path: string }) {
           <a className="text-xs uppercase tracking-[0.22em] text-[#C7E9E2] underline underline-offset-8" href={base}>← five28hertz / the Core</a>
           <p className="mt-12 text-xs uppercase tracking-[0.32em] text-[#E9BC86]">An expression of the parent field</p>
           <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{entries.find(x=>x.path===path)?.label}</h1>
-          <p className="mt-6 max-w-lg text-base leading-7 text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>
+          <p className="mt-6 max-w-lg vision-hero__subtitle text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>
         </div>
         <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{<img src={base + (isVision ? "assets/original-five28hertz-logo.svg?vision-core=corporate-v2" : "assets/original-five28hertz-logo.svg?corporate-core=approved-v1")} alt="five28hertz corporate Core" className="block w-full h-auto" />}</div>
       </div>

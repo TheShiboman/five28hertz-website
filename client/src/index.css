@@ -614,3 +614,15 @@ article, .field-prose { overflow-wrap: break-word; }
  .published-page .text-xs,.field-editorial .text-xs {letter-spacing:.08em}
 }
 @media(prefers-reduced-motion:reduce) {.vision-editorial .vision-story__chapter::before {transition:none}}
+
+/* WEB-UX-03: readable editorial type and content-led section rhythm. */
+.vision-editorial .vision-hero__subtitle {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.48;max-width:33ch;letter-spacing:-.01em}
+.vision-editorial .vision-story__opening {padding:clamp(1.25rem,3vw,2.5rem) 0 clamp(2.5rem,4vw,3.5rem)}
+.vision-editorial .vision-story__opening p {font-size:clamp(1.125rem,1.45vw,1.25rem);line-height:1.7;margin:0 0 1.1em}
+.vision-editorial .vision-story__chapter {padding-top:clamp(2.5rem,4vw,4rem);padding-bottom:clamp(2.5rem,4vw,4rem);gap:clamp(1.5rem,3vw,3.5rem)}
+.vision-editorial .vision-story__chapter-body > p {font-size:clamp(1.125rem,1.45vw,1.25rem);line-height:1.68;margin:0 0 1.05em}
+.vision-editorial .vision-story__chapter-body > p:first-of-type {font-size:clamp(1.45rem,2.1vw,1.95rem);line-height:1.46;margin-bottom:1.2em}
+.vision-editorial .vision-story__chapter-body > p:last-child {margin-bottom:0}
+.vision-editorial .vision-story__chapter h2 {margin-bottom:clamp(1.2rem,2vw,1.75rem)}
+.vision-editorial .vision-story__chapter-number {font-size:clamp(3.5rem,7vw,6.5rem)}
+@media(max-width:700px){.vision-editorial .vision-story__chapter{padding-top:2.25rem;padding-bottom:2.5rem;gap:.7rem}.vision-editorial .vision-story__chapter-body > p{font-size:1.125rem;line-height:1.65}.vision-editorial .vision-story__chapter-body > p:first-of-type{font-size:1.45rem}.vision-editorial .vision-hero__subtitle{font-size:1.375rem}}
