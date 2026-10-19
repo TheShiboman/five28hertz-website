@@ -1,4 +1,3 @@
-import LivingCore from "@/components/LivingCore";
 import { useMemo } from "react";
 import pages from "@/data/live-pages.json";
 import { useEffect } from "react";
@@ -39,7 +38,7 @@ export default function PublishedPage({ path }: { path: string }) {
           <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{entries.find(x=>x.path===path)?.label}</h1>
           <p className="mt-6 max-w-lg text-base leading-7 text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>
         </div>
-        <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{isVision ? <img src={base + "assets/original-five28hertz-logo.svg?vision-core=corporate-v2"} alt="Original five28hertz corporate Core" className="block w-full h-auto" /> : <LivingCore compact />}</div>
+        <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{<img src={base + (isVision ? "assets/original-five28hertz-logo.svg?vision-core=corporate-v2" : "assets/original-five28hertz-logo.svg?corporate-core=approved-v1")} alt="five28hertz corporate Core" className="block w-full h-auto" />}</div>
       </div>
     </section>
     <div className="h-2 w-full field-spectrum" aria-hidden="true" />
