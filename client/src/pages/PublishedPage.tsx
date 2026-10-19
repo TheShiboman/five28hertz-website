@@ -118,11 +118,26 @@ export default function PublishedPage({ path }: { path: string }) {
           <div className="translation-journey__return"><span>Or return to the foundations</span><a href={base + "vision/"}>Vision ↗</a><a href={base + "legacy/"}>The Instruments ↗</a></div>
         </nav>
       ) : (
-        <nav aria-label="Explore preserved writings" className={isVision ? "vision-editorial__continuation mt-24 border-t border-[#234C56]/20 pt-10" : "mt-24 border-t border-[#234C56]/20 pt-10"}>
-          <h2 className="text-2xl">Continue through the field</h2>
-          <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            {entries.filter(x=>x.path!==path).map(x=><a className="field-essay-link" href={base + x.path.slice(1) + "/"} key={x.path}>{x.label}<span aria-hidden="true"> ↗</span></a>)}
+        <nav aria-label="Continue exploring the five28hertz field" className="translation-journey mt-24 border-t border-[#234C56]/20 pt-10">
+          <span className="translation-journey__eyebrow">Continue the exploration</span>
+          <h2>Where might the journey lead?</h2>
+          <p className="translation-journey__intro">Follow a connected thought, explore another perspective, or return to the foundations.</p>
+          <div className="translation-journey__grid">
+            {entries.filter(x => x.path !== path && !["/vision", "/legacy"].includes(x.path)).slice(0, 3).map((x, i) => (
+              <a key={x.path} className={"translation-journey__card" + (i === 0 ? " translation-journey__card--primary" : "")} href={base + x.path.slice(1) + "/"}>
+                <span className="translation-journey__index">{String(i + 1).padStart(2, "0")} · {i === 0 ? "Continue reading" : "Another perspective"}</span>
+                <strong>{x.label}</strong>
+                <span className="translation-journey__description">{({
+                  "/field": "From reflection to correspondence: enter the space for genuine contact.",
+                  "/interior/translation-premise": "Explore the relationship between inner meaning and the structures that carry it.",
+                  "/interior/anti-fragmentation": "Consider what happens when the structures meant to hold our lives pull them apart.",
+                  "/interior/cyclical-journey": "Discover what changes when a journey is understood as an unfolding cycle."
+                } as Record<string, string>)[x.path]}</span>
+                <span className="translation-journey__action">Explore this perspective <span aria-hidden="true">↗</span></span>
+              </a>
+            ))}
           </div>
+          <div className="translation-journey__return"><span>Or return to the foundations</span>{entries.filter(x => ["/vision", "/legacy"].includes(x.path) && x.path !== path).map(x => <a key={x.path} href={base + x.path.slice(1) + "/"}>{x.label} ↗</a>)}</div>
         </nav>
       )}
     </div>
