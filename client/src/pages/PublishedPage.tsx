@@ -90,6 +90,33 @@ export default function PublishedPage({ path }: { path: string }) {
           </div>
           <div className="translation-journey__return"><span>Or return to the foundations</span><a href={base + "vision/"}>Vision ↗</a><a href={base + "legacy/"}>The Instruments ↗</a></div>
         </nav>
+      ) : path === "/interior/anti-fragmentation" ? (
+        <nav aria-label="Continue exploring the anti-fragmentation thesis" className="translation-journey mt-24 border-t border-[#234C56]/20 pt-10">
+          <span className="translation-journey__eyebrow">Beyond fragmentation</span>
+          <h2>Where does coherence lead?</h2>
+          <p className="translation-journey__intro">The thesis names the fracture. Continue with another perspective, return to the premise, or open a conversation.</p>
+          <div className="translation-journey__grid">
+            <a className="translation-journey__card translation-journey__card--primary" href={base + "interior/cyclical-journey/"}>
+              <span className="translation-journey__index">01 · Continue the archive</span>
+              <strong>The Cyclical Journey</strong>
+              <span className="translation-journey__description">What might become possible when development is understood as a continuing cycle?</span>
+              <span className="translation-journey__action">Follow the journey <span aria-hidden="true">↗</span></span>
+            </a>
+            <a className="translation-journey__card" href={base + "interior/translation-premise/"}>
+              <span className="translation-journey__index">02 · Return to the beginning</span>
+              <strong>The Translation Premise</strong>
+              <span className="translation-journey__description">Revisit the relationship between inner meaning and the structures that carry it.</span>
+              <span className="translation-journey__action">Revisit the premise <span aria-hidden="true">↗</span></span>
+            </a>
+            <a className="translation-journey__card" href={base + "field/"}>
+              <span className="translation-journey__index">03 · From recognition to contact</span>
+              <strong>The Field</strong>
+              <span className="translation-journey__description">If the argument touched something real, discover the space for correspondence.</span>
+              <span className="translation-journey__action">Reach the Field <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+          <div className="translation-journey__return"><span>Or return to the foundations</span><a href={base + "vision/"}>Vision ↗</a><a href={base + "legacy/"}>The Instruments ↗</a></div>
+        </nav>
       ) : (
         <nav aria-label="Explore preserved writings" className={isVision ? "vision-editorial__continuation mt-24 border-t border-[#234C56]/20 pt-10" : "mt-24 border-t border-[#234C56]/20 pt-10"}>
           <h2 className="text-2xl">Continue through the field</h2>
