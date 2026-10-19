@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const entries = [
   { path: "/vision", label: "Vision" },
-  { path: "/legacy", label: "The Instruments" },
+  
   { path: "/field", label: "The Field" },
   { path: "/interior/translation-premise", label: "The Translation Premise" },
   { path: "/interior/anti-fragmentation", label: "The Anti-Fragmentation Thesis" },
@@ -31,6 +31,7 @@ export default function PublishedPage({ path }: { path: string }) {
   }, [content, isVision]);
   const fieldContent = useMemo(() => {
     if (path !== "/field" || !content) return content;
+    const normalized = content.replace(/produced<br\s*\/?>(?:<\/br>)?recognition/g, "produced recognition");
     const start = content.indexOf('Address<a href="mailto:')
     const end = content.indexOf('<p>What this is</p>', start)
     const address = content.slice(start,end).replace('Address<a ', 'Address <a ')
@@ -39,7 +40,7 @@ export default function PublishedPage({ path }: { path: string }) {
     const essayLinks = Array.from(content.slice(archiveStart).matchAll(/<a href="(\/interior\/[^"]+)">(\d\d)(.*?)Essay [^<]*<\/a>/g))
     if (essayLinks.length !== 3) throw new Error("Field archive source no longer matches expected three essays");
     const cards = essayLinks.map((m) => `<a class="field-archive__card" href="${m[1]}"><span class="field-archive__number">${m[2]}</span><span class="field-archive__title">${m[3]}</span><span class="field-archive__footer">Essay · Threshold <span aria-hidden="true">↗</span></span></a>`).join("");
-    return content.slice(0,start) +
+    return content.slice(0,start).replace(/produced<br><\/br>recognition/g, "produced recognition") +
       `<section class="field-correspondence"><h2>Correspondence</h2><p class="field-correspondence__address">${address}</p></section>` +
       '<section class="field-correspondence__about"><h2>What this is</h2>' +
       content.slice(end + '<p>What this is</p>'.length, archiveStart) + '</section>' +
@@ -68,13 +69,13 @@ export default function PublishedPage({ path }: { path: string }) {
       {path === "/field" ? (
         <nav aria-label="Return to the parent pages" className="site-continuation">
           <h2>Return to the Core</h2>
-          <div className="site-continuation__links"><a href={base + "vision/"}>Vision ↗</a><a href={base + "legacy/"}>The Instruments ↗</a></div>
+          <div className="site-continuation__links"><a href={base + "vision/"}>Vision ↗</a></div>
         </nav>
       ) : (
         <nav aria-label="Continue exploring the parent" className="site-continuation">
           <h2>Continue exploring</h2>
           <div className="site-continuation__links">
-            {entries.filter(x => ["/vision", "/legacy", "/field"].includes(x.path) && x.path !== path).map(x => (
+            {entries.filter(x => ["/vision", "/field"].includes(x.path) && x.path !== path).map(x => (
               <a href={base + x.path.slice(1) + "/"} key={x.path}>{x.label} <span aria-hidden="true">↗</span></a>
             ))}
           </div>

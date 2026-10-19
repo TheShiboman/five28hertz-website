@@ -82,11 +82,10 @@ const ParentField = () => {
         <div className="mx-auto max-w-6xl">
           <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">The existing five28hertz experience</p>
           <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">The work already here remains.</h2>
-          <p className="mt-8 max-w-3xl text-lg leading-8 text-[#46504A]">This new orientation adds a way into five28hertz. It does not supersede the existing Vision, Instruments, Field or Interior Archive. Those writings and pathways retain their own place and identity.</p>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-[#46504A]">This new orientation adds a way into five28hertz. It does not supersede the existing Vision, Field or Interior Archive. Those writings and pathways retain their own place and identity.</p>
           <div className="mt-12 grid gap-px bg-black/10 md:grid-cols-2">
             {[
               {name:"Vision",description:"The existing full statement of purpose, vision, structure, unfinishedness, invitation and stewardship.",href:"/vision"},
-              {name:"The Instruments",description:"The existing expression portraits, retained as their own published text rather than rewritten into the new overview.",href:"/legacy"},
               {name:"The Field",description:"The original threshold for correspondence, with its own invitation and address.",href:"/field"},
               {name:"Interior Archive",description:"The Translation Premise, The Anti-Fragmentation Thesis and The Cyclical Journey.",href:"/interior/translation-premise"},
             ].map(item => (
