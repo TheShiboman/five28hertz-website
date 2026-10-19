@@ -577,3 +577,6 @@ article, .field-prose { overflow-wrap: break-word; }
  .site-continuation__links {flex-direction:column}
  .site-continuation__links a {width:100%}
 }
+
+/* Body readability: explicit paragraph sizing overrides inherited base text utilities. */
+.published-page .field-prose > p,.published-page .field-prose li,.published-page .field-prose section:not(.vision-story__chapter) p {font-size:clamp(1.0625rem,1.3vw,1.1875rem)}
