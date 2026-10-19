@@ -27,8 +27,24 @@ export default function PublishedPage({ path }: { path: string }) {
     });
   }, [content, isVision]);
 
+  const fieldContent = useMemo(() => {
+    if (path !== "/field" || !content) return content;
+    const start = content.indexOf('Address<a href="mailto:')
+    const end = content.indexOf('<p>What this is</p>', start)
+    const address = content.slice(start,end).replace('Address<a ', 'Address <a ')
+    const archiveStart = content.indexOf('Interior Archive', end)
+    const archiveIntro = content.slice(archiveStart + 'Interior Archive'.length, content.indexOf('<a href="/interior/', archiveStart))
+    const essayLinks = Array.from(content.slice(archiveStart).matchAll(/<a href="(\/interior\/[^"]+)">(\d\d)(.*?)Essay [^<]*<\/a>/g))
+    if (essayLinks.length !== 3) throw new Error("Field archive source no longer matches expected three essays");
+    const cards = essayLinks.map((m) => `<a class="field-archive__card" href="${m[1]}"><span class="field-archive__number">${m[2]}</span><span class="field-archive__title">${m[3]}</span><span class="field-archive__footer">Essay · Threshold <span aria-hidden="true">↗</span></span></a>`).join("");
+    return content.slice(0,start) +
+      `<section class="field-correspondence"><h2>Correspondence</h2><p class="field-correspondence__address">${address}</p></section>` +
+      '<section class="field-correspondence__about"><h2>What this is</h2>' +
+      content.slice(end + '<p>What this is</p>'.length, archiveStart) + '</section>' +
+      `<section class="field-archive" aria-labelledby="field-archive-heading"><h2 id="field-archive-heading">Interior Archive</h2>${archiveIntro}<div class="field-archive__grid">${cards}</div></section>`;
+  }, [content, path]);
   if (!content) return <main className="mx-auto max-w-4xl px-6 pt-40 pb-28"><h1>Page not found</h1><a href={base}>Return to orientation</a></main>;
-  return <main className={"published-page relative min-h-screen pb-28" + (isVision ? " vision-editorial" : "")}>
+  return <main className={"published-page relative min-h-screen pb-28" + (isVision ? " vision-editorial" : path === "/field" ? " field-editorial" : "")}>
     <section className={isVision ? "vision-editorial__hero relative overflow-hidden px-6 pb-12 pt-36 md:px-12 md:pb-16 md:pt-40" : "field-page-hero relative overflow-hidden px-6 pb-12 pt-36 md:px-12 md:pb-16 md:pt-40"}>
       {!isVision && <div className="field-page-hero__ring" aria-hidden="true" />}
       <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
@@ -46,7 +62,7 @@ export default function PublishedPage({ path }: { path: string }) {
     <div className={isVision ? "vision-editorial__reading mx-auto max-w-5xl px-6 pt-16 md:px-12" : "mx-auto max-w-5xl px-6 pt-16 md:px-12"}>
       <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>
       <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>
-      <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:(isVision ? visionContent : content).replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
+      <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:(isVision ? visionContent : fieldContent).replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
       <nav aria-label="Explore preserved writings" className={isVision ? "vision-editorial__continuation mt-24 border-t border-[#234C56]/20 pt-10" : "mt-24 border-t border-[#234C56]/20 pt-10"}>
         <h2 className="text-2xl">Continue through the field</h2>
         <div className="mt-7 grid gap-3 sm:grid-cols-2">

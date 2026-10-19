@@ -501,3 +501,23 @@ article, .field-prose { overflow-wrap: break-word; }
   .vision-editorial__continuation {margin-top:3rem;padding-top:1.5rem}
   .vision-editorial__continuation .mt-7 {margin-top:1rem}
 }
+
+/* The Field: correspondence and three-part reading experience, scoped to this page. */
+.field-editorial .field-correspondence {margin:2.5rem 0 2rem;padding-bottom:1.5rem;border-bottom:1px solid #bdc8c4}
+.field-editorial .field-correspondence h2,.field-editorial .field-correspondence__about h2,.field-editorial .field-archive h2 {font-family:inherit;font-size:.78rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:#986a4a;margin:0 0 1.1rem}
+.field-editorial .field-correspondence__address {display:flex;flex-wrap:wrap;gap:.4rem;align-items:baseline;margin:0}
+.field-editorial .field-correspondence__address a {overflow-wrap:anywhere}
+.field-editorial .field-correspondence__about {margin:2rem 0 3rem}
+.field-editorial .field-correspondence__about ul {padding-left:1.4rem;margin:1.2rem 0 1.7rem}
+.field-editorial .field-correspondence__about li {margin-bottom:.8rem}
+.field-editorial .field-archive {border-top:1px solid #bdc8c4;padding-top:2rem;margin-top:3rem}
+.field-editorial .field-archive__grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem}
+.field-editorial .field-archive__card {display:flex;flex-direction:column;min-height:16rem;padding:1.5rem;text-decoration:none;border:1px solid #bdc8c4;background:linear-gradient(155deg,#e4e9e4 0%,#f8f4eb 55%,#f4e5d7 100%);color:#234c56;transition:border-color .2s,transform .2s}
+.field-editorial .field-archive__card:nth-child(2) {background:linear-gradient(155deg,#d6e8e8 0%,#f8f4eb 65%,#e6eee8 100%)}
+.field-editorial .field-archive__card:nth-child(3) {background:linear-gradient(155deg,#eee1d4 0%,#f8f4eb 60%,#e5e8df 100%)}
+.field-editorial .field-archive__card:hover,.field-editorial .field-archive__card:focus-visible {border-color:#b86b42;transform:translateY(-2px);outline-offset:3px}
+.field-editorial .field-archive__number {font-size:.85rem;letter-spacing:.2em;color:#916548}
+.field-editorial .field-archive__title {font-family:Georgia,serif;font-size:clamp(1.25rem,2.1vw,1.75rem);line-height:1.25;margin:2.5rem 0 2rem}
+.field-editorial .field-archive__footer {margin-top:auto;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.field-editorial .field-archive__footer span {font-size:1.4rem}
+@media(max-width:700px){.field-editorial .field-archive__grid{grid-template-columns:1fr;gap:.9rem}.field-editorial .field-archive__card{min-height:10.5rem;padding:1.25rem}.field-editorial .field-archive__title{font-size:1.7rem;margin:1rem 0}.field-editorial .field-correspondence__about ul{padding-left:1.1rem}}
