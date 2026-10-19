@@ -538,3 +538,42 @@ article, .field-prose { overflow-wrap: break-word; }
 .translation-journey__return {display:flex;flex-wrap:wrap;gap:1rem 1.5rem;align-items:center;margin-top:2rem;font-size:.9rem;color:#5c6b69}
 .translation-journey__return a {color:#27636c;text-underline-offset:5px}
 @media(max-width:700px){.translation-journey{margin-top:3rem;padding-top:1.5rem}.translation-journey__grid{grid-template-columns:1fr}.translation-journey__card--primary{grid-column:auto}.translation-journey__card{min-height:13rem}.translation-journey__intro{margin-bottom:1.3rem}}
+
+
+/* WEB-UX-01: shared editorial experience. Responsive parity across the Core. */
+:root {
+  --core-ink:#203f48; --core-teal:#2f6770; --core-copper:#a15c39;
+  --core-sage:#749d8c; --core-paper:#f5f2eb; --core-line:#c5d2cb;
+  --core-reading:68ch;
+}
+.published-page .field-prose {font-size:clamp(1.0625rem,1.25vw,1.1875rem);line-height:1.75}
+.published-page .field-prose p,.published-page .field-prose li {max-width:var(--core-reading)}
+.published-page .field-prose h2 {font-size:clamp(1.85rem,3.3vw,2.85rem);line-height:1.2;letter-spacing:-.025em}
+.published-page .field-back,.published-page .field-page-hero .text-xs {font-size:.875rem}
+.published-page .field-prose a {text-underline-offset:4px}
+.vision-editorial .field-prose {font-size:clamp(1.1rem,1.3vw,1.25rem);line-height:1.78}
+.vision-editorial .vision-story__opening {max-width:900px;padding:clamp(1.5rem,5vw,4rem) 0 clamp(3rem,6vw,6rem)}
+.vision-editorial .vision-story__opening p:first-child {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(2rem,4.1vw,3.8rem);line-height:1.22;letter-spacing:-.035em;color:var(--core-ink);max-width:19ch;margin-bottom:2rem}
+.vision-editorial .vision-story__opening p:nth-child(4) {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.55rem,2.5vw,2.5rem);line-height:1.4;color:var(--core-copper);max-width:29ch}
+.vision-editorial .vision-story__chapter {position:relative;display:grid;grid-template-columns:minmax(90px,1fr) minmax(0,2.8fr);gap:clamp(1rem,4vw,5rem);padding:clamp(3.5rem,7vw,7rem) clamp(1.25rem,5vw,5rem);margin:0 calc(-1 * clamp(1rem,3vw,3rem));border-top:1px solid var(--core-line);background:linear-gradient(125deg,#f0f1ea 0%,#f7f3ec 75%)}
+.vision-editorial .vision-story__chapter--1 {background:linear-gradient(125deg,#e4eee9 0%,#f5f2eb 75%)}
+.vision-editorial .vision-story__chapter--2 {background:linear-gradient(125deg,#f2e9df 0%,#f7f3ec 75%)}
+.vision-editorial .vision-story__chapter-number {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(3.5rem,9vw,8rem);line-height:1;color:var(--core-sage);opacity:.55}
+.vision-editorial .vision-story__chapter--2 .vision-story__chapter-number {color:var(--core-copper)}
+.vision-editorial .vision-story__chapter h2 {font-size:clamp(2.4rem,4.5vw,4.25rem);line-height:1.08;margin:0 0 2.5rem;color:var(--core-ink)}
+.vision-editorial .vision-story__chapter p {font-size:clamp(1.1rem,1.4vw,1.25rem);line-height:1.8;color:#29454b;margin:0 0 1.35rem;max-width:65ch}
+.vision-editorial .vision-story__chapter p:first-of-type {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.5rem,2.3vw,2.1rem);line-height:1.48;color:var(--core-teal);max-width:45ch;margin-bottom:2rem}
+.site-continuation {margin-top:clamp(3.5rem,7vw,6rem);padding-top:2rem;border-top:1px solid var(--core-line)}
+.site-continuation h2 {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.8rem,3vw,2.75rem);color:var(--core-ink);margin:0 0 1.5rem}
+.site-continuation__links {display:flex;flex-wrap:wrap;gap:.85rem}
+.site-continuation__links a {display:inline-flex;justify-content:space-between;gap:2rem;align-items:center;min-height:3.5rem;padding:1rem 1.25rem;border:1px solid var(--core-line);background:#e9eee8;color:var(--core-ink);text-decoration:none;font-size:1rem}
+.site-continuation__links a:hover,.site-continuation__links a:focus-visible {border-color:var(--core-copper);background:#f0e6dc;outline-offset:3px}
+.field-editorial .field-correspondence h2,.field-editorial .field-correspondence__about h2,.field-editorial .field-archive h2 {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:400;text-transform:none;letter-spacing:-.02em;color:var(--core-ink)}
+.field-editorial .field-archive__number,.field-editorial .field-archive__footer {font-size:.875rem}
+@media(max-width:700px){
+ .vision-editorial .vision-story__chapter {grid-template-columns:1fr;gap:1.1rem;padding:3.25rem 1.25rem;margin:0 -1rem}
+ .vision-editorial .vision-story__chapter-number {font-size:3rem}
+ .vision-editorial .vision-story__chapter h2 {margin-bottom:1.5rem}
+ .site-continuation__links {flex-direction:column}
+ .site-continuation__links a {width:100%}
+}
