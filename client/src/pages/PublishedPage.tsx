@@ -63,12 +63,41 @@ export default function PublishedPage({ path }: { path: string }) {
       <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>
       <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>
       <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:(isVision ? visionContent : fieldContent).replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
-      <nav aria-label="Explore preserved writings" className={isVision ? "vision-editorial__continuation mt-24 border-t border-[#234C56]/20 pt-10" : "mt-24 border-t border-[#234C56]/20 pt-10"}>
-        <h2 className="text-2xl">Continue through the field</h2>
-        <div className="mt-7 grid gap-3 sm:grid-cols-2">
-          {entries.filter(x=>x.path!==path).map(x=><a className="field-essay-link" href={base + x.path.slice(1) + "/"} key={x.path}>{x.label}<span aria-hidden="true"> ↗</span></a>)}
-        </div>
-      </nav>
+      {path === "/interior/translation-premise" ? (
+        <nav aria-label="Continue exploring the five28hertz field" className="translation-journey mt-24 border-t border-[#234C56]/20 pt-10">
+          <span className="translation-journey__eyebrow">Where the thought leads</span>
+          <h2>Continue the exploration</h2>
+          <p className="translation-journey__intro">The premise is a beginning, not a conclusion. Follow the question that stays with you.</p>
+          <div className="translation-journey__grid">
+            <a className="translation-journey__card translation-journey__card--primary" href={base + "interior/anti-fragmentation/"}>
+              <span className="translation-journey__index">01 · The next essay</span>
+              <strong>The Anti-Fragmentation Thesis</strong>
+              <span className="translation-journey__description">What happens when the structures meant to hold our lives pull them apart?</span>
+              <span className="translation-journey__action">Explore the thesis <span aria-hidden="true">↗</span></span>
+            </a>
+            <a className="translation-journey__card" href={base + "interior/cyclical-journey/"}>
+              <span className="translation-journey__index">02 · Another perspective</span>
+              <strong>The Cyclical Journey</strong>
+              <span className="translation-journey__description">What changes when a journey is understood as an unfolding cycle?</span>
+              <span className="translation-journey__action">Follow the journey <span aria-hidden="true">↗</span></span>
+            </a>
+            <a className="translation-journey__card" href={base + "field/"}>
+              <span className="translation-journey__index">03 · From reading to contact</span>
+              <strong>The Field</strong>
+              <span className="translation-journey__description">If something here resonated, discover the space for genuine correspondence.</span>
+              <span className="translation-journey__action">Enter the Field <span aria-hidden="true">↗</span></span>
+            </a>
+          </div>
+          <div className="translation-journey__return"><span>Or return to the foundations</span><a href={base + "vision/"}>Vision ↗</a><a href={base + "legacy/"}>The Instruments ↗</a></div>
+        </nav>
+      ) : (
+        <nav aria-label="Explore preserved writings" className={isVision ? "vision-editorial__continuation mt-24 border-t border-[#234C56]/20 pt-10" : "mt-24 border-t border-[#234C56]/20 pt-10"}>
+          <h2 className="text-2xl">Continue through the field</h2>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            {entries.filter(x=>x.path!==path).map(x=><a className="field-essay-link" href={base + x.path.slice(1) + "/"} key={x.path}>{x.label}<span aria-hidden="true"> ↗</span></a>)}
+          </div>
+        </nav>
+      )}
     </div>
   </main>;
 }
