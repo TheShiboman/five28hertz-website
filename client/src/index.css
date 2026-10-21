@@ -580,39 +580,25 @@ article, .field-prose { overflow-wrap: break-word; }
 
 /* Body readability: explicit paragraph sizing overrides inherited base text utilities. */
 .published-page .field-prose > p,.published-page .field-prose li,.published-page .field-prose section:not(.vision-story__chapter) p {font-size:clamp(1.0625rem,1.3vw,1.1875rem)}
-
-/* WEB-UX-02 — measured reading rhythm and restrained semantic visual motifs */
-:root { --core-body-leading:1.72; --core-paragraph-gap:1.35em; }
-.published-page .field-back,
-.published-page .text-xs,
-.published-page .field-orbit-mark + span,
-.field-editorial .text-xs,
-.site-continuation__links a { font-size: max(.9375rem, 15px); line-height:1.5; }
-.published-page .field-prose p,
-.published-page .field-prose li { line-height:var(--core-body-leading); }
-.vision-editorial .vision-story__chapter-body > p,
-.vision-editorial .vision-story__chapter-body > ul,
-.vision-editorial .vision-story__chapter-body > ol { margin:0 0 var(--core-paragraph-gap); line-height:var(--core-body-leading); }
-.vision-editorial .vision-story__chapter-body > p:first-of-type {line-height:1.55;margin-bottom:1.65em}
-.vision-editorial .vision-story__chapter-body > p:last-child {margin-bottom:0}
-.vision-editorial .vision-story__chapter h2 {margin-bottom:clamp(1.5rem,3vw,2.5rem)}
-.vision-editorial .vision-story__opening > p {margin-bottom:1.35em;line-height:var(--core-body-leading)}
+/* WEB-UX-04 — editorial composition: no decorative graphics. */
+.vision-editorial {--reading-body:clamp(1.125rem,1.2vw,1.25rem);--reading-line:1.67}
+.vision-editorial .vision-hero__subtitle {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.375rem,2vw,1.75rem);line-height:1.42;letter-spacing:-.012em;max-width:34ch}
+.vision-editorial .vision-story__opening {padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(2.5rem,4vw,3.75rem)}
+.vision-editorial .vision-story__opening > p {font-size:var(--reading-body);line-height:var(--reading-line);margin:0 0 1.15em;max-width:62ch}
 .vision-editorial .vision-story__opening > p:last-child {margin-bottom:0}
-.vision-editorial .vision-story__chapter-number {opacity:.38}
+.vision-editorial .vision-story__chapter {padding:clamp(2.75rem,4vw,4.25rem) clamp(1.25rem,5vw,5rem);gap:clamp(1.5rem,3vw,3.5rem);background:transparent}
+.vision-editorial .vision-story__chapter--1,.vision-editorial .vision-story__chapter--2 {background:transparent}
+.vision-editorial .vision-story__chapter-number {font-size:clamp(3rem,6vw,5rem);opacity:.3}
+.vision-editorial .vision-story__chapter h2 {margin:0 0 clamp(1.25rem,2vw,1.75rem);font-size:clamp(2.25rem,3.8vw,3.5rem)}
+.vision-editorial .vision-story__chapter p,
+.vision-editorial .vision-story__chapter-body > p {font-family:var(--field-font-body),sans-serif;font-size:var(--reading-body);line-height:var(--reading-line);margin:0 0 1.1em;max-width:62ch}
+.vision-editorial .vision-story__chapter p:first-of-type,
+.vision-editorial .vision-story__chapter-body > p:first-of-type {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.45rem,2vw,1.85rem);line-height:1.47;margin:0 0 1.25em;max-width:42ch}
+.vision-editorial .vision-story__chapter p:last-child {margin-bottom:0}
+.vision-editorial .vision-story__chapter::before {display:none!important;content:none!important}
 @media(max-width:700px) {
- .vision-editorial .vision-story__chapter-body > p {font-size:1.125rem;line-height:1.72}
- .vision-editorial .vision-story__chapter-body > p:first-of-type {font-size:1.5rem;line-height:1.5}
- .published-page .text-xs,.field-editorial .text-xs {letter-spacing:.08em}
+.vision-editorial .vision-story__chapter {padding:2.4rem 1.25rem;gap:.75rem}
+.vision-editorial .vision-story__chapter-number {font-size:2.6rem}
+.vision-editorial .vision-story__chapter p,.vision-editorial .vision-story__opening > p {font-size:1.125rem;line-height:1.65}
+.vision-editorial .vision-story__chapter p:first-of-type {font-size:1.45rem;line-height:1.48}
 }
-
-/* WEB-UX-03: readable editorial type and content-led section rhythm. */
-.vision-editorial .vision-hero__subtitle {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.48;max-width:33ch;letter-spacing:-.01em}
-.vision-editorial .vision-story__opening {padding:clamp(1.25rem,3vw,2.5rem) 0 clamp(2.5rem,4vw,3.5rem)}
-.vision-editorial .vision-story__opening p {font-size:clamp(1.125rem,1.45vw,1.25rem);line-height:1.7;margin:0 0 1.1em}
-.vision-editorial .vision-story__chapter {padding-top:clamp(2.5rem,4vw,4rem);padding-bottom:clamp(2.5rem,4vw,4rem);gap:clamp(1.5rem,3vw,3.5rem)}
-.vision-editorial .vision-story__chapter-body > p {font-size:clamp(1.125rem,1.45vw,1.25rem);line-height:1.68;margin:0 0 1.05em}
-.vision-editorial .vision-story__chapter-body > p:first-of-type {font-size:clamp(1.45rem,2.1vw,1.95rem);line-height:1.46;margin-bottom:1.2em}
-.vision-editorial .vision-story__chapter-body > p:last-child {margin-bottom:0}
-.vision-editorial .vision-story__chapter h2 {margin-bottom:clamp(1.2rem,2vw,1.75rem)}
-.vision-editorial .vision-story__chapter-number {font-size:clamp(3.5rem,7vw,6.5rem)}
-@media(max-width:700px){.vision-editorial .vision-story__chapter{padding-top:2.25rem;padding-bottom:2.5rem;gap:.7rem}.vision-editorial .vision-story__chapter-body > p{font-size:1.125rem;line-height:1.65}.vision-editorial .vision-story__chapter-body > p:first-of-type{font-size:1.45rem}.vision-editorial .vision-hero__subtitle{font-size:1.375rem}}
