@@ -18,6 +18,7 @@ import Community from "@/pages/community";
 import Collaborate from "@/pages/collaborate";
 import Platforms from "@/pages/platforms";
 import TestChat from "@/pages/test-chat";
+import WishList from "@/pages/wish-list";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CustomCursor from "@/components/ui/cursor";
@@ -51,6 +52,7 @@ function Router() {
         <Route path="/collaborate" component={Collaborate} />
         <Route path="/platforms" component={Platforms} />
         <Route path="/test-chat" component={TestChat} />
+        <Route path="/wish-list" component={WishList} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>
