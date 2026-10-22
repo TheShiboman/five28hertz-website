@@ -628,3 +628,9 @@ article, .field-prose { overflow-wrap: break-word; }
 .vision-editorial .vision-story__chapter-body {grid-template-columns:minmax(225px,.8fr) minmax(0,1.2fr);column-gap:clamp(2.25rem,3.5vw,4.5rem)}
 .vision-editorial .vision-story__opening {grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
 }
+
+/* WEB-UX-07: warm literary body font for desktop Vision; mobile unchanged. */
+@media(min-width:1100px){
+.vision-editorial .vision-story__chapter-body > p:not(:first-of-type),
+.vision-editorial .vision-story__opening > p:not(:first-child):not(:nth-child(4)){font-family:"Lora",Georgia,serif;font-size:clamp(1.3125rem,1.28vw,1.4375rem);line-height:1.76;font-weight:400;letter-spacing:-.012em;max-width:55ch;margin-bottom:1.18em}
+}
