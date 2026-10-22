@@ -9,13 +9,16 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 function App() {
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const path = (window.location.pathname.slice(base.length).replace(/\/$/, "") || "/");
+  const parentSections = ["orientation","existing","architecture","expressions","evidence","lineage","contact"];
+  const parentSection = path === "/" ? "orientation" : path.slice(1);
+  const isParent = parentSections.includes(parentSection);
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <div className="min-h-screen bg-[#FCFAF6] text-[#17201D]">
           <MinimalIdentityShell />
           <main>
-            {path === "/" ? <ParentField /> : <PublishedPage path={path} />}
+            {isParent ? <ParentField section={parentSection} /> : <PublishedPage path={path} />}
           </main>
           <QuietFooter />
         </div>

@@ -660,3 +660,19 @@ article, .field-prose { overflow-wrap: break-word; }
     line-height:var(--five28-reading-leading);
   }
 }
+
+/* WEB-UX-09: route-addressable parent sections, without anchor offsets. */
+.parent-paged > section {display:none}
+.parent-paged[data-active-section="orientation"] > #orientation,
+.parent-paged[data-active-section="existing"] > #existing,
+.parent-paged[data-active-section="architecture"] > #architecture,
+.parent-paged[data-active-section="expressions"] > #expressions,
+.parent-paged[data-active-section="evidence"] > #evidence,
+.parent-paged[data-active-section="lineage"] > #lineage,
+.parent-paged[data-active-section="contact"] > #contact {display:block}
+@media(min-width:1100px){
+.parent-paged > section {min-height:calc(100svh - 96px);display:none}
+.parent-paged[data-active-section] > section:not(#orientation) {padding-top:clamp(6.5rem,11vh,8.5rem);padding-bottom:clamp(2rem,5vh,4rem)}
+.parent-paged > #orientation {min-height:100svh}
+}
+header nav a[aria-current="page"] {text-decoration:underline;text-underline-offset:6px}
