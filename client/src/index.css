@@ -676,3 +676,63 @@ article, .field-prose { overflow-wrap: break-word; }
 .parent-paged > #orientation {min-height:100svh}
 }
 header nav a[aria-current="page"] {text-decoration:underline;text-underline-offset:6px}
+
+/* WEB-UX-11: laptop Home as a single composed viewport. Other pages and mobile retain their layouts. */
+@media (min-width:1100px) and (min-height:650px) {
+  .parent-paged[data-active-section="orientation"] > #orientation {
+    box-sizing:border-box;
+    height:calc(100svh - 62px);
+    min-height:0;
+    padding:clamp(4.5rem,8.4vh,6.25rem) clamp(1.5rem,3vw,3rem) 1.25rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:clamp(.25rem,1vh,.8rem);
+  }
+  .parent-paged[data-active-section="orientation"] > #orientation > .relative.mx-auto.grid {
+    flex:1 1 auto;
+    min-height:0;
+    width:100%;
+    max-width:1240px;
+    grid-template-columns:minmax(0, .46fr) minmax(0, .54fr);
+    gap:clamp(1.5rem,3vw,3.5rem);
+  }
+  .parent-paged[data-active-section="orientation"] .living-core {
+    width:min(100%,clamp(300px,34vw,480px));
+    max-width:100%;
+    max-height:min(53svh,480px);
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero h1 {
+    font-size:clamp(2.8rem,4.05vw,4.1rem);
+    line-height:1.035;
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero p.text-lg {
+    font-size:clamp(1.06rem,1.22vw,1.27rem);
+    line-height:1.5;
+    margin-top:clamp(.6rem,1.3vh,1.2rem);
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero__expressions {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero__expressions a {
+    padding:.65rem .8rem;
+    gap:.22rem;
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero__expressions span {font-size:clamp(.93rem,1.2vw,1.1rem)}
+  .parent-paged[data-active-section="orientation"] .living-hero__expressions small {font-size:.67rem}
+  .parent-paged[data-active-section="orientation"] > #orientation > .relative.mx-auto.border-t {
+    flex:0 0 auto;
+    width:100%;
+    padding-top:clamp(.5rem,1vh,.8rem);
+    margin-top:0;
+  }
+  .parent-paged[data-active-section="orientation"] > #orientation > .relative.mx-auto.border-t > p:first-child {margin-bottom:.55rem}
+  .parent-paged[data-active-section="orientation"] > #orientation > .relative.mx-auto.border-t > p:last-child {margin-top:.55rem}
+  .parent-paged[data-active-section="orientation"] .core-hero__action {
+    margin-top:clamp(.7rem,1.6vh,1.2rem);
+    padding:.75rem 1rem;
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero .relative.z-10 {padding-bottom:0}
+  .parent-paged[data-active-section="orientation"] .living-hero .relative.z-10 > p:first-child {margin-bottom:clamp(.55rem,1.4vh,1.2rem)}
+  .parent-paged[data-active-section="orientation"] .living-hero .relative.z-10 > p:last-child {margin-top:clamp(.6rem,1.3vh,1rem)}
+}
