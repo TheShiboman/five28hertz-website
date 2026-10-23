@@ -63,7 +63,7 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
             <p className="mb-7 text-xs uppercase tracking-[0.34em] text-[#B9E5DB]">five28hertz · the parent field</p>
             <h1 className="max-w-2xl font-playfair text-[clamp(3.2rem,5.3vw,6.2rem)] leading-[1.04] tracking-[-0.04em] text-[#FFF5E6]">Ideas become real when they are given a form true enough to live.</h1>
             <p className="mt-8 max-w-xl text-lg leading-8 text-[#D6EAE5]">A living architecture for turning thoughts, dreams and aspirations into independent expressions — each allowed to find its own form, meet reality, and evolve through what it proves.</p>
-            <a className="core-hero__action mt-10" href={import.meta.env.BASE_URL + "vision/"}>Discover the Vision <span aria-hidden="true">↗</span></a>
+            <a className="home-purpose-link mt-10" href={import.meta.env.BASE_URL + "vision/"}>Discover Our Purpose <span aria-hidden="true">↗</span></a>
             <p className="mt-7 text-xs uppercase tracking-[0.19em] text-[#B5D9D4]">Different expressions. One coherent source.</p>
           </div>
         </div>

@@ -903,3 +903,51 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
   .parent-paged[data-active-section="orientation"] .living-hero h1 {font-size:clamp(3rem,4vw,3.9rem)}
   .parent-paged[data-active-section="orientation"] .living-hero p.text-lg {font-size:clamp(1.08rem,1.25vw,1.28rem)}
 }
+
+/* WEB-UX-15: quiet typographic invitations and laptop-safe parent-to-purpose transition. */
+.home-purpose-link {
+  display:inline-flex;align-items:center;gap:1.1rem;width:max-content;max-width:100%;
+  color:#fff3df;text-decoration:none;text-transform:uppercase;
+  font-size:.78rem;font-weight:600;letter-spacing:.17em;
+  padding:.35rem 0;border:0;background:none;position:relative;
+  transition:color .2s ease,transform .2s ease;
+}
+.home-purpose-link::after {
+  content:"";position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:#d9b47d;transform:scaleX(.18);transform-origin:left;
+  transition:transform .25s ease;
+}
+.home-purpose-link:hover,.home-purpose-link:focus-visible {color:#ffddae;transform:translateY(-2px)}
+.home-purpose-link:hover::after,.home-purpose-link:focus-visible::after {transform:scaleX(1)}
+.home-purpose-link:focus-visible,.living-hero__expressions a:focus-visible {outline:2px solid #ffddae;outline-offset:5px}
+@media (min-width:1100px) and (min-height:650px) {
+ .parent-paged[data-active-section="orientation"] > #orientation {
+   padding-top:clamp(1.2rem,3vh,2.5rem);
+   padding-bottom:1rem;
+ }
+ .parent-paged[data-active-section="orientation"] > #orientation > .relative.mx-auto.grid {
+   grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);
+   gap:clamp(1.5rem,3vw,3rem);
+ }
+ .parent-paged[data-active-section="orientation"] .living-hero h1 {
+   font-size:clamp(2.8rem,3.8vw,3.9rem);line-height:1.035;
+ }
+ .parent-paged[data-active-section="orientation"] .living-hero p.text-lg {
+   font-size:clamp(1.08rem,1.27vw,1.32rem);line-height:1.42;
+ }
+ .parent-paged[data-active-section="orientation"] .living-hero .relative.z-10 {padding-bottom:0}
+ .parent-paged[data-active-section="orientation"] .living-hero .relative.z-10 > p:first-child {margin-bottom:.55rem}
+ .parent-paged[data-active-section="orientation"] .living-hero .relative.z-10 > p:last-child {margin-top:.5rem}
+ .parent-paged[data-active-section="orientation"] .home-purpose-link {margin-top:clamp(.5rem,1vh,.85rem)}
+ .parent-paged[data-active-section="orientation"] .living-core {max-height:47svh}
+ .vision-editorial__hero {min-height:0;padding:clamp(2.5rem,7vh,5rem) 3rem}
+ .vision-editorial__hero > .vision-hero__composition {min-height:0}
+ .vision-editorial__core {width:min(78%,350px)}
+ .vision-editorial__hero h1 {font-size:clamp(3.1rem,4.3vw,4.3rem)}
+ .vision-editorial .vision-hero__subtitle {font-size:clamp(1.35rem,1.8vw,1.75rem);max-width:34ch}
+ .vision-editorial__reading {padding-top:clamp(1.75rem,3vw,2.75rem)}
+}
+@media (min-width:1100px) and (max-height:780px) {
+ .parent-paged[data-active-section="orientation"] .living-hero h1 {font-size:clamp(2.75rem,3.55vw,3.55rem)}
+ .parent-paged[data-active-section="orientation"] .living-hero p.text-lg {font-size:clamp(1.04rem,1.2vw,1.2rem)}
+}
