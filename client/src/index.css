@@ -951,3 +951,21 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
  .parent-paged[data-active-section="orientation"] .living-hero h1 {font-size:clamp(2.75rem,3.55vw,3.55rem)}
  .parent-paged[data-active-section="orientation"] .living-hero p.text-lg {font-size:clamp(1.04rem,1.2vw,1.2rem)}
 }
+
+/* WEB-UX-16: full opening thought on the Purpose threshold; continuation remains optional. */
+.purpose-opening {font-family:"Source Sans 3","Segoe UI",sans-serif;font-size:clamp(1rem,1.12vw,1.17rem);line-height:1.5;max-width:58ch;margin-top:.65rem}
+.purpose-opening p + p {margin-top:.65rem}
+.purpose-opening p:first-child {font-family:Georgia,serif;font-size:clamp(1.15rem,1.5vw,1.55rem);line-height:1.35}
+.purpose-opening p:last-of-type {color:#f4d3a8;font-family:Georgia,serif;font-size:clamp(1.08rem,1.25vw,1.3rem)}
+.purpose-opening strong {font-weight:700}
+.purpose-next {display:inline-block;margin-top:1rem;color:#f5dfbb;text-transform:uppercase;letter-spacing:.13em;font:600 .72rem "Source Sans 3","Segoe UI",sans-serif;text-decoration:none;border-bottom:1px solid #d6b17d;padding-bottom:.35rem;transition:transform .2s,color .2s}
+.purpose-next:hover,.purpose-next:focus-visible {transform:translateY(-2px);color:#fff}
+.purpose-next:focus-visible {outline:2px solid #f5dfbb;outline-offset:5px}
+@media (min-width:1100px) {
+.vision-editorial__hero {padding-top:clamp(1.5rem,3vh,2.5rem);padding-bottom:clamp(1.5rem,3vh,2.5rem)}
+.vision-editorial__hero > .vision-hero__composition {grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(1.5rem,3vw,3rem)}
+.vision-editorial__core {width:min(80%,390px)}
+.vision-editorial__hero h1 {font-size:clamp(2.8rem,3.5vw,3.8rem);margin-top:.5rem}
+.vision-editorial__hero .mt-12 {margin-top:.5rem}
+.vision-editorial__hero .mt-5 {margin-top:.5rem}
+}

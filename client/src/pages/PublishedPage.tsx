@@ -3,7 +3,7 @@ import pages from "@/data/live-pages.json";
 import { useEffect } from "react";
 
 const entries = [
-  { path: "/vision", label: "Vision" },
+  { path: "/vision", label: "Purpose" },
   
   { path: "/field", label: "The Field" },
   { path: "/interior/translation-premise", label: "The Translation Premise" },
@@ -20,7 +20,7 @@ export default function PublishedPage({ path }: { path: string }) {
     if (!isVision || !content) return "";
     // Preserve original Vision prose; compose its existing six titled sections.
     const cleanVision = content.replace(/<\/p>\s*[^<\w\s]\s*(?=<h2\b)/gi, "</p>").replace(/<br><\/br>/g, "</p><p>");
-    const sections = cleanVision.split(/(?=<h2\b)/i);
+    const sections = cleanVision.slice(cleanVision.search(/<h2\\b/i)).split(/(?=<h2\\b)/i);
     const intro = sections.shift() || "";
     const ending = sections.length ? sections[sections.length - 1] : "";
     const lastHeading = ending.indexOf("Continue<p>");
@@ -57,7 +57,13 @@ export default function PublishedPage({ path }: { path: string }) {
           <a className="text-xs uppercase tracking-[0.22em] text-[#C7E9E2] underline underline-offset-8" href={base}>← five28hertz / the Core</a>
           <p className="mt-12 text-xs uppercase tracking-[0.32em] text-[#E9BC86]">An expression of the parent field</p>
           <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{isVision ? "Our Purpose" : entries.find(x=>x.path===path)?.label}</h1>
-          <p className="mt-6 max-w-lg vision-hero__subtitle text-[#CDE5DF]">{isVision ? "five28hertz exists because not everything meaningful can be rushed, optimized, or sold." : "A distinct perspective, held within one evolving architecture."}</p>
+          {isVision ? <div className="purpose-opening text-[#D6EAE5]">
+            <p>five28hertz exists because not everything meaningful can be rushed, optimized, or sold.</p>
+            <p>It exists as a response to a world that has learned how to scale almost everything — except wisdom, coherence, and inner truth. A world fluent in execution, yet increasingly detached from purpose. A world where speed is rewarded, but sense-making is postponed.</p>
+            <p>five28hertz begins from a different premise:</p>
+            <p>That before anything is built, something must be <strong>remembered</strong>.</p>
+            <a className="purpose-next" href={base + "architecture/"}>Explore the Living Architecture <span aria-hidden="true">↗</span></a>
+          </div> : <p className="mt-6 max-w-lg vision-hero__subtitle text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>}
         </div>
         {!isVision && <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{<img src={base + (isVision ? "assets/original-five28hertz-logo.svg?vision-core=corporate-v2" : "assets/original-five28hertz-logo.svg?corporate-core=approved-v1")} alt="five28hertz corporate Core" className="block w-full h-auto" />}</div>}
       </div>
