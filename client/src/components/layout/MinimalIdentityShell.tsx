@@ -1,7 +1,7 @@
 const MinimalIdentityShell = () => {
   const sections = [
     { id: "existing", label: "Existing site" },
-    { id: "vision", label: "Vision" },
+    { id: "vision", label: "Purpose" },
     { id: "architecture", label: "Architecture" },
     { id: "expressions", label: "Expressions" },
     { id: "evidence", label: "Evidence" },
