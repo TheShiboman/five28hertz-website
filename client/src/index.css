@@ -792,3 +792,60 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
     border-radius:0 .618rem .236rem .618rem;
   }
 }
+
+/* WEB-UX-13: editorial expressions, no containers or card geometry. */
+.parent-paged[data-active-section="orientation"] .living-hero__expressions {
+  gap:clamp(.7rem,1.4vw,1.5rem);
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a {
+  min-height:0;
+  padding:.22rem .3rem .32rem 0;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  transform:none;
+  transition:color .22s ease,opacity .22s ease;
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a:nth-child(n) {
+  border-radius:0;
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a::before {
+  display:none;
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a::after {
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(232,188,134,.8),rgba(137,207,193,.4) 61.8%,transparent);
+  transform-origin:left center;
+  transition:opacity .22s ease;
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a:hover,
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a:focus-visible {
+  transform:none;
+  background:transparent;
+  box-shadow:none;
+  color:#ffe2b8;
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a:hover::after,
+.parent-paged[data-active-section="orientation"] .living-hero__expressions a:focus-visible::after {
+  opacity:1;
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions span {
+  font-size:clamp(1rem,1.3vw,1.25rem);
+}
+.parent-paged[data-active-section="orientation"] .living-hero__expressions small {
+  margin-top:.2rem;
+}
+@media(max-width:1099px) {
+  .parent-paged[data-active-section="orientation"] .living-hero__expressions a {
+    border:0;
+    border-radius:0;
+    background:transparent;
+    box-shadow:none;
+    padding:.55rem .2rem;
+  }
+  .parent-paged[data-active-section="orientation"] .living-hero__expressions a::before {display:none}
+}
