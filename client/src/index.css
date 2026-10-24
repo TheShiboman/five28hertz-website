@@ -1045,3 +1045,34 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
  .vision-editorial .vision-story__chapter {min-height:calc(100svh - 75px);padding:clamp(4rem,7vh,6rem) clamp(1.5rem,6vw,4rem)}
  .vision-editorial .vision-story__chapter-body > p:not(:first-of-type) {font-size:clamp(1.1rem,2.5vw,1.25rem);line-height:1.7}
 }
+
+/* WEB-UX-19: restore approved reading face throughout Purpose, fit long final chapter, one editorial exit. */
+.vision-editorial .purpose-opening,
+.vision-editorial .purpose-opening p:not(:first-child):not(:last-of-type) {
+ font-family:var(--five28-font-reading),"Lora",Georgia,serif;
+ font-size:clamp(1.18rem,1.32vw,1.4rem);line-height:1.68;
+ letter-spacing:-.012em;color:#f0f0e9;
+}
+.vision-editorial .vision-story__chapter:last-of-type {
+ padding-top:clamp(2.25rem,4.5vh,4rem);
+ padding-bottom:clamp(2.25rem,4.5vh,4rem);
+}
+.vision-editorial .vision-story__chapter:last-of-type .vision-story__chapter-body > p:not(:first-of-type) {
+ font-size:clamp(1.08rem,1.12vw,1.23rem);
+ line-height:1.5;margin-bottom:.62em;
+}
+.vision-editorial .site-continuation {
+ border:0;margin:0;padding:2.5rem max(6vw,calc((100vw - 1320px)/2)) 3.25rem;
+}
+.vision-editorial .purpose-continuation-link {
+ display:inline-block;background:transparent;border:0;padding:0 0 .4rem;
+ font-family:var(--five28-font-reading),"Lora",Georgia,serif;
+ font-size:clamp(1.2rem,1.65vw,1.6rem);color:#f1d5ab;
+ text-decoration:none;border-bottom:1px solid #d6ad77;
+ transition:transform .2s,color .2s;
+}
+.vision-editorial .purpose-continuation-link:hover,
+.vision-editorial .purpose-continuation-link:focus-visible {
+ color:#fff7e9;transform:translateY(-3px);
+}
+.vision-editorial .purpose-continuation-link:focus-visible {outline:2px solid #f1d5ab;outline-offset:5px}

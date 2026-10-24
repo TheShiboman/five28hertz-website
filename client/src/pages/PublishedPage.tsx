@@ -81,12 +81,20 @@ export default function PublishedPage({ path }: { path: string }) {
         </nav>
       ) : (
         <nav aria-label="Continue exploring the parent" className="site-continuation">
-          <h2>{isVision ? "Continue to the Living Architecture" : "Continue exploring"}</h2>
-          <div className="site-continuation__links">
-            {isVision ? <a href={base + "architecture/"}>Explore the Living Architecture →</a> : entries.filter(x => ["/vision", "/field"].includes(x.path) && x.path !== path).map(x => (
-              <a href={base + x.path.slice(1) + "/"} key={x.path}>{x.label} <span aria-hidden="true">↗</span></a>
-            ))}
-          </div>
+          {isVision ? (
+            <a className="purpose-continuation-link" href={base + "architecture/"}>
+              Continue into the Living Architecture <span aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <>
+              <h2>Continue exploring</h2>
+              <div className="site-continuation__links">
+                {entries.filter(x => ["/vision", "/field"].includes(x.path) && x.path !== path).map(x => (
+                  <a href={base + x.path.slice(1) + "/"} key={x.path}>{x.label} <span aria-hidden="true">↗</span></a>
+                ))}
+              </div>
+            </>
+          )}
         </nav>
       )}
     </div>
