@@ -1000,3 +1000,48 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .vision-editorial .vision-story__chapter-body > p:not(:first-of-type) {font-size:1.15rem}
 }
 @media(prefers-reduced-motion:no-preference) {html:has(.vision-editorial) {scroll-behavior:smooth}}
+
+/* WEB-UX-18: approved Lora, six distinct immersive chapters, legible lead statements. */
+.vision-editorial .vision-editorial__reading {padding-inline:0;background:#203847}
+.vision-editorial .vision-editorial__reading > .field-prose {margin:0}
+.vision-editorial .vision-story__chapter {
+  box-sizing:border-box;position:relative;isolation:isolate;
+  max-width:none;width:100%;margin:0;
+  min-height:calc(100svh - 85px);padding:clamp(4.5rem,9vh,8rem) max(6vw,calc((100vw - 1320px)/2));
+  border:0;display:grid;align-content:center;
+  scroll-margin-top:85px;
+}
+.vision-editorial .vision-story__chapter--0 {background:#263f4c}
+.vision-editorial .vision-story__chapter--1 {background:#304b52}
+.vision-editorial .vision-story__chapter--2 {background:#293f4a}
+.vision-editorial .vision-story__chapter:nth-of-type(4) {background:#354a53}
+.vision-editorial .vision-story__chapter:nth-of-type(5) {background:#27444b}
+.vision-editorial .vision-story__chapter:nth-of-type(6) {background:#30414d}
+.vision-editorial .vision-story__chapter-number {color:#d8b98d;opacity:.85}
+.vision-editorial .vision-story__chapter h2 {color:#fff5e5}
+.vision-editorial .vision-story__chapter-body > p:first-of-type,
+.vision-editorial .vision-story__chapter--1 .vision-story__chapter-body > p:first-of-type,
+.vision-editorial .vision-story__chapter--2 .vision-story__chapter-body > p:first-of-type {
+ color:#e8d3b1;font-family:var(--field-font-display),Georgia,serif;
+ font-size:clamp(1.65rem,2vw,2.1rem);line-height:1.43;
+ border-left-color:#d6ad77;opacity:1;
+}
+.vision-editorial .vision-story__chapter-body > p:not(:first-of-type),
+.vision-editorial .field-prose .vision-story__chapter-body > p:not(:first-of-type) {
+ font-family:var(--five28-font-reading),"Lora",Georgia,serif;
+ font-size:clamp(1.18rem,1.32vw,1.4rem);line-height:1.72;
+ color:#f0f0e9;letter-spacing:-.012em;
+ max-width:57ch;margin-bottom:1.06em;
+}
+.vision-editorial .vision-story__chapter-body > p:last-child {margin-bottom:0}
+.vision-editorial .site-continuation {padding:clamp(4rem,8vh,7rem) max(6vw,calc((100vw - 1320px)/2));max-width:none;background:#203847}
+.vision-editorial .site-continuation__links a {background:transparent;color:#f2d7ab;border:1px solid #bca17a;padding:1rem 1.5rem}
+.vision-editorial .site-continuation__links a:hover {background:#344d56;color:#fff5e5}
+@media(min-width:1100px) {
+ .vision-editorial .vision-story__chapter {grid-template-columns:95px minmax(0,1fr);column-gap:clamp(1.5rem,3vw,3.5rem)}
+ .vision-editorial .vision-story__chapter-body {grid-template-columns:minmax(230px,.85fr) minmax(0,1.15fr)}
+}
+@media(max-width:1099px) {
+ .vision-editorial .vision-story__chapter {min-height:calc(100svh - 75px);padding:clamp(4rem,7vh,6rem) clamp(1.5rem,6vw,4rem)}
+ .vision-editorial .vision-story__chapter-body > p:not(:first-of-type) {font-size:clamp(1.1rem,2.5vw,1.25rem);line-height:1.7}
+}
