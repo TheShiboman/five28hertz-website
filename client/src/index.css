@@ -969,3 +969,34 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .vision-editorial__hero .mt-12 {margin-top:.5rem}
 .vision-editorial__hero .mt-5 {margin-top:.5rem}
 }
+
+/* WEB-UX-17: one continuous Purpose experience, no light reading break. */
+.vision-editorial {background:#203847;color:#e7efeb;padding-bottom:0}
+.vision-editorial .published-page__aura {display:none}
+.vision-editorial .vision-editorial__hero {min-height:calc(100svh - 85px);background:radial-gradient(ellipse at 31% 49%,#3b6771 0%,#294653 49%,#1d3345 100%);display:flex;align-items:center}
+.vision-editorial .vision-editorial__reading {background:#203847;color:#e7efeb;max-width:none;padding:0 clamp(1.5rem,7vw,8rem)}
+.vision-editorial .vision-editorial__reading > .field-prose {margin-top:0}
+.vision-editorial .vision-story__opening {display:none}
+.vision-editorial .vision-story__chapter {min-height:calc(100svh - 85px);scroll-margin-top:85px;display:grid;align-content:center;border-bottom:1px solid #6d858b55;margin:0 auto;max-width:1320px;padding:clamp(4rem,8vh,7rem) 0}
+.vision-editorial .vision-story__chapter h2 {color:#fff3e2}
+.vision-editorial .vision-story__chapter p {color:#e2ebe7}
+.vision-editorial .vision-story__chapter-number {color:#e4b87e}
+.vision-editorial .site-continuation {max-width:1320px;margin:0 auto;padding:clamp(3rem,7vh,6rem) 0}
+.vision-editorial .site-continuation h2 {color:#fff3e2}
+.vision-editorial .site-continuation a {color:#e7d4b7}
+.vision-editorial .purpose-opening {font-family:"Segoe UI",Arial,sans-serif;font-size:clamp(1.1rem,1.28vw,1.3rem);line-height:1.52;max-width:62ch}
+.vision-editorial .purpose-opening p:first-child {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.45rem,1.8vw,1.9rem)}
+.vision-editorial .purpose-opening p:last-of-type {font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.2rem,1.45vw,1.5rem)}
+.vision-editorial .purpose-next {font-family:"Segoe UI",Arial,sans-serif;font-size:.83rem}
+.vision-editorial .vision-story__chapter-body > p:not(:first-of-type) {font-family:"Segoe UI",Arial,sans-serif;font-size:clamp(1.22rem,1.4vw,1.45rem);line-height:1.7}
+@media(min-width:1100px) {
+.vision-editorial .vision-editorial__hero {padding:2rem 3rem}
+.vision-editorial .vision-editorial__core {width:min(85%,420px)}
+.vision-editorial .vision-story__chapter {padding:5rem 0}
+}
+@media(max-width:1099px) {
+.vision-editorial .vision-editorial__hero {padding-top:7rem;padding-bottom:3rem}
+.vision-editorial .vision-story__chapter {min-height:auto;padding:5rem 0}
+.vision-editorial .vision-story__chapter-body > p:not(:first-of-type) {font-size:1.15rem}
+}
+@media(prefers-reduced-motion:no-preference) {html:has(.vision-editorial) {scroll-behavior:smooth}}

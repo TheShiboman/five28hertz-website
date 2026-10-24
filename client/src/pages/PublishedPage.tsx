@@ -20,13 +20,13 @@ export default function PublishedPage({ path }: { path: string }) {
     if (!isVision || !content) return "";
     // Preserve original Vision prose; compose its existing six titled sections.
     const cleanVision = content.replace(/<\/p>\s*[^<\w\s]\s*(?=<h2\b)/gi, "</p>").replace(/<br><\/br>/g, "</p><p>");
-    const sections = cleanVision.slice(cleanVision.search(/<h2\\b/i)).split(/(?=<h2\\b)/i);
-    const intro = sections.shift() || "";
+    const sections = cleanVision.slice(cleanVision.search(/<h2\b/i)).split(/(?=<h2\b)/i);
+    const intro = "";
     const ending = sections.length ? sections[sections.length - 1] : "";
     const lastHeading = ending.indexOf("Continue<p>");
     if (lastHeading >= 0) sections[sections.length - 1] = ending.slice(0, lastHeading);
     return '<div class="vision-story__opening">' + intro.replace(/<\/p>\s*·\s*(?=<)/g, '</p>') + '</div>' +
-      sections.map((section, i) => '<section class="vision-story__chapter vision-story__chapter--' + (i % 3) + '">' +
+      sections.map((section, i) => '<section id="purpose-chapter-' + (i + 1) + '" class="vision-story__chapter vision-story__chapter--' + (i % 3) + '">' +
         '<div class="vision-story__chapter-number" aria-hidden="true">' + String(i + 1).padStart(2, "0") + '</div>' +
         '<div class="vision-story__chapter-body">' + section.replace(/<\/p>\s*·\s*(?=<)/g, '</p>') + '</div></section>').join("");
   }, [content, isVision]);
@@ -56,13 +56,13 @@ export default function PublishedPage({ path }: { path: string }) {
         <div className="relative z-10 max-w-2xl">
           <a className="text-xs uppercase tracking-[0.22em] text-[#C7E9E2] underline underline-offset-8" href={base}>← five28hertz / the Core</a>
           <p className="mt-12 text-xs uppercase tracking-[0.32em] text-[#E9BC86]">An expression of the parent field</p>
-          <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{isVision ? "Our Purpose" : entries.find(x=>x.path===path)?.label}</h1>
+          {!isVision && <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{entries.find(x=>x.path===path)?.label}</h1>}
           {isVision ? <div className="purpose-opening text-[#D6EAE5]">
             <p>five28hertz exists because not everything meaningful can be rushed, optimized, or sold.</p>
             <p>It exists as a response to a world that has learned how to scale almost everything — except wisdom, coherence, and inner truth. A world fluent in execution, yet increasingly detached from purpose. A world where speed is rewarded, but sense-making is postponed.</p>
             <p>five28hertz begins from a different premise:</p>
             <p>That before anything is built, something must be <strong>remembered</strong>.</p>
-            <a className="purpose-next" href={base + "architecture/"}>Explore the Living Architecture <span aria-hidden="true">↗</span></a>
+            <a className="purpose-next" href="#purpose-chapter-1">Scroll to explore the six statements <span aria-hidden="true">↗</span></a>
           </div> : <p className="mt-6 max-w-lg vision-hero__subtitle text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>}
         </div>
         {!isVision && <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{<img src={base + (isVision ? "assets/original-five28hertz-logo.svg?vision-core=corporate-v2" : "assets/original-five28hertz-logo.svg?corporate-core=approved-v1")} alt="five28hertz corporate Core" className="block w-full h-auto" />}</div>}
@@ -71,8 +71,8 @@ export default function PublishedPage({ path }: { path: string }) {
     <div className="h-2 w-full field-spectrum" aria-hidden="true" />
     <div className="published-page__aura" aria-hidden="true" />
     <div className={isVision ? "vision-editorial__reading mx-auto max-w-5xl px-6 pt-16 md:px-12" : "mx-auto max-w-5xl px-6 pt-16 md:px-12"}>
-      <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>
-      <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>
+      {!isVision && <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>}
+      {!isVision && <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>}
       <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:(isVision ? visionContent : fieldContent).replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
       {path === "/field" ? (
         <nav aria-label="Return to the parent pages" className="site-continuation">
@@ -81,9 +81,9 @@ export default function PublishedPage({ path }: { path: string }) {
         </nav>
       ) : (
         <nav aria-label="Continue exploring the parent" className="site-continuation">
-          <h2>Continue exploring</h2>
+          <h2>{isVision ? "Continue to the Living Architecture" : "Continue exploring"}</h2>
           <div className="site-continuation__links">
-            {entries.filter(x => ["/vision", "/field"].includes(x.path) && x.path !== path).map(x => (
+            {isVision ? <a href={base + "architecture/"}>Explore the Living Architecture →</a> : entries.filter(x => ["/vision", "/field"].includes(x.path) && x.path !== path).map(x => (
               <a href={base + x.path.slice(1) + "/"} key={x.path}>{x.label} <span aria-hidden="true">↗</span></a>
             ))}
           </div>
