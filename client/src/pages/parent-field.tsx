@@ -102,22 +102,22 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
         </div>
       </section>
 
-      <section id="architecture" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
+      <section id="architecture" className="field-section architecture-story border-t px-6 py-28 md:px-12 md:py-36">
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.3fr_0.7fr]">
           <motion.div {...reveal}>
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Living Architecture</p>
             <h2 className="font-playfair text-4xl md:text-6xl">A living architecture</h2>
-            <div className="mt-10 max-w-3xl space-y-7 text-lg leading-8 text-[#46504A]">
+            <div className="architecture-story__body mt-10 max-w-3xl space-y-7 text-lg leading-8">
               <p>five28hertz begins with a simple conviction: what is deeply true should be given the chance to become real.</p>
               <p>An idea is held long enough to become coherent. Coherence becomes form. Form becomes an independent expression. Reality then decides what that expression earns the right to become next.</p>
-              <p className="text-[#17201D]">The parent holds the source and the frame. Each expression develops its own purpose, experience and path into the world.</p>
+              <p className="architecture-story__emphasis">The parent holds the source and the frame. Each expression develops its own purpose, experience and path into the world.</p>
             </div>
           </motion.div>
 
-          <motion.aside {...reveal} className="self-end border-l border-black/15 pl-7 lg:pl-9">
+          <motion.aside {...reveal} className="architecture-story__aside self-end border-l pl-7 lg:pl-9">
             <p className="text-xs uppercase tracking-[0.3em] text-[#414943]">Operating architecture</p>
             <h3 className="mt-5 font-playfair text-3xl">DreamWeaver OS</h3>
-            <p className="mt-6 leading-7 text-[#46504A]">
+            <p className="architecture-story__aside-copy mt-6 leading-7">
               DreamWeaver OS is the operating architecture behind five28hertz. It preserves accumulated thought and context, keeps decisions connected to purpose, and helps ideas move from intention into coordinated, verifiable execution.
             </p>
           </motion.aside>
