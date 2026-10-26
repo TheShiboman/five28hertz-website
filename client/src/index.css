@@ -1080,3 +1080,10 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 /* WEB-UX-20: uninterrupted Purpose opening; header owns return-to-Home navigation. */
 .vision-editorial__hero .vision-hero__composition > div:last-child { min-width: 0; }
 .vision-editorial__hero .purpose-opening { margin-top: 0; }
+/* WEB-UX-21: a gentler reading cadence for the desktop Purpose opening only. */
+@media (min-width:1100px) {
+  .vision-editorial .purpose-opening { line-height:1.78; }
+  .vision-editorial .purpose-opening p + p { margin-top:1.05rem; }
+  .vision-editorial .purpose-opening p:first-child { line-height:1.47; margin-bottom:.35rem; }
+  .vision-editorial .purpose-opening p:last-of-type { line-height:1.6; margin-top:1.15rem; }
+}
