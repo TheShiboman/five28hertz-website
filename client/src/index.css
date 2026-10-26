@@ -1076,3 +1076,7 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
  color:#fff7e9;transform:translateY(-3px);
 }
 .vision-editorial .purpose-continuation-link:focus-visible {outline:2px solid #f1d5ab;outline-offset:5px}
+
+/* WEB-UX-20: uninterrupted Purpose opening; header owns return-to-Home navigation. */
+.vision-editorial__hero .vision-hero__composition > div:last-child { min-width: 0; }
+.vision-editorial__hero .purpose-opening { margin-top: 0; }

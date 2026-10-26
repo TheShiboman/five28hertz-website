@@ -54,15 +54,12 @@ export default function PublishedPage({ path }: { path: string }) {
       <div className={isVision ? "vision-hero__composition relative mx-auto flex max-w-6xl flex-col items-start gap-8 md:flex-row md:items-center md:justify-between" : "relative mx-auto flex max-w-6xl flex-col items-start gap-8 md:flex-row md:items-center md:justify-between"}>
         {isVision && <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{<img src={base + (isVision ? "assets/original-five28hertz-logo.svg?vision-core=corporate-v2" : "assets/original-five28hertz-logo.svg?corporate-core=approved-v1")} alt="five28hertz corporate Core" className="block w-full h-auto" />}</div>}
         <div className="relative z-10 max-w-2xl">
-          <a className="text-xs uppercase tracking-[0.22em] text-[#C7E9E2] underline underline-offset-8" href={base}>← five28hertz / the Core</a>
-          <p className="mt-12 text-xs uppercase tracking-[0.32em] text-[#E9BC86]">An expression of the parent field</p>
           {!isVision && <h1 className="mt-5 font-playfair text-[clamp(2.7rem,5vw,5.5rem)] leading-tight text-[#FFF8E9]">{entries.find(x=>x.path===path)?.label}</h1>}
           {isVision ? <div className="purpose-opening text-[#D6EAE5]">
             <p>five28hertz exists because not everything meaningful can be rushed, optimized, or sold.</p>
             <p>It exists as a response to a world that has learned how to scale almost everything — except wisdom, coherence, and inner truth. A world fluent in execution, yet increasingly detached from purpose. A world where speed is rewarded, but sense-making is postponed.</p>
             <p>five28hertz begins from a different premise:</p>
             <p>That before anything is built, something must be <strong>remembered</strong>.</p>
-            <a className="purpose-next" href="#purpose-chapter-1">Scroll to explore the six statements <span aria-hidden="true">↗</span></a>
           </div> : <p className="mt-6 max-w-lg vision-hero__subtitle text-[#CDE5DF]">A distinct perspective, held within one evolving architecture.</p>}
         </div>
         {!isVision && <div className={isVision ? "vision-editorial__core relative z-10 mx-auto shrink-0" : "field-page-hero__core relative z-10 mx-auto w-56 shrink-0 md:mx-0 md:w-72"}>{<img src={base + (isVision ? "assets/original-five28hertz-logo.svg?vision-core=corporate-v2" : "assets/original-five28hertz-logo.svg?corporate-core=approved-v1")} alt="five28hertz corporate Core" className="block w-full h-auto" />}</div>}
@@ -71,13 +68,11 @@ export default function PublishedPage({ path }: { path: string }) {
     <div className="h-2 w-full field-spectrum" aria-hidden="true" />
     <div className="published-page__aura" aria-hidden="true" />
     <div className={isVision ? "vision-editorial__reading mx-auto max-w-5xl px-6 pt-16 md:px-12" : "mx-auto max-w-5xl px-6 pt-16 md:px-12"}>
-      {!isVision && <a className="field-back text-xs uppercase tracking-widest" href={base}>← Return to the parent orientation</a>}
-      {!isVision && <div className="relative mt-12 flex items-center gap-4"><span className="field-orbit-mark" aria-hidden="true" /><span className="text-xs uppercase tracking-[0.25em] text-[#35616B]">From the existing five28hertz field</span></div>}
       <article className="field-prose mt-12" dangerouslySetInnerHTML={{__html:(isVision ? visionContent : fieldContent).replace(/href="\/(.*?)"/g, (_match, route:string) => `href="${base}${route}"`)}} />
       {path === "/field" ? (
         <nav aria-label="Return to the parent pages" className="site-continuation">
-          <h2>Return to the Core</h2>
-          <div className="site-continuation__links"><a href={base + "vision/"}>Vision ↗</a></div>
+
+          <div className="site-continuation__links"><a href={base + "vision/"}>Explore Purpose ↗</a></div>
         </nav>
       ) : (
         <nav aria-label="Continue exploring the parent" className="site-continuation">
@@ -87,7 +82,7 @@ export default function PublishedPage({ path }: { path: string }) {
             </a>
           ) : (
             <>
-              <h2>Continue exploring</h2>
+    
               <div className="site-continuation__links">
                 {entries.filter(x => ["/vision", "/field"].includes(x.path) && x.path !== path).map(x => (
                   <a href={base + x.path.slice(1) + "/"} key={x.path}>{x.label} <span aria-hidden="true">↗</span></a>
