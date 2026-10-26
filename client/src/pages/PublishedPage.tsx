@@ -78,7 +78,7 @@ export default function PublishedPage({ path }: { path: string }) {
         <nav aria-label="Continue exploring the parent" className="site-continuation">
           {isVision ? (
             <a className="purpose-continuation-link" href={base + "architecture/"}>
-              Continue into the Living Architecture <span aria-hidden="true">↗</span>
+              From purpose to form <span className="purpose-continuation-arrow" aria-hidden="true">↗</span>
             </a>
           ) : (
             <>

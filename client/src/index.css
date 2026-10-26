@@ -1087,3 +1087,13 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
   .vision-editorial .purpose-opening p:first-child { line-height:1.47; margin-bottom:.35rem; }
   .vision-editorial .purpose-opening p:last-of-type { line-height:1.6; margin-top:1.15rem; }
 }
+
+/* WEB-UX-22: understated editorial handoff from Stewardship to Architecture. */
+.vision-editorial .site-continuation {padding-top:1.5rem;padding-bottom:2.25rem}
+.vision-editorial .purpose-continuation-link {position:relative;display:inline-flex;align-items:baseline;gap:.45em;padding:0 0 .35rem;border-bottom:0;font-family:var(--five28-font-reading),"Lora",Georgia,serif;font-size:clamp(1rem,1.15vw,1.15rem);font-weight:500;line-height:1.45;color:#e6c99d;transform:none}
+.vision-editorial .purpose-continuation-link::after {content:"";position:absolute;bottom:0;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(.28);transform-origin:left;transition:transform .25s ease}
+.vision-editorial .purpose-continuation-link:hover::after,.vision-editorial .purpose-continuation-link:focus-visible::after {transform:scaleX(1)}
+.vision-editorial .purpose-continuation-link:hover,.vision-editorial .purpose-continuation-link:focus-visible {transform:none;color:#fff2dc}
+.vision-editorial .purpose-continuation-arrow {display:inline-block;transition:transform .25s ease}
+.vision-editorial .purpose-continuation-link:hover .purpose-continuation-arrow,.vision-editorial .purpose-continuation-link:focus-visible .purpose-continuation-arrow {transform:translate(2px,-2px)}
+@media (prefers-reduced-motion:reduce) {.vision-editorial .purpose-continuation-link::after,.vision-editorial .purpose-continuation-arrow {transition:none}}
