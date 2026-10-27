@@ -1180,4 +1180,7 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 }
 @media (max-width: 899px) {.expressions-intro__spiral {display:none}}
 .expression-panel--1 .expression-panel__logo {object-fit:contain;background:transparent}
-.expression-panel--1 {background:#123f45;color:#eef5ee;--exp-muted:#c5ddd7;--exp-accent:#f0dcbf}
+.expression-panel--1 {background:#f7f4ee;color:#1a3437;--exp-muted:#51696a;--exp-accent:#12696b}
+.expression-panel--1 .expression-panel__legacy {color:#51696a}
+.expression-panel--1 .expression-panel__logo {height:210px;width:min(100%,310px)}
+@media(max-width:760px){.expression-panel--1 .expression-panel__logo {height:170px;width:250px}}
