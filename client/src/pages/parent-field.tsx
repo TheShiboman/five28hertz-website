@@ -129,38 +129,32 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
         </a>
       </section>
 
-      <section id="expressions" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
-        <div className="mx-auto max-w-6xl">
-          <motion.div {...reveal} className="max-w-3xl">
-            <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Expressions</p>
-            <h2 className="font-playfair text-4xl md:text-6xl">Expressions</h2>
-            <p className="mt-7 text-lg leading-8 text-[#46504A]">Each expression begins from the same source, then becomes responsible for its own truth.</p>
-          </motion.div>
-
-          <div className="mt-20 divide-y divide-black/10 border-y border-black/10">
-            {expressions.map((expression, index) => {
-              const Wrapper = expression.href ? "a" : "div";
-              const props = expression.href
-                ? { href: expression.href, target: "_blank", rel: "noreferrer" }
-                : {};
-
-              return (
-                <motion.div key={expression.name} {...reveal}>
-                  <Wrapper {...props} className="grid gap-6 py-10 transition-opacity hover:opacity-70 md:grid-cols-[0.75fr_1.25fr] md:py-14">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.28em] text-[#554724]">{expression.state}</p>
-                      <h3 className="mt-4 font-playfair text-3xl md:text-4xl">{expression.name}</h3>
-                    </div>
-                    <div className="max-w-2xl">
-                      <p className="text-lg leading-8">{expression.body}</p>
-                      <p className="mt-5 leading-7 text-[#414943]">{expression.proof}</p>
-                    </div>
-                  </Wrapper>
-                </motion.div>
-              );
-            })}
-          </div>
+      <section id="expressions" className="expressions-world">
+        <div className="expressions-intro">
+          <p className="expressions-kicker">The Brand Expressions</p>
+          <h1>Different expressions. One coherent source.</h1>
+          <p>Each begins from the same parent field, then develops its own purpose, experience and path into the world.</p>
+          <a href="#expression-qxt" className="expressions-discover">Meet the expressions <span aria-hidden="true">↓</span></a>
         </div>
+        {expressions.map((expression, index) => (
+          <article className={`expression-panel expression-panel--${index}`} id={`expression-${index === 0 ? "qxt" : index === 1 ? "studio" : "argento"}`} key={expression.name}>
+            <div className="expression-panel__inner">
+              <div className="expression-panel__identity">
+                <p className="expression-panel__index">0{index + 1} / 0{expressions.length}</p>
+                <img className="expression-panel__logo" src={import.meta.env.BASE_URL + "assets/" + (index === 0 ? "QXT World Logo.png" : index === 1 ? "528Hz Blog & Podcast Logo Canva.png" : "Argento Homes Logo.png")} alt={index === 1 ? "Legacy Studio visual identity (Blog & Podcast era)" : `${expression.name} logo`} />
+                <h2>{expression.name}</h2>
+                {index === 1 && <p className="expression-panel__legacy">Legacy visual asset — current Studio identity pending confirmation</p>}
+              </div>
+              <div className="expression-panel__story">
+                <p className="expression-panel__status">{expression.state}</p>
+                <p className="expression-panel__lead">{expression.body}</p>
+                <p className="expression-panel__evidence">{expression.proof}</p>
+                {expression.href && <a className="expression-panel__visit" href={expression.href} target="_blank" rel="noreferrer">Visit {expression.name} <span aria-hidden="true">↗</span></a>}
+              </div>
+            </div>
+            <a className="expression-panel__next" href={index < expressions.length - 1 ? `#expression-${index === 0 ? "studio" : "argento"}` : `${import.meta.env.BASE_URL}evidence/`}>{index < expressions.length - 1 ? "Discover the next expression" : "Continue to Evidence"} <span aria-hidden="true">↓</span></a>
+          </article>
+        ))}
       </section>
 
       <section id="evidence" className="field-section field-section--warm border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
