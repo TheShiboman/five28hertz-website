@@ -122,6 +122,11 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
             </p>
           </motion.aside>
         </div>
+        <a className="architecture-next mx-auto block max-w-6xl" href={`${import.meta.env.BASE_URL}expressions/`}>
+          <span className="architecture-next__eyebrow">From architecture to expression</span>
+          <span className="architecture-next__statement">An architecture becomes meaningful through what it gives form to.</span>
+          <span className="architecture-next__destination">Discover the Brand Expressions <span aria-hidden="true">↗</span></span>
+        </a>
       </section>
 
       <section id="expressions" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">

@@ -1132,3 +1132,17 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
   .parent-paged[data-active-section="architecture"] .architecture-story__aside-copy,
   .parent-paged[data-active-section="architecture"] .architecture-story__emphasis {font-size:1.05rem;line-height:1.75}
 }
+
+/* WEB-UX-24: larger architecture reading scale and one contextual next-step link. */
+@media(min-width:1100px) {
+.parent-paged[data-active-section="architecture"] .architecture-story__body,
+.parent-paged[data-active-section="architecture"] .architecture-story__aside-copy,
+.parent-paged[data-active-section="architecture"] .architecture-story__emphasis {font-size:clamp(1.375rem,1.43vw,1.5rem);line-height:1.68}
+}
+.parent-paged[data-active-section="architecture"] .architecture-next {margin-top:clamp(2.5rem,5vh,4rem);padding-top:1rem;padding-bottom:.5rem;text-decoration:none;color:#34423b;max-width:72rem}
+.architecture-next__eyebrow {display:block;font-size:.68rem;letter-spacing:.23em;text-transform:uppercase;color:#65736a;margin-bottom:.6rem}
+.architecture-next__statement {display:block;font-family:var(--five28-font-reading),"Lora",Georgia,serif;font-size:clamp(1.05rem,1.4vw,1.4rem);line-height:1.55;max-width:48ch}
+.architecture-next__destination {display:inline-flex;gap:.55em;margin-top:.65rem;padding-bottom:.25rem;font-family:var(--five28-font-reading),"Lora",Georgia,serif;font-size:clamp(1rem,1.1vw,1.15rem);border-bottom:1px solid #b8ad97;transition:border-color .2s ease,color .2s ease}
+.architecture-next:hover .architecture-next__destination,.architecture-next:focus-visible .architecture-next__destination {border-color:#34423b;color:#17201d}
+.architecture-next:focus-visible {outline:2px solid #65736a;outline-offset:5px}
+@media(prefers-reduced-motion:reduce){.architecture-next__destination{transition:none}}
