@@ -1170,3 +1170,14 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .expression-panel__next {position:absolute;bottom:1.7rem;left:max(7vw,24px);color:var(--exp-muted)}
 .expression-panel a:focus-visible,.expressions-world a:focus-visible {outline:2px solid currentColor;outline-offset:6px}
 @media(max-width:760px){.expression-panel__inner{grid-template-columns:1fr;gap:1.5rem}.expression-panel__logo{height:140px;width:210px;margin:.8rem 0}.expression-panel{padding-top:3rem;padding-bottom:6rem}.expression-panel__lead{font-size:1.35rem}.expression-panel__evidence{font-size:1.05rem}.expression-panel__identity h2{font-size:2.6rem}}
+
+/* WEB-UX-26: parent expression introduction and provisional Studio identity */
+@media (min-width: 900px) {
+  .expressions-world .expressions-intro {display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;column-gap:clamp(2rem,5vw,6rem)}
+  .expressions-intro h1 {font-size:clamp(2.9rem,4.1vw,4.6rem);max-width:19ch;line-height:1.16}
+  .expressions-intro > .expressions-intro__copy > p:not(.expressions-kicker) {font-size:clamp(1.35rem,1.65vw,1.65rem);line-height:1.62;max-width:42ch}
+  .expressions-intro__spiral {width:min(100%,460px);justify-self:center;max-height:55vh;object-fit:contain}
+}
+@media (max-width: 899px) {.expressions-intro__spiral {display:none}}
+.expression-panel--1 .expression-panel__logo {object-fit:contain;background:transparent}
+.expression-panel--1 {background:#123f45;color:#eef5ee;--exp-muted:#c5ddd7;--exp-accent:#f0dcbf}

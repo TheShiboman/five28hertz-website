@@ -130,20 +130,21 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
       </section>
 
       <section id="expressions" className="expressions-world">
-        <div className="expressions-intro">
+        <div className="expressions-intro"><div className="expressions-intro__copy">
           <p className="expressions-kicker">The Brand Expressions</p>
           <h1>Different expressions. One coherent source.</h1>
           <p>Each begins from the same parent field, then develops its own purpose, experience and path into the world.</p>
           <a href="#expression-qxt" className="expressions-discover">Meet the expressions <span aria-hidden="true">↓</span></a>
+          </div><img className="expressions-intro__spiral" src={import.meta.env.BASE_URL + "assets/five28hertz-spiral-cutout.png"} alt="" aria-hidden="true" />
         </div>
         {expressions.map((expression, index) => (
           <article className={`expression-panel expression-panel--${index}`} id={`expression-${index === 0 ? "qxt" : index === 1 ? "studio" : "argento"}`} key={expression.name}>
             <div className="expression-panel__inner">
               <div className="expression-panel__identity">
                 <p className="expression-panel__index">0{index + 1} / 0{expressions.length}</p>
-                <img className="expression-panel__logo" src={import.meta.env.BASE_URL + "assets/" + (index === 0 ? "QXT World Logo.png" : index === 1 ? "528Hz Blog & Podcast Logo Canva.png" : "Argento Homes Logo.png")} alt={index === 1 ? "Legacy Studio visual identity (Blog & Podcast era)" : `${expression.name} logo`} />
+                <img className="expression-panel__logo" src={import.meta.env.BASE_URL + "assets/" + (index === 0 ? "QXT World Logo.png" : index === 1 ? "studio-signature-provisional.svg" : "Argento Homes Logo.png")} alt={index === 1 ? "Provisional 528Hz Studio identity candidate" : `${expression.name} logo`} />
                 <h2>{expression.name}</h2>
-                {index === 1 && <p className="expression-panel__legacy">Legacy visual asset — current Studio identity pending confirmation</p>}
+                {index === 1 && <p className="expression-panel__legacy">Provisional Studio identity candidate — current Studio identity pending confirmation</p>}
               </div>
               <div className="expression-panel__story">
                 <p className="expression-panel__status">{expression.state}</p>
