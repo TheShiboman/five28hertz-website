@@ -142,7 +142,7 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
             <div className="expression-panel__inner">
               <div className="expression-panel__identity">
                 <p className="expression-panel__index">0{index + 1} / 0{expressions.length}</p>
-                <img className="expression-panel__logo" src={import.meta.env.BASE_URL + "assets/" + (index === 0 ? "qxt-world-vertical-transparent-review.svg" : index === 1 ? "studio-signature-provisional.svg" : "Argento Homes Logo.png")} alt={index === 1 ? "Provisional 528Hz Studio identity candidate" : `${expression.name} logo`} />
+                <img className="expression-panel__logo" src={import.meta.env.BASE_URL + "assets/" + (index === 0 ? "qxt-world-identity-v0-4-review.png" : index === 1 ? "studio-signature-provisional.svg" : "Argento Homes Logo.png")} alt={index === 1 ? "Provisional 528Hz Studio identity candidate" : `${expression.name} logo`} />
                 <h2>{expression.name}</h2>
                 {index === 1 && <p className="expression-panel__legacy">Provisional Studio identity candidate — current Studio identity pending confirmation</p>}
               </div>
