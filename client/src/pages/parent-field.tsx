@@ -135,7 +135,30 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
           <h1>Different expressions. One coherent source.</h1>
           <p>Each begins from the same parent field, then develops its own purpose, experience and path into the world.</p>
           <a href="#expression-qxt" className="expressions-discover">Meet the expressions <span aria-hidden="true">↓</span></a>
-          </div><div className="expressions-intro__signature" aria-hidden="true"><span>five</span><strong>28</strong><span>hertz</span></div>
+          </div><div className="expressions-intro__constellation" aria-hidden="true">
+            <svg viewBox="0 0 560 570" role="presentation" focusable="false">
+              <defs>
+                <linearGradient id="expression-source" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#eacb9a"/><stop offset=".5" stopColor="#ca7551"/><stop offset="1" stopColor="#385b63"/></linearGradient>
+              </defs>
+              <circle cx="103" cy="284" r="50" fill="none" stroke="#bba88b" strokeWidth="1" opacity=".6"/>
+              <circle cx="103" cy="284" r="35" fill="#e9e5dc" stroke="url(#expression-source)" strokeWidth="10"/>
+              <circle cx="103" cy="284" r="10" fill="#ca7551"/>
+              <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M142 267 C220 247 237 100 352 91 C406 87 425 86 490 73" stroke="#007ea3" strokeWidth="15"/>
+                <path d="M144 276 C220 264 268 193 352 190 C403 188 444 185 508 177" stroke="#7aa369" strokeWidth="13"/>
+                <path d="M144 285 C231 283 269 294 365 289 C420 288 451 289 522 291" stroke="#ca7551" strokeWidth="15"/>
+                <path d="M143 295 C230 306 267 389 357 397 C416 402 454 405 507 411" stroke="#b89156" strokeWidth="13"/>
+                <path d="M140 305 C228 326 238 474 349 481 C416 485 449 496 488 512" stroke="#304b68" strokeWidth="15"/>
+              </g>
+              <g fill="#e9e5dc" strokeWidth="3">
+                <circle cx="490" cy="73" r="13" stroke="#007ea3"/>
+                <circle cx="508" cy="177" r="13" stroke="#7aa369"/>
+                <circle cx="522" cy="291" r="13" stroke="#ca7551"/>
+                <circle cx="507" cy="411" r="13" stroke="#b89156"/>
+                <circle cx="488" cy="512" r="13" stroke="#304b68"/>
+              </g>
+            </svg>
+          </div>
         </div>
         {expressions.map((expression, index) => (
           <article className={`expression-panel expression-panel--${index}`} id={`expression-${index === 0 ? "qxt" : index === 1 ? "studio" : "argento"}`} key={expression.name}>
