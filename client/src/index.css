@@ -1221,3 +1221,14 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .expressions-world .expressions-intro__copy>p:not(.expressions-kicker) {font-size:1.28rem;line-height:1.7}
 .expressions-world .expressions-discover {bottom:2.4rem}
 }
+
+/* WEB-UX-30: founder-accepted orbital illustration, art-only crop of generated composition */
+.expressions-intro__orbital {display:none;min-width:0;justify-self:stretch;align-self:center;pointer-events:none}
+.expressions-intro__orbital img {display:block;width:100%;height:auto;max-height:min(72vh,740px);object-fit:contain;filter:drop-shadow(0 12px 20px rgba(40,54,50,.045));-webkit-mask-image:radial-gradient(ellipse 75% 75% at 50% 48%,#000 60%,transparent 100%);mask-image:radial-gradient(ellipse 75% 75% at 50% 48%,#000 60%,transparent 100%)}
+@media(min-width:900px) {
+.expressions-world .expressions-intro {grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);column-gap:clamp(.5rem,1vw,1.2rem)}
+.expressions-intro__orbital {display:block;margin-left:-2.5rem;margin-right:-3rem}
+}
+@media(min-width:1500px) {.expressions-intro__orbital {margin-left:-3rem;margin-right:-4.5rem}}
+@media(max-width:899px) {.expressions-intro__orbital {display:block;align-self:center;width:min(86vw,470px);margin:1.5rem auto 3rem}.expressions-intro__orbital img {max-height:370px}.expressions-world .expressions-intro {min-height:auto;padding-bottom:7.5rem}}
+@media(max-width:520px) {.expressions-intro__orbital {width:min(82vw,330px);margin:1.5rem auto 4rem}.expressions-intro__orbital img {max-height:290px}}
