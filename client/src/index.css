@@ -1232,3 +1232,68 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 @media(min-width:1500px) {.expressions-intro__orbital {margin-left:-3rem;margin-right:-4.5rem}}
 @media(max-width:899px) {.expressions-intro__orbital {display:block;align-self:center;width:min(86vw,470px);margin:1.5rem auto 3rem}.expressions-intro__orbital img {max-height:370px}.expressions-world .expressions-intro {min-height:auto;padding-bottom:7.5rem}}
 @media(max-width:520px) {.expressions-intro__orbital {width:min(82vw,330px);margin:1.5rem auto 4rem}.expressions-intro__orbital img {max-height:290px}}
+
+
+/* WEB-UX-31: build the approved full-page composition with native content. */
+.expressions-world .expressions-intro {
+  background:radial-gradient(ellipse 60% 72% at 73% 41%,#f5efe4 0%,#efe9df 65%,#eae5dc 100%);
+  min-height:calc(100svh - 85px);
+  overflow:hidden;
+}
+@media(min-width:900px) {
+  .expressions-world .expressions-intro {
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    gap:0;
+    padding:clamp(4rem,7.5vh,8rem) clamp(3rem,6.65vw,7rem) clamp(8rem,10vh,10rem);
+  }
+  .expressions-world .expressions-intro__copy {position:relative;z-index:2;max-width:790px}
+  .expressions-world .expressions-intro h1 {
+    font-family:var(--field-font-display),Georgia,serif;
+    font-size:clamp(3.6rem,4.65vw,5.15rem);
+    line-height:1.19;
+    letter-spacing:-.025em;
+    max-width:19.7ch;
+    margin:2.1rem 0 1.6rem;
+    font-weight:400;
+  }
+  .expressions-world .expressions-intro__copy>p:not(.expressions-kicker) {
+    font-family:var(--field-font-display),Georgia,serif;
+    font-size:clamp(1.55rem,1.96vw,2.15rem);
+    line-height:1.5;
+    max-width:39ch;
+    letter-spacing:-.007em;
+  }
+  .expressions-intro__orbital {
+    display:block;
+    width:calc(100% + clamp(4rem,8vw,9rem));
+    margin-left:clamp(-5rem,-4vw,-2rem);
+    margin-right:clamp(-6rem,-5vw,-3rem);
+    align-self:center;
+    position:relative;
+    z-index:1;
+    pointer-events:none;
+  }
+  .expressions-intro__orbital img {
+    display:block;
+    width:100%;
+    max-height:none;
+    height:auto;
+    object-fit:contain;
+    filter:none;
+    -webkit-mask-image:radial-gradient(ellipse 77% 77% at 50% 49%,#000 55%,transparent 99%);
+    mask-image:radial-gradient(ellipse 77% 77% at 50% 49%,#000 55%,transparent 99%);
+  }
+  .expressions-world .expressions-discover {bottom:clamp(3rem,7vh,6rem);font-size:clamp(1.25rem,1.4vw,1.5rem)}
+}
+@media(min-width:1500px) {
+  .expressions-world .expressions-intro {grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+  .expressions-intro__orbital {margin-left:-4rem}
+}
+@media(max-width:899px) {
+  .expressions-world .expressions-intro {background:#eee9df}
+  .expressions-intro__orbital img {-webkit-mask-image:radial-gradient(ellipse 77% 77% at 50% 49%,#000 55%,transparent 99%);mask-image:radial-gradient(ellipse 77% 77% at 50% 49%,#000 55%,transparent 99%)}
+}
+
+/* WEB-UX-31 placement corrections after visual inspection */
+@media(min-width:900px){.expressions-world .expressions-intro__orbital{transform:translateX(9%)}.expressions-world .expressions-discover{position:absolute;left:clamp(3rem,6.65vw,7rem);bottom:clamp(3.5rem,7vh,6rem);z-index:3}}
+@media(max-width:899px){.expressions-world .expressions-discover{position:absolute;left:max(7vw,24px);bottom:2.4rem}}
