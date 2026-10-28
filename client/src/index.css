@@ -1184,3 +1184,17 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .expression-panel--1 .expression-panel__legacy {color:#51696a}
 .expression-panel--1 .expression-panel__logo {height:210px;width:min(100%,310px)}
 @media(max-width:760px){.expression-panel--1 .expression-panel__logo {height:170px;width:250px}}
+
+/* WEB-UX-28: typographic parent signature, preserving sovereign expression palettes. */
+.expressions-world {--expressions-editorial:var(--field-font-display),Georgia,serif;--expressions-reading:var(--five28-font-reading),Georgia,serif}
+.expressions-world .expressions-intro {color:#26383a}
+.expressions-world .expressions-intro h1 {font-family:var(--expressions-editorial);font-weight:400;letter-spacing:-.025em;font-size:clamp(2.65rem,4.1vw,4.45rem);line-height:1.19;max-width:18ch}
+.expressions-world .expressions-intro__copy>p:not(.expressions-kicker) {font-family:var(--expressions-reading);font-size:clamp(1.2rem,1.36vw,1.42rem);line-height:1.75;max-width:47ch}
+.expressions-world .expressions-discover {font-family:var(--expressions-reading);font-size:1.1rem;line-height:1.5}
+.expressions-intro__signature {display:none}
+@media(min-width:900px){.expressions-world .expressions-intro {grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}.expressions-intro__signature {display:flex;flex-direction:column;align-items:center;justify-content:center;justify-self:stretch;min-width:0;color:#27464d;opacity:.86;user-select:none;line-height:.9;letter-spacing:-.055em;font-family:var(--expressions-editorial);font-weight:400}.expressions-intro__signature span:first-child {font-size:clamp(3rem,5vw,6rem);align-self:center;font-style:italic}.expressions-intro__signature strong {font-family:var(--expressions-editorial);font-weight:400;font-size:clamp(9rem,17vw,19rem);letter-spacing:-.09em}.expressions-intro__signature span:last-child {font-size:clamp(3rem,5vw,6rem);letter-spacing:-.04em}}
+.expressions-world .expression-panel__identity h2 {font-family:var(--expressions-editorial);font-weight:400;letter-spacing:-.02em;line-height:1.18;font-size:clamp(2.55rem,4vw,4.5rem)}
+.expressions-world .expression-panel__lead {font-family:var(--expressions-editorial);font-size:clamp(1.55rem,1.8vw,1.95rem);line-height:1.5;max-width:39ch;font-weight:400}
+.expressions-world .expression-panel__evidence {font-family:var(--expressions-reading);font-size:clamp(1.2rem,1.32vw,1.4rem);line-height:1.76;max-width:49ch}
+.expressions-world .expression-panel__visit,.expressions-world .expression-panel__next {font-family:var(--expressions-reading);font-size:1.08rem}
+@media(max-width:760px){.expressions-world .expression-panel__lead {font-size:1.45rem}.expressions-world .expression-panel__evidence {font-size:1.13rem}.expressions-world .expressions-intro h1 {font-size:clamp(2.5rem,8vw,3.6rem)}}
