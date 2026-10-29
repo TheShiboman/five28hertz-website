@@ -158,7 +158,7 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
         ))}
       </section>
 
-      <section id="evidence" className="field-section field-section--warm border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
+      <section id="evidence" className="field-section field-section--warm evidence-editorial border-t border-black/10 px-6 md:px-12">
         <div className="mx-auto max-w-6xl">
           <motion.div {...reveal} className="max-w-4xl">
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Evidence</p>
