@@ -1317,3 +1317,52 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 @media(max-width:900px){.evidence-editorial {min-height:0;padding-top:4rem;padding-bottom:4rem}.evidence-editorial > div > div:nth-child(2) {margin-top:2.5rem}.evidence-editorial article>p:last-child{font-size:1.13rem}}
 
 @media(min-width:1600px){.evidence-editorial{padding-top:3rem;padding-bottom:2.5rem}.evidence-editorial > div > div:nth-child(2){margin-top:2rem}.evidence-editorial article{padding:1.55rem}.evidence-editorial article>p:last-child{font-size:1.17rem;line-height:1.58}.evidence-editorial article h3{font-size:1.86rem}}
+
+/* WEB-UX-36 — The Field as an encounter, not stationery or a contact surface. */
+.field-experience{background:#ede7dc;color:#243438;overflow:hidden}
+.field-experience__eyebrow{font-family:Inter,system-ui,sans-serif!important;font-size:.73rem!important;font-weight:500;letter-spacing:.29em;text-transform:uppercase;line-height:1.5}
+.field-experience__arrival{position:relative;min-height:calc(100svh - 84px);isolation:isolate;background:#172d37;color:#f7eee1}
+.field-experience__atmosphere{position:absolute;inset:0;overflow:hidden;z-index:-1;background:radial-gradient(ellipse 36% 62% at 76% 46%,rgba(244,166,107,.27) 0%,rgba(178,113,94,.16) 23%,transparent 78%),radial-gradient(ellipse 63% 73% at 92% 85%,rgba(64,134,137,.38),transparent 83%),linear-gradient(125deg,#112a34 2%,#203b43 52%,#17363e 100%)}
+.field-experience__atmosphere i{display:block;position:absolute;pointer-events:none;border-radius:50%}
+.field-experience__atmosphere i:first-child{width:clamp(24rem,53vw,58rem);aspect-ratio:1;right:-12%;top:-18%;border:1px solid rgba(239,203,157,.24);box-shadow:0 0 0 4.1rem rgba(239,203,157,.015),0 0 0 9rem rgba(160,199,189,.024),inset 0 0 7rem rgba(220,165,129,.07);transform:rotate(-19deg) scaleX(.89)}
+.field-experience__atmosphere i:nth-child(2){width:clamp(13rem,25vw,32rem);aspect-ratio:1;right:9%;top:21%;background:radial-gradient(circle at 45% 39%,rgba(248,211,156,.18),rgba(244,170,110,.06) 37%,transparent 73%);filter:blur(20px)}
+.field-experience__atmosphere i:last-child{width:58vw;height:70vh;right:-32vw;bottom:-40vh;border:1px solid rgba(134,192,180,.25)}
+.field-experience__arrival-inner{min-height:inherit;position:relative;max-width:1450px;margin:auto;display:flex;flex-direction:column;padding:clamp(3.5rem,7vh,6rem) clamp(1.5rem,7.5vw,8rem) clamp(2.5rem,6vh,5rem)}
+.field-experience__arrival-copy{max-width:1050px;margin:auto 0;padding:4.5rem 0 3rem}
+.field-experience__arrival h1{font-family:var(--field-font-display),Georgia,serif;font-weight:400;font-size:clamp(3.4rem,6.3vw,7.5rem);line-height:1.085;letter-spacing:-.039em;max-width:18ch;text-wrap:balance;color:#fff1df}
+.field-experience__opening{font-family:var(--five28-font-reading),Georgia,serif;font-size:clamp(1.25rem,1.6vw,1.65rem);line-height:1.72;color:#e3d8ca;max-width:66ch;margin-top:2.5rem}
+.field-experience__arrival-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:3rem}
+.field-experience__arrival-bottom p{font-family:var(--five28-font-reading),Georgia,serif;font-size:clamp(1.05rem,1.15vw,1.26rem);line-height:1.65;color:#e0dbd0;max-width:59ch}
+.field-experience__descend{flex-shrink:0;font-family:var(--five28-font-reading),Georgia,serif;font-size:1.2rem;color:#f5d5aa;padding-bottom:.35rem;border-bottom:1px solid #bf9d78;white-space:nowrap;text-decoration:none}
+.field-experience__descend span{margin-left:.8rem}
+.field-experience__writings{position:relative;background:linear-gradient(155deg,#eee9df,#faf6ee 42%,#e9e7db);padding:clamp(6rem,10vw,11rem) clamp(1.5rem,7.5vw,8rem) clamp(7rem,11vw,12rem)}
+.field-experience__writings:before{content:'';position:absolute;width:min(60vw,700px);height:min(60vw,700px);left:-30%;top:-15%;background:radial-gradient(circle,rgba(182,135,91,.09),transparent 68%);pointer-events:none}
+.field-experience__writings-heading{position:relative;max-width:1300px;margin:0 auto 5.5rem}
+.field-experience__writings-heading .field-experience__eyebrow{color:#976c47}
+.field-experience__writings h2{font-family:var(--field-font-display),Georgia,serif;font-size:clamp(3.5rem,6vw,7rem);font-weight:400;letter-spacing:-.035em;line-height:1.1;margin:1.8rem 0 1.2rem}
+.field-experience__archive-intro{font-family:var(--five28-font-reading),Georgia,serif;font-size:clamp(1.2rem,1.5vw,1.48rem);line-height:1.75;max-width:60ch;color:#55615e}
+.field-experience__chapters{position:relative;max-width:1300px;margin:auto}
+.field-experience__chapter{display:grid;grid-template-columns:9rem 1fr 12rem;align-items:center;column-gap:clamp(1rem,3vw,3rem);min-height:clamp(12rem,17vw,18rem);padding:2.3rem 0;border-top:1px solid rgba(40,64,65,.25);text-decoration:none;color:#243b3d;transition:color .25s,transform .25s}
+.field-experience__chapter:last-child{border-bottom:1px solid rgba(40,64,65,.25)}
+.field-experience__chapter-index{font-family:Inter,system-ui,sans-serif;font-size:.85rem;letter-spacing:.26em;color:#9a795b}
+.field-experience__chapter-name{font-family:var(--field-font-display),Georgia,serif;font-weight:400;font-size:clamp(2.4rem,4.25vw,5rem);letter-spacing:-.035em;line-height:1.12}
+.field-experience__chapter-action{justify-self:end;font-family:var(--five28-font-reading),Georgia,serif;font-size:1.05rem;white-space:nowrap;border-bottom:1px solid currentColor;padding-bottom:.35rem}
+.field-experience__chapter-action span{margin-left:.6rem}
+.field-experience__chapter:hover,.field-experience__chapter:focus-visible{color:#a36547;transform:translateX(.4rem)}
+.field-experience__chapter:focus-visible{outline:2px solid #a36547;outline-offset:4px}
+.field-experience__exchange{background:radial-gradient(ellipse at 3% 95%,rgba(218,152,100,.15),transparent 50%),linear-gradient(135deg,#24383c,#172b31 75%);color:#f4ebdf;padding:clamp(6rem,10vw,11rem) clamp(1.5rem,7.5vw,8rem)}
+.field-experience__exchange-inner{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(3rem,9vw,10rem);max-width:1300px;margin:auto}
+.field-experience__exchange-heading .field-experience__eyebrow{color:#deb18d}
+.field-experience__exchange h2{font-family:var(--field-font-display),Georgia,serif;font-size:clamp(3rem,5vw,6rem);font-weight:400;line-height:1.12;letter-spacing:-.035em;margin-top:1.5rem}
+.field-experience__exchange-statement{font-family:var(--five28-font-reading),Georgia,serif;font-size:clamp(1.4rem,2vw,2.3rem);line-height:1.5;color:#e5d8c8;margin-top:2rem}
+.field-experience__exchange-prose{font-family:var(--five28-font-reading),Georgia,serif;font-size:clamp(1.12rem,1.25vw,1.35rem);line-height:1.8;color:#e4e0d8}
+.field-experience__exchange-prose h3{font-family:Inter,system-ui,sans-serif;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;font-weight:500;margin-bottom:1.3rem;color:#dfb48c}
+.field-experience__exchange-prose ul{padding-left:1.25rem;list-style:disc}
+.field-experience__exchange-prose li{margin-bottom:.9rem}
+.field-experience__exchange-prose p{margin-top:1.5rem}
+.field-experience__address{display:inline-flex;align-items:baseline;gap:.7rem;margin-top:3rem;font-family:var(--field-font-display),Georgia,serif;font-size:clamp(1.4rem,2.1vw,2.3rem);color:#f3cc99;text-decoration:none;border-bottom:1px solid rgba(243,204,153,.6);padding-bottom:.35rem;overflow-wrap:anywhere}
+.field-experience__continuation{padding:2rem clamp(1.5rem,7.5vw,8rem);background:#172b31}
+.field-experience__continuation a{font-family:var(--five28-font-reading),Georgia,serif;color:#f3cc99;text-decoration:none;border-bottom:1px solid #f3cc99;padding-bottom:.3rem}
+@media(max-width:900px){.field-experience__arrival-bottom{flex-direction:column;align-items:flex-start;gap:2.5rem}.field-experience__chapter{grid-template-columns:5rem 1fr;row-gap:1rem}.field-experience__chapter-action{grid-column:2;justify-self:start}.field-experience__exchange-inner{grid-template-columns:1fr}}
+@media(max-width:600px){.field-experience__arrival{min-height:auto}.field-experience__arrival-inner{padding:3rem 1.5rem 4rem}.field-experience__arrival-copy{padding:5rem 0 3rem}.field-experience__arrival h1{font-size:clamp(3rem,12vw,4.8rem)}.field-experience__arrival-bottom p{font-size:1.08rem}.field-experience__writings{padding-top:5rem;padding-bottom:5rem}.field-experience__writings-heading{margin-bottom:3rem}.field-experience__chapter{grid-template-columns:1fr;gap:1rem;padding:2.4rem 0}.field-experience__chapter-action{grid-column:1}.field-experience__chapter-name{font-size:clamp(2.25rem,9vw,3.4rem)}.field-experience__exchange{padding-top:5rem;padding-bottom:6rem}}
+@media(prefers-reduced-motion:reduce){.field-experience__chapter{transition:none}}

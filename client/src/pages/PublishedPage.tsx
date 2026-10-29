@@ -47,6 +47,64 @@ export default function PublishedPage({ path }: { path: string }) {
       content.slice(end + '<p>What this is</p>'.length, archiveStart) + '</section>' +
       `<section class="field-archive" aria-labelledby="field-archive-heading"><h2 id="field-archive-heading">Interior Archive</h2>${archiveIntro}<div class="field-archive__grid">${cards}</div></section>`;
   }, [content, path]);
+  if (path === "/field") {
+    // Composition changes only. All public-facing source prose is drawn from live-pages.json.
+    const heading = content.match(/<h1>([\s\S]*?)<\/h1>/)?.[1].replace(/<br\s*\/?>(?:<\/br>)?/gi, " ");
+    const firstParagraphs = Array.from(content.slice(0, content.indexOf("Address<a")).matchAll(/<p>([\s\S]*?)<\/p>/g));
+    const intro = firstParagraphs.slice(1).map(x => x[1]);
+    const aboutStart = content.indexOf("<p>What this is</p>");
+    const archiveStart = content.indexOf("Interior Archive", aboutStart);
+    const about = content.slice(aboutStart + "<p>What this is</p>".length, archiveStart);
+    const archiveHtml = content.slice(archiveStart + "Interior Archive".length);
+    const archiveIntro = archiveHtml.slice(0, archiveHtml.indexOf('<a href="/interior/'));
+    const chapters = Array.from(archiveHtml.matchAll(/<a href="(\/interior\/[^"]+)">(\d\d)(.*?)Essay [^<]*<\/a>/g));
+    if (!heading || intro.length !== 2 || chapters.length !== 3 || !about.includes("<ul>")) throw new Error("Field source shape changed: stop and reconcile before rendering");
+    return <main className="field-experience">
+      <section className="field-experience__arrival" aria-labelledby="field-arrival-title">
+        <div className="field-experience__atmosphere" aria-hidden="true"><i/><i/><i/></div>
+        <div className="field-experience__arrival-inner">
+          <p className="field-experience__eyebrow">FIVE28HERTZ / THE FIELD</p>
+          <div className="field-experience__arrival-copy">
+            <h1 id="field-arrival-title" dangerouslySetInnerHTML={{__html:heading}} />
+            <div className="field-experience__opening" dangerouslySetInnerHTML={{__html:intro[1]}} />
+          </div>
+          <div className="field-experience__arrival-bottom">
+            <a href="#field-read" className="field-experience__descend">Enter the writings <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </section>
+      <section className="field-experience__writings" id="field-read" aria-labelledby="field-writings-title">
+        <div className="field-experience__writings-heading">
+          <p className="field-experience__eyebrow">THREE FOUNDATIONAL ESSAYS</p>
+          <h2 id="field-writings-title">Interior Archive</h2>
+          <div className="field-experience__archive-intro" dangerouslySetInnerHTML={{__html:archiveIntro}} />
+        </div>
+        <div className="field-experience__chapters">
+          {chapters.map((chapter,i) => <a key={chapter[1]} className={"field-experience__chapter field-experience__chapter--"+(i+1)} href={base+chapter[1].slice(1)+"/"}>
+            <span className="field-experience__chapter-index">{chapter[2]} / 03</span>
+            <span className="field-experience__chapter-name">{chapter[3]}</span>
+            <span className="field-experience__chapter-action">Enter this essay <span aria-hidden="true">↗</span></span>
+          </a>)}
+        </div>
+      </section>
+      <section className="field-experience__exchange" aria-labelledby="field-exchange-title">
+        <div className="field-experience__exchange-inner">
+          <div className="field-experience__exchange-heading">
+            <p className="field-experience__eyebrow">AN OPEN POSSIBILITY</p>
+            <h2 id="field-exchange-title">Correspondence</h2>
+            
+          </div>
+          <div className="field-experience__exchange-prose">
+            <p className="field-experience__exchange-explainer" dangerouslySetInnerHTML={{__html:intro[0]}} />
+            <h3>What this is</h3>
+            <div dangerouslySetInnerHTML={{__html:about}} />
+            <a className="field-experience__address" href="mailto:field@five28hertz.com">field@five28hertz.com <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+      <nav className="field-experience__continuation" aria-label="Continue exploring five28hertz"><a href={base+"vision/"}>Explore Purpose <span aria-hidden="true">↗</span></a></nav>
+    </main>;
+  }
   if (!content) return <main className="mx-auto max-w-4xl px-6 pt-40 pb-28"><h1>Page not found</h1><a href={base}>Return to orientation</a></main>;
   return <main className={"published-page relative min-h-screen pb-28" + (isVision ? " vision-editorial" : path === "/field" ? " field-editorial" : "")}>
     <section className={isVision ? "vision-editorial__hero relative overflow-hidden px-6 pb-12 pt-36 md:px-12 md:pb-16 md:pt-40" : "field-page-hero relative overflow-hidden px-6 pb-12 pt-36 md:px-12 md:pb-16 md:pt-40"}>
