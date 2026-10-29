@@ -1366,3 +1366,16 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 @media(max-width:900px){.field-experience__arrival-bottom{flex-direction:column;align-items:flex-start;gap:2.5rem}.field-experience__chapter{grid-template-columns:5rem 1fr;row-gap:1rem}.field-experience__chapter-action{grid-column:2;justify-self:start}.field-experience__exchange-inner{grid-template-columns:1fr}}
 @media(max-width:600px){.field-experience__arrival{min-height:auto}.field-experience__arrival-inner{padding:3rem 1.5rem 4rem}.field-experience__arrival-copy{padding:5rem 0 3rem}.field-experience__arrival h1{font-size:clamp(3rem,12vw,4.8rem)}.field-experience__arrival-bottom p{font-size:1.08rem}.field-experience__writings{padding-top:5rem;padding-bottom:5rem}.field-experience__writings-heading{margin-bottom:3rem}.field-experience__chapter{grid-template-columns:1fr;gap:1rem;padding:2.4rem 0}.field-experience__chapter-action{grid-column:1}.field-experience__chapter-name{font-size:clamp(2.25rem,9vw,3.4rem)}.field-experience__exchange{padding-top:5rem;padding-bottom:6rem}}
 @media(prefers-reduced-motion:reduce){.field-experience__chapter{transition:none}}
+
+/* WEB-UX-37 — Interior Archive occupies one readable desktop screen */
+@media(min-width:901px){
+.field-experience__writings{min-height:calc(100svh - 84px);padding:clamp(2.5rem,5vh,3.5rem) clamp(1.5rem,7.5vw,8rem);display:flex;flex-direction:column;justify-content:center}
+.field-experience__writings-heading{width:100%;margin:0 auto clamp(1.6rem,3vh,2.25rem)}
+.field-experience__writings h2{font-size:clamp(3rem,4.2vw,4.9rem);margin:.8rem 0 .55rem;line-height:1.07}
+.field-experience__archive-intro{font-size:clamp(1.09rem,1.2vw,1.27rem);line-height:1.55}
+.field-experience__chapters{width:100%}
+.field-experience__chapter{grid-template-columns:7rem minmax(0,1fr) 10rem;gap:1.6rem;min-height:0;padding:clamp(1.45rem,3vh,2.2rem) 0}
+.field-experience__chapter-name{font-size:clamp(2rem,2.75vw,3.35rem);line-height:1.18;letter-spacing:-.028em}
+.field-experience__chapter-action{font-size:1.04rem}
+}
+@media(max-width:900px){.field-experience__writings{padding-top:3.5rem;padding-bottom:4rem}.field-experience__writings-heading{margin-bottom:2rem}.field-experience__writings h2{font-size:clamp(2.6rem,6vw,3.8rem);margin:.8rem 0 .65rem}.field-experience__chapter{min-height:0;padding:1.65rem 0}.field-experience__chapter-name{font-size:clamp(1.8rem,4vw,2.6rem)}}
