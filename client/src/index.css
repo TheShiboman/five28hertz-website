@@ -1297,3 +1297,9 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 /* WEB-UX-31 placement corrections after visual inspection */
 @media(min-width:900px){.expressions-world .expressions-intro__orbital{transform:translateX(9%)}.expressions-world .expressions-discover{position:absolute;left:clamp(3rem,6.65vw,7rem);bottom:clamp(3.5rem,7vh,6rem);z-index:3}}
 @media(max-width:899px){.expressions-world .expressions-discover{position:absolute;left:max(7vw,24px);bottom:2.4rem}}
+
+/* WEB-UX-34 Argento review candidate: preserve leaf/gold type over a warm deep hospitality field */
+.expression-panel--2 {background:radial-gradient(ellipse 75% 75% at 23% 30%,#344c4b 0%,#253a3b 46%,#192a2d 100%);color:#f3e8da;--exp-muted:#d2c4b3;--exp-accent:#f2ce94}
+.expression-panel--2 .expression-panel__logo {width:min(100%,340px);height:clamp(190px,30vh,290px);object-fit:contain;object-position:left center}
+.expression-panel--2 .expression-panel__identity h2 {color:#f6ebdc}
+@media(max-width:760px){.expression-panel--2 .expression-panel__logo{width:250px;height:215px}}
