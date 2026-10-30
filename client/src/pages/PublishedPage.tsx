@@ -105,6 +105,49 @@ export default function PublishedPage({ path }: { path: string }) {
       <nav className="field-experience__continuation" aria-label="Continue exploring five28hertz"><a href={base+"vision/"}>Explore Purpose <span aria-hidden="true">↗</span></a></nav>
     </main>;
   }
+  if (path.startsWith("/interior/") && content) {
+    const essaySet = [
+      {slug:"translation-premise",title:"The Translation Premise",index:"01",theme:"translation",tag:"INNER REALITY / OUTER FORM",statement:"When insight crosses into form, what must survive the crossing?"},
+      {slug:"anti-fragmentation",title:"The Anti-Fragmentation Thesis",index:"02",theme:"anti-fragmentation",tag:"FROM FRAGMENTS / TO COHERENCE",statement:"Not more pieces. The relationships that make them whole."},
+      {slug:"cyclical-journey",title:"The Cyclical Journey",index:"03",theme:"cyclical-journey",tag:"RETURN / REORIENTATION / BECOMING",statement:"Progress need not be linear to be real."}
+    ] as const;
+    const activeIndex = essaySet.findIndex(essay=>path.endsWith("/"+essay.slug));
+    if (activeIndex < 0) throw new Error("Unknown interior artifact route");
+    const essay = essaySet[activeIndex];
+    const previous = essaySet[(activeIndex+2)%3];
+    const next = essaySet[(activeIndex+1)%3];
+    const pageContent = content.replace(/href="\/(.*?)"/g, (_m, route:string) => 'href="'+base+route+'"');
+    return <main className={"interior-experience interior-experience--"+essay.theme}>
+      <section className="interior-experience__threshold" aria-labelledby="interior-title">
+        <div className="interior-experience__threshold-inner">
+          <div className="interior-experience__intro">
+            <a className="interior-experience__back" href={base+"field/#field-read"}>The Field / Interior Archive <span aria-hidden="true">↖</span></a>
+            <p className="interior-experience__eyebrow">FOUNDATIONAL ESSAY {essay.index} / 03</p>
+            <h1 id="interior-title">{essay.title}</h1>
+            <p className="interior-experience__tag">{essay.tag}</p>
+            <p className="interior-experience__statement">{essay.statement}</p>
+            <a className="interior-experience__enter" href="#interior-reading">Begin reading <span aria-hidden="true">↓</span></a>
+          </div>
+          <div className="interior-experience__art" aria-hidden="true">
+            <div className="interior-experience__art-field"></div>
+            <img src={base+"assets/interior-"+essay.theme+"-sculpture-review.webp"} alt="" decoding="async" />
+            <div className="interior-experience__art-halo"></div>
+          </div>
+        </div>
+        <div className="interior-experience__threshold-bottom"><span>FIVE28HERTZ / THE FIELD</span><span>THREE PERSPECTIVES. ONE UNDERLYING QUESTION.</span></div>
+      </section>
+      <section className="interior-experience__reading" id="interior-reading">
+        <div className="interior-experience__reading-inner">
+          <aside className="interior-experience__rail" aria-label="Essay context"><span>{essay.index} / 03</span><span>{essay.title}</span><a href={base+"field/#field-read"}>All essays ↖</a></aside>
+          <article className="interior-experience__prose field-prose" dangerouslySetInnerHTML={{__html:pageContent}} />
+        </div>
+      </section>
+      <nav className="interior-experience__next" aria-label="Explore other foundational essays">
+        <a href={base+"interior/"+previous.slug+"/"}><span>PREVIOUS PERSPECTIVE</span><strong>{previous.title}</strong></a>
+        <a href={base+"interior/"+next.slug+"/"}><span>CONTINUE THE JOURNEY</span><strong>{next.title} ↗</strong></a>
+      </nav>
+    </main>;
+  }
   if (!content) return <main className="mx-auto max-w-4xl px-6 pt-40 pb-28"><h1>Page not found</h1><a href={base}>Return to orientation</a></main>;
   return <main className={"published-page relative min-h-screen pb-28" + (isVision ? " vision-editorial" : path === "/field" ? " field-editorial" : "")}>
     <section className={isVision ? "vision-editorial__hero relative overflow-hidden px-6 pb-12 pt-36 md:px-12 md:pb-16 md:pt-40" : "field-page-hero relative overflow-hidden px-6 pb-12 pt-36 md:px-12 md:pb-16 md:pt-40"}>
