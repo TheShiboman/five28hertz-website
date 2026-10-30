@@ -1439,3 +1439,11 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 }
 @media(max-width:1023px){.home-core-sculpture{width:min(84vw,520px);max-height:55svh}.home-core-sculpture img{max-height:55svh}}
 @media(max-width:600px){.home-core-sculpture{width:min(86vw,360px)}.parent-paged[data-active-section="orientation"] .living-hero{padding-top:6.8rem}}
+
+/* WEB-UX-40 — founder-approved Purpose sculpture: new art, existing content/cascade preserved */
+.vision-editorial .vision-editorial__hero{background:radial-gradient(ellipse 58% 66% at 72% 52%,rgba(181,128,91,.28),transparent 73%),radial-gradient(ellipse at 36% 41%,#294b50 0%,#1c3742 57%,#142b35 100%)}
+.vision-editorial .vision-editorial__core{width:min(100%,570px);max-width:none;filter:none;position:relative;isolation:isolate}
+.vision-editorial .vision-editorial__core:before{content:"";position:absolute;inset:13%;z-index:-1;border-radius:50%;border:1px solid rgba(244,207,153,.18);box-shadow:0 0 0 3rem rgba(244,207,153,.016),0 0 0 6rem rgba(158,198,181,.012)}
+.vision-editorial .vision-editorial__core .purpose-sculpture-image{width:100%;max-height:70svh;object-fit:contain;filter:drop-shadow(0 24px 35px rgba(4,16,24,.29))}
+@media(min-width:900px){.vision-editorial .vision-hero__composition{max-width:1380px;gap:clamp(2rem,4vw,5rem)}.vision-editorial .vision-editorial__core{width:min(48vw,600px);flex-shrink:1}.vision-editorial .purpose-opening{max-width:720px}}
+@media(max-width:899px){.vision-editorial .vision-editorial__core{width:min(75vw,420px);margin:auto}.vision-editorial .vision-editorial__core .purpose-sculpture-image{max-height:43svh}}
