@@ -102,31 +102,38 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
         </div>
       </section>
 
-      <section id="architecture" className="field-section architecture-story architecture-story--sculptural border-t px-6 py-28 md:px-12 md:py-36"><div className="architecture-story__sculpture" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/architecture-coherence-sculpture-review.webp"} alt="" loading="lazy" decoding="async" /></div>
-        <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.3fr_0.7fr]">
-          <motion.div {...reveal}>
-            <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Living Architecture</p>
-            <h2 className="font-playfair text-4xl md:text-6xl">A living architecture</h2>
-            <div className="architecture-story__body mt-10 max-w-3xl space-y-7 text-lg leading-8">
-              <p>five28hertz begins with a simple conviction: what is deeply true should be given the chance to become real.</p>
-              <p>An idea is held long enough to become coherent. Coherence becomes form. Form becomes an independent expression. Reality then decides what that expression earns the right to become next.</p>
-              <p className="architecture-story__emphasis">The parent holds the source and the frame. Each expression develops its own purpose, experience and path into the world.</p>
-            </div>
-          </motion.div>
-
-          <motion.aside {...reveal} className="architecture-story__aside self-end border-l pl-7 lg:pl-9">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#414943]">Operating architecture</p>
-            <h3 className="mt-5 font-playfair text-3xl">DreamWeaver OS</h3>
-            <p className="architecture-story__aside-copy mt-6 leading-7">
-              DreamWeaver OS is the operating architecture behind five28hertz. It preserves accumulated thought and context, keeps decisions connected to purpose, and helps ideas move from intention into coordinated, verifiable execution.
-            </p>
-          </motion.aside>
+      <section id="architecture" className="architecture-reimagined">
+        <div className="architecture-reimagined__hero">
+          <div className="architecture-reimagined__art" aria-hidden="true">
+            <img src={import.meta.env.BASE_URL + "assets/architecture-approved-hero-art-review.webp"} alt="" decoding="async" />
+          </div>
+          <div className="architecture-reimagined__hero-inner">
+            <p className="architecture-reimagined__eyebrow">Architecture</p>
+            <h1>From <em>intention</em><span> to coherent <em>form.</em></span></h1>
+            <p className="architecture-reimagined__lead">five28hertz begins with a simple conviction: what is deeply true should be given the chance to become real.</p>
+          </div>
         </div>
-        <a className="architecture-next mx-auto block max-w-6xl" href={`${import.meta.env.BASE_URL}expressions/`}>
-          <span className="architecture-next__eyebrow">From architecture to expression</span>
-          <span className="architecture-next__statement">An architecture becomes meaningful through what it gives form to.</span>
-          <span className="architecture-next__destination">Discover the Brand Expressions <span aria-hidden="true">↗</span></span>
-        </a>
+        <div className="architecture-reimagined__editorial">
+          <div className="architecture-reimagined__chapter">
+            <div className="architecture-reimagined__index"><span>01</span><small>Living architecture</small></div>
+            <div className="architecture-reimagined__chapter-content">
+              <h2>A living architecture</h2>
+              <p>An idea is held long enough to become coherent. Coherence becomes form. Form becomes an independent expression. Reality then decides what that expression earns the right to become next.</p>
+              <p className="architecture-reimagined__emphasis">The parent holds the source and the frame. Each expression develops its own purpose, experience and path into the world.</p>
+            </div>
+          </div>
+          <div className="architecture-reimagined__chapter architecture-reimagined__chapter--operating">
+            <div className="architecture-reimagined__index"><span>02</span><small>Operating architecture</small></div>
+            <div className="architecture-reimagined__chapter-content">
+              <h2>DreamWeaver OS</h2>
+              <p>DreamWeaver OS is the operating architecture behind five28hertz. It preserves accumulated thought and context, keeps decisions connected to purpose, and helps ideas move from intention into coordinated, verifiable execution.</p>
+            </div>
+          </div>
+          <a className="architecture-reimagined__next" href={import.meta.env.BASE_URL + "expressions/"}>
+            <span className="architecture-reimagined__index"><small>From architecture to expression</small></span>
+            <span className="architecture-reimagined__next-text"><span>An architecture becomes meaningful through what it gives form to.</span><strong>Discover the Brand Expressions ↗</strong></span>
+          </a>
+        </div>
       </section>
 
       <section id="expressions" className="expressions-world">
