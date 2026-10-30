@@ -1594,3 +1594,58 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .parent-paged[data-active-section="architecture"] .architecture-reimagined__hero h1{font-size:clamp(3.1rem,4vw,4.6rem);margin:.55rem 0 .65rem}
 .parent-paged[data-active-section="architecture"] .architecture-reimagined__lead{font-size:clamp(1.04rem,1.16vw,1.3rem);line-height:1.43}
 }
+
+
+/* WEB-UX-44 — Cinematic Brand Expressions, preserving sovereign identity panels */
+.expressions-world .expressions-intro{
+  isolation:isolate;overflow:hidden;
+  background:radial-gradient(ellipse 65% 80% at 85% 80%,#304a4e 0%,transparent 72%),linear-gradient(112deg,#081f2a 0%,#122e39 62%,#213e47 100%)!important;
+  color:#f6eadc!important;
+  min-height:calc(100svh - 85px);
+}
+.expressions-world .expressions-intro:before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(7,28,38,.86) 0%,rgba(7,28,38,.46) 41%,transparent 80%);
+}
+.expressions-world .expressions-intro__copy{z-index:2;position:relative}
+.expressions-world .expressions-kicker{color:#e7b583!important}
+.expressions-world .expressions-intro h1{color:#fff0df!important;font-size:clamp(3.1rem,4.55vw,5.1rem);line-height:1.11;max-width:16ch}
+.expressions-world .expressions-intro__copy>p:not(.expressions-kicker){color:#e5dcd0!important;font-size:clamp(1.19rem,1.38vw,1.48rem);line-height:1.63;max-width:43ch}
+.expressions-intro__orbital{position:relative;z-index:1;align-self:center;margin-left:-5rem!important;margin-right:-4rem!important}
+.expressions-intro__orbital img{
+  width:112%;max-width:none;max-height:76svh;
+  filter:drop-shadow(0 28px 30px rgba(0,15,20,.26));
+  -webkit-mask-image:none!important;mask-image:none!important
+}
+.expressions-world .expressions-discover{color:#efd1aa!important;border-bottom-color:#cfa779!important;z-index:3}
+.expression-panel{isolation:isolate;overflow:hidden}
+.expression-panel:before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.8}
+.expression-panel:after{content:"";position:absolute;width:min(45vw,620px);aspect-ratio:1;left:8%;top:9%;border-radius:50%;z-index:-1;pointer-events:none;opacity:.56;border:1px solid currentColor;box-shadow:0 0 0 2.2rem rgba(214,201,163,.015),0 0 0 5rem rgba(214,201,163,.012);transform:rotate(-20deg) scaleX(.91)}
+.expression-panel--0:before{background:radial-gradient(ellipse at 27% 46%,rgba(35,116,144,.32),transparent 47%),linear-gradient(120deg,#11263f 0%,#172f4b 70%,#102236 100%)}
+.expression-panel--0:after{color:rgba(98,184,198,.30)}
+.expression-panel--1:before{background:radial-gradient(ellipse at 27% 40%,rgba(100,165,155,.20),transparent 45%),radial-gradient(ellipse at 76% 75%,rgba(224,192,151,.12),transparent 55%);opacity:1}
+.expression-panel--1:after{color:rgba(78,137,129,.22);opacity:.35}
+.expression-panel--2:before{background:radial-gradient(ellipse at 22% 43%,rgba(193,141,78,.19),transparent 47%),radial-gradient(ellipse at 80% 80%,rgba(75,145,140,.17),transparent 60%);opacity:1}
+.expression-panel--2:after{color:rgba(222,180,117,.21);opacity:.52}
+.expression-panel__inner,.expression-panel__next{position:relative;z-index:2}
+.expression-panel__identity{position:relative}
+.expression-panel__logo{filter:drop-shadow(0 18px 28px rgba(8,23,26,.10))}
+@media(min-width:900px){
+ .expressions-world .expressions-intro{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)}
+ .expressions-intro__orbital{transform:translateX(3%)!important}
+}
+@media(max-width:899px){
+ .expressions-world .expressions-intro{min-height:auto;padding-top:4rem;padding-bottom:7rem;background:linear-gradient(155deg,#0a2531,#193944)!important}
+ .expressions-intro__orbital{margin:1.5rem auto 3rem!important;width:min(95vw,560px)}
+ .expressions-intro__orbital img{width:100%;height:auto;max-height:410px}
+ .expressions-world .expressions-intro h1{font-size:clamp(2.8rem,8.2vw,4.4rem)}
+ .expression-panel:after{width:min(80vw,480px);left:4%;top:10%}
+}
+@media(max-width:520px){.expressions-intro__orbital{width:min(95vw,390px)}.expressions-intro__orbital img{max-height:320px}.expression-panel:after{width:80vw;top:5%}}
+
+/* WEB-UX-44 final: replace generic rings with decorative sculptural atmospheres. */
+.expression-panel:after{left:4%;top:5%;width:min(44vw,630px);height:85%;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;transform:none;background-position:center;background-size:contain;background-repeat:no-repeat}
+.expression-panel--0:after{background-image:url("/five28hertz-website/assets/expression-qxt-atmosphere-review.webp");opacity:.38}
+.expression-panel--1:after{background-image:url("/five28hertz-website/assets/expression-studio-atmosphere-review.webp");opacity:.16}
+.expression-panel--2:after{background-image:url("/five28hertz-website/assets/expression-argento-atmosphere-review.webp");opacity:.25}
+@media(max-width:899px){.expression-panel:after{width:85vw;height:55%;left:0;top:3%;opacity:.19}.expression-panel--1:after{opacity:.10}}

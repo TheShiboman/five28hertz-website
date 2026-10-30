@@ -142,7 +142,7 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
           <h1>Different expressions. One coherent source.</h1>
           <p>Each begins from the same parent field, then develops its own purpose, experience and path into the world.</p>
           
-          </div><a href="#expression-qxt" className="expressions-discover">Meet the expressions <span aria-hidden="true">↓</span></a><div className="expressions-intro__orbital" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/expressions-orbital-review.webp"} alt="" decoding="async" /></div>
+          </div><a href="#expression-qxt" className="expressions-discover">Meet the expressions <span aria-hidden="true">↓</span></a><div className="expressions-intro__orbital" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/expressions-multiple-forms-cinematic-review.webp"} alt="" decoding="async" /></div>
         </div>
         {expressions.map((expression, index) => (
           <article className={`expression-panel expression-panel--${index}`} id={`expression-${index === 0 ? "qxt" : index === 1 ? "studio" : "argento"}`} key={expression.name}>
