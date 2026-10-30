@@ -1491,3 +1491,106 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .architecture-reimagined__next:hover .architecture-reimagined__next-text strong{border-color:#2e4b4b}
 @media(max-width:900px){.architecture-reimagined__hero{min-height:500px}.architecture-reimagined__art{width:78vw;right:-30%;opacity:.65}.architecture-reimagined__hero:before{background:linear-gradient(90deg,#0b252deF 0%,#0b252dd0 62%,#0b252d7d 100%)}.architecture-reimagined__chapter,.architecture-reimagined__next{grid-template-columns:1fr;gap:1.3rem}.architecture-reimagined__index{flex-direction:row;align-items:center;gap:1.2rem}}
 @media(max-width:600px){.architecture-reimagined__hero{min-height:510px}.architecture-reimagined__hero-inner{padding-top:3.5rem;padding-bottom:3.5rem}.architecture-reimagined__hero h1{font-size:clamp(2.75rem,10vw,3.8rem)}.architecture-reimagined__art{width:120vw;right:-70%;top:3%;opacity:.45}.architecture-reimagined__editorial{padding-bottom:2rem}}
+
+/* WEB-UX-43 — approved single-screen Architecture at desktop; original text intact */
+@media (min-width:1180px) and (min-height:740px){
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined{
+    height:calc(100svh - 158px);
+    min-height:0;
+    display:grid;
+    grid-template-rows:minmax(300px,44%) minmax(0,56%);
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__hero{
+    height:100%;min-height:0;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__hero-inner{
+    height:100%;min-height:0;
+    padding-top:1.8rem;padding-bottom:1.8rem;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__hero h1{
+    font-size:clamp(3.25rem,4.2vw,4.8rem);
+    margin:.65rem 0 .85rem;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__lead{
+    font-size:clamp(1.08rem,1.22vw,1.35rem);
+    line-height:1.48;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__editorial{
+    box-sizing:border-box;
+    width:100%;max-width:1500px;height:100%;
+    display:grid;
+    grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);
+    grid-template-rows:minmax(0,1fr) auto;
+    column-gap:clamp(2.5rem,5vw,5.5rem);
+    padding:clamp(1.1rem,2vh,1.6rem) clamp(2rem,7vw,7rem) clamp(.8rem,1.5vh,1.2rem);
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__chapter{
+    display:block;min-width:0;
+    padding:0 0 .5rem;border-bottom:0;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__chapter:first-child{
+    grid-column:1;grid-row:1 / 3;
+    padding-right:clamp(1.5rem,3vw,3.5rem);
+    border-right:1px solid rgba(50,65,62,.23);
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__chapter--operating{
+    grid-column:2;grid-row:1;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__index{
+    flex-direction:row;align-items:baseline;gap:1rem;margin-bottom:.45rem;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__index>span{font-size:1.55rem}
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__index small{
+    letter-spacing:.17em;font-size:.65rem;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__chapter-content h2{
+    font-size:clamp(2rem,2.55vw,2.8rem);
+    margin:0 0 .7rem;line-height:1.13;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__chapter-content p{
+    font-size:clamp(1.06rem,1.14vw,1.19rem);
+    line-height:1.55;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__chapter-content p+p{
+    margin-top:.7rem;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__next{
+    grid-column:2;grid-row:2;
+    display:block;padding:.5rem 0 0;border:0;
+    align-self:end;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__next>.architecture-reimagined__index{
+    display:none;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__next-text{
+    gap:.3rem;font-size:clamp(1.01rem,1.1vw,1.16rem);line-height:1.4;
+  }
+  .parent-paged[data-active-section="architecture"] .architecture-reimagined__next-text strong{
+    font-size:1.02rem;
+  }
+}
+
+/* WEB-UX-43: override legacy parent-section framing, which forces padding and block display. */
+@media(min-width:1180px) and (min-height:740px){
+.parent-paged[data-active-section="architecture"] > #architecture.architecture-reimagined{
+  display:grid!important;
+  padding:0!important;
+  grid-template-rows:minmax(295px,43%) minmax(0,57%);
+  height:calc(100svh - 158px)!important;
+  min-height:0!important;
+}
+.parent-paged[data-active-section="architecture"] .architecture-reimagined__hero{height:100%;min-height:0}
+.parent-paged[data-active-section="architecture"] .architecture-reimagined__editorial{height:100%;min-height:0}
+}
+
+/* WEB-UX-43 final viewport alignment: fixed header sits above, never over, hero. */
+@media(min-width:1180px) and (min-height:740px){
+.parent-paged[data-active-section="architecture"] > #architecture.architecture-reimagined{
+  margin-top:80px!important;
+  height:calc(100svh - 156px)!important;
+  grid-template-rows:minmax(255px,42%) minmax(0,58%);
+}
+.parent-paged[data-active-section="architecture"] .architecture-reimagined__hero-inner{padding-top:1.1rem;padding-bottom:1.1rem}
+.parent-paged[data-active-section="architecture"] .architecture-reimagined__hero h1{font-size:clamp(3.1rem,4vw,4.6rem);margin:.55rem 0 .65rem}
+.parent-paged[data-active-section="architecture"] .architecture-reimagined__lead{font-size:clamp(1.04rem,1.16vw,1.3rem);line-height:1.43}
+}
