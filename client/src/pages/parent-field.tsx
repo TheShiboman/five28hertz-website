@@ -102,7 +102,7 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
         </div>
       </section>
 
-      <section id="architecture" className="field-section architecture-story border-t px-6 py-28 md:px-12 md:py-36">
+      <section id="architecture" className="field-section architecture-story architecture-story--sculptural border-t px-6 py-28 md:px-12 md:py-36"><div className="architecture-story__sculpture" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/architecture-coherence-sculpture-review.webp"} alt="" loading="lazy" decoding="async" /></div>
         <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.3fr_0.7fr]">
           <motion.div {...reveal}>
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Living Architecture</p>

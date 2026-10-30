@@ -1447,3 +1447,18 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .vision-editorial .vision-editorial__core .purpose-sculpture-image{width:100%;max-height:70svh;object-fit:contain;filter:drop-shadow(0 24px 35px rgba(4,16,24,.29))}
 @media(min-width:900px){.vision-editorial .vision-hero__composition{max-width:1380px;gap:clamp(2rem,4vw,5rem)}.vision-editorial .vision-editorial__core{width:min(48vw,600px);flex-shrink:1}.vision-editorial .purpose-opening{max-width:720px}}
 @media(max-width:899px){.vision-editorial .vision-editorial__core{width:min(75vw,420px);margin:auto}.vision-editorial .vision-editorial__core .purpose-sculpture-image{max-height:43svh}}
+
+/* WEB-UX-41 Architecture: subtle sculptural coherence without altering the approved reading hierarchy. */
+.parent-paged[data-active-section="architecture"] .architecture-story--sculptural{position:relative;isolation:isolate;overflow:hidden}
+.architecture-story__sculpture{display:none;pointer-events:none}
+@media(min-width:1024px){
+.parent-paged[data-active-section="architecture"] .architecture-story__sculpture{display:block;position:absolute;z-index:-1;right:max(2%,calc((100vw - 1450px)/2));top:-2%;width:min(39vw,600px);opacity:.22;mix-blend-mode:multiply}
+.architecture-story__sculpture img{display:block;width:100%;height:auto;filter:saturate(.7)}
+.parent-paged[data-active-section="architecture"] .architecture-story--sculptural > .mx-auto{position:relative;z-index:1}
+}
+@media(max-width:1023px){.architecture-story__sculpture{display:none!important}}
+
+/* WEB-UX-41 visual QA correction: sculpture belongs in whitespace, never behind text. */
+@media(min-width:1024px){
+.parent-paged[data-active-section="architecture"] .architecture-story__sculpture{top:auto;bottom:-7%;right:max(1.5%,calc((100vw - 1450px)/2));width:min(32vw,490px);opacity:.34;mix-blend-mode:multiply}
+}
