@@ -1645,7 +1645,64 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 
 /* WEB-UX-44 final: replace generic rings with decorative sculptural atmospheres. */
 .expression-panel:after{left:4%;top:5%;width:min(44vw,630px);height:85%;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;transform:none;background-position:center;background-size:contain;background-repeat:no-repeat}
-.expression-panel--0:after{background-image:url("/five28hertz-website/assets/expression-qxt-atmosphere-review.webp");opacity:.38}
-.expression-panel--1:after{background-image:url("/five28hertz-website/assets/expression-studio-atmosphere-review.webp");opacity:.16}
-.expression-panel--2:after{background-image:url("/five28hertz-website/assets/expression-argento-atmosphere-review.webp");opacity:.25}
 @media(max-width:899px){.expression-panel:after{width:85vw;height:55%;left:0;top:3%;opacity:.19}.expression-panel--1:after{opacity:.10}}
+
+/* WEB-UX-45: independent identity, visual and narrative zones. */
+.expressions-world .expression-panel{padding:clamp(2.8rem,5vh,4rem) max(4vw,24px) 4.5rem}
+.expressions-world .expression-panel::after{content:none!important;background-image:none!important}
+.expressions-world .expression-panel__inner{
+  max-width:1510px;
+  display:grid;
+  grid-template-columns:minmax(0,.76fr) minmax(0,1.06fr) minmax(0,1.20fr);
+  align-items:center;
+  column-gap:clamp(1.4rem,2.3vw,3.2rem);
+}
+.expressions-world .expression-panel__identity{align-self:center;min-width:0}
+.expressions-world .expression-panel__identity h2.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.expressions-world .expression-panel__logo{width:100%;max-width:300px;height:auto;max-height:280px;object-fit:contain;object-position:center;display:block;margin:1.1rem auto}
+.expressions-world .expression-panel__visual{
+  position:relative;isolation:isolate;
+  min-width:0;width:100%;height:clamp(260px,47vh,510px);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;border-radius:clamp(10px,1.5vw,21px);
+}
+.expressions-world .expression-panel__visual img{
+  display:block;width:100%;height:100%;object-fit:cover;
+  object-position:center;filter:drop-shadow(0 16px 26px rgba(4,20,29,.16));
+}
+.expressions-world .expression-panel__visual::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 46px 13px rgba(11,31,39,.14);
+  border-radius:inherit;
+}
+.expressions-world .expression-panel__story{min-width:0;align-self:center}
+.expressions-world .expression-panel__lead{font-size:clamp(1.40rem,1.76vw,1.9rem);line-height:1.45;max-width:44ch}
+.expressions-world .expression-panel__evidence{font-size:clamp(1.05rem,1.23vw,1.33rem);line-height:1.61;max-width:49ch}
+.expressions-world .expression-panel__next{left:max(4vw,24px)}
+.expression-panel--1 .expression-panel__visual::after{box-shadow:inset 0 0 42px rgba(240,236,219,.25)}
+.expression-panel--2 .expression-panel__visual::after{box-shadow:inset 0 0 35px rgba(14,39,41,.22)}
+@media(min-width:1280px) and (max-height:850px){
+.expressions-world .expression-panel__visual{height:clamp(245px,42vh,390px)}
+.expressions-world .expression-panel__logo{max-height:230px}
+}
+@media(min-width:768px) and (max-width:1279px){
+.expressions-world .expression-panel__inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.8rem}
+.expressions-world .expression-panel__identity{grid-column:1;grid-row:1}
+.expressions-world .expression-panel__visual{grid-column:2;grid-row:1;height:clamp(260px,36vh,430px)}
+.expressions-world .expression-panel__story{grid-column:1 / -1;grid-row:2;max-width:840px;justify-self:center}
+}
+@media(max-width:767px){
+.expressions-world .expression-panel{padding:3.4rem 24px 6rem;min-height:0}
+.expressions-world .expression-panel__inner{grid-template-columns:minmax(0,1fr);row-gap:1.5rem}
+.expressions-world .expression-panel__identity,.expressions-world .expression-panel__visual,.expressions-world .expression-panel__story{grid-column:1}
+.expressions-world .expression-panel__identity{grid-row:1}
+.expressions-world .expression-panel__visual{grid-row:2;height:clamp(190px,54vw,340px)}
+.expressions-world .expression-panel__story{grid-row:3}
+.expressions-world .expression-panel__logo{max-width:270px;max-height:200px;margin:1.2rem auto}
+.expressions-world .expression-panel__lead{font-size:clamp(1.35rem,5vw,1.65rem)}
+.expressions-world .expression-panel__evidence{font-size:1.08rem}
+.expressions-world .expression-panel__next{left:24px;bottom:1.5rem}
+}
