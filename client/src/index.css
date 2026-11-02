@@ -1719,10 +1719,10 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .evidence-cinematic__hero h1{font-family:var(--field-font-display),Georgia,serif;font-size:clamp(3rem,5.1vw,5.4rem);font-weight:400;line-height:1.07;letter-spacing:-.034em;max-width:12ch;color:#fbefe3;margin:1rem 0}
 .evidence-cinematic__hero h1 em{font-style:normal;color:#e2ad7a}
 .evidence-cinematic__statement{font-family:var(--five28-font-reading),Georgia,serif;font-size:clamp(1.1rem,1.36vw,1.42rem);line-height:1.57;color:#e6ded3;max-width:43ch}
-.evidence-cinematic__ledger{display:grid;grid-template-columns:1.13fr .935fr .935fr;gap:1px;background:#d7d0c5;max-width:100%;padding:0 clamp(1.5rem,7vw,7rem)}
-.evidence-cinematic__record{background:#f2eee5;padding:clamp(1.4rem,2.4vw,2.9rem) clamp(1.15rem,2vw,2.7rem) clamp(1.4rem,2.2vw,2.7rem);min-width:0}
+.evidence-cinematic__ledger{display:grid;grid-template-columns:1.13fr .935fr .935fr;gap:0;background:#f2eee5;max-width:100%;padding:0 clamp(1.5rem,7vw,7rem)}
+.evidence-cinematic__record{background:transparent;border-right:1px solid rgba(70,82,76,.17);padding:clamp(1.4rem,2.4vw,2.9rem) clamp(1.15rem,2vw,2.7rem) clamp(1.4rem,2.2vw,2.7rem);min-width:0}
 .evidence-cinematic__record:first-child{padding-left:0}
-.evidence-cinematic__record:last-child{padding-right:0}
+.evidence-cinematic__record:last-child{padding-right:0;border-right:0}
 .evidence-cinematic__record-heading{display:flex;align-items:baseline;gap:clamp(.75rem,1.2vw,1.3rem);margin-bottom:1.05rem}
 .evidence-cinematic__record-index{font-family:var(--field-font-display),Georgia,serif;color:#a2774f;font-size:1.65rem}
 .evidence-cinematic__record-label{font-size:.65rem;color:#887052;letter-spacing:.17em}
@@ -1753,7 +1753,7 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 @media(max-width:1179px){
  .parent-paged[data-active-section="evidence"] > #evidence.evidence-cinematic{padding:0!important}
  .evidence-cinematic__ledger{grid-template-columns:1fr;gap:0}
- .evidence-cinematic__record,.evidence-cinematic__record:first-child,.evidence-cinematic__record:last-child{padding:2rem 0;border-bottom:1px solid rgba(49,69,68,.22)}
+ .evidence-cinematic__record,.evidence-cinematic__record:first-child,.evidence-cinematic__record:last-child{padding:2rem 0;border-right:0;border-bottom:1px solid rgba(49,69,68,.22)}
  .evidence-cinematic__hero{min-height:390px}
 }
 @media(max-width:700px){
