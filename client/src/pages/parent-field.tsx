@@ -1,0 +1,214 @@
+import { motion } from "framer-motion";
+
+const parentSections = ["orientation","existing","architecture","expressions","evidence","lineage","contact"] as const;
+
+const expressions = [
+  {
+    name: "QXT World",
+    state: "PRODUCTION CORE · PILOT VALIDATION",
+    body: "A connective operating layer for cue sports — bringing players, competition, venues, organizers and the wider ecosystem into one trusted experience.",
+    proof: "Its implemented match-persistence and competition capabilities are technical milestones. An end-to-end organizer and real-event experience remains to be independently validated.",
+    href: "https://qxtworld.com",
+  },
+  {
+    name: "528Hz Studio",
+    state: "INDEPENDENT CREATIVE EXPRESSION",
+    body: "528Hz Studio is a home for creative work shaped by lived experience, curiosity and the questions that stay with us. Stories, sound, conversation or other forms may emerge when there is something worth expressing — not because a calendar demands it. It has its own creative purpose. From time to time, a work may also quietly carry an idea or experience arising within five28hertz or one of its other expressions. That possibility does not make Studio their voice or their marketing channel.",
+    proof: "An independent creative expression with its own purpose and path; work emerges when there is something worth expressing.",
+    href: "https://528hz.studio",
+  },
+  {
+    name: "Argento Homes",
+    state: "FORMING",
+    body: "A hospitality expression built around a simple standard: a place should feel like home before it merely functions like property.",
+    proof: "Its first property-readiness framework has taken technical form. Real-property delivery, guest experience and certification remain to be demonstrated.",
+  },
+];
+
+const evidence = [
+  {
+    label: "QXT World",
+    title: "A technical foundation, with real-world experience validation still ahead.",
+    body: "QXT World has developed structured competition, match-persistence and historical-record capabilities. These are implementation milestones, not proof of a complete public experience. The end-to-end journey for organizers, players, officials and witnesses still requires independent real-event validation.",
+  },
+  {
+    label: "528Hz Studio",
+    title: "From content idea to governed creative expression.",
+    body: "528Hz Studio now has a sovereign purpose, voice and creative architecture of its own — with the Founder's work serving as the first place that architecture is tested.",
+  },
+  {
+    label: "DreamWeaver OS",
+    title: "From accumulated thought to coordinated action.",
+    body: "DreamWeaver OS now carries context, decisions and execution across the five28hertz architecture so that what has already been learned does not have to be rediscovered before the next action can begin.",
+  },
+];
+
+const reveal = {
+  initial: false,
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+  transition: { duration: 0.6 },
+};
+
+const ParentField = ({ section = "orientation" }: { section?: string }) => {
+  return (
+    <div className="parent-paged bg-[#FCFAF6] text-[#17201D] selection:bg-[#D9C89E]/60" data-active-section={parentSections.includes(section as typeof parentSections[number]) ? section : "orientation"}>
+      <section id="orientation" className="living-hero relative isolate overflow-hidden px-6 pb-20 pt-36 md:px-12 md:pb-24 md:pt-44">
+        <div className="living-hero__light" aria-hidden="true" />
+        <div className="relative mx-auto grid max-w-[1500px] items-center gap-6 lg:min-h-[650px] lg:grid-cols-[1.12fr_0.88fr]">
+          <div className="relative order-1 min-w-0 lg:-ml-14">
+            <div className="home-core-sculpture" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/five28hertz-core-sculpture-review.webp"} alt="" decoding="async" /></div>
+          </div>
+          <div className="relative z-10 order-2 pb-10 lg:pl-4">
+            <p className="mb-7 text-xs uppercase tracking-[0.34em] text-[#B9E5DB]">five28hertz · the parent field</p>
+            <h1 className="max-w-2xl font-playfair text-[clamp(3.2rem,5.3vw,6.2rem)] leading-[1.04] tracking-[-0.04em] text-[#FFF5E6]">Ideas become real when they are given a form true enough to live.</h1>
+            <p className="mt-8 max-w-xl text-lg leading-8 text-[#D6EAE5]">A living architecture for turning thoughts, dreams and aspirations into independent expressions — each allowed to find its own form, meet reality, and evolve through what it proves.</p>
+            <a className="home-purpose-link mt-10" href={import.meta.env.BASE_URL + "vision/"}>Discover Our Purpose <span aria-hidden="true">↗</span></a>
+            <p className="mt-7 text-xs uppercase tracking-[0.19em] text-[#B5D9D4]">Different expressions. One coherent source.</p>
+          </div>
+        </div>
+        <div className="core-hero__spectrum absolute inset-x-0 bottom-0 h-1.5" aria-hidden="true" />
+      </section>
+
+      <section id="existing" className="field-section field-section--warm border-t border-black/10 px-6 py-20 md:px-12 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">The existing five28hertz experience</p>
+          <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">The work already here remains.</h2>
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-[#46504A]">This new orientation adds a way into five28hertz. It does not supersede the existing Vision, Field or Interior Archive. Those writings and pathways retain their own place and identity.</p>
+          <div className="mt-12 grid gap-px bg-black/10 md:grid-cols-2">
+            {[
+              {name:"Vision",description:"The existing full statement of purpose, vision, structure, unfinishedness, invitation and stewardship.",href:"/vision"},
+              {name:"The Field",description:"The original threshold for correspondence, with its own invitation and address.",href:"/field"},
+              {name:"Interior Archive",description:"The Translation Premise, The Anti-Fragmentation Thesis and The Cyclical Journey.",href:"/interior/translation-premise"},
+            ].map(item => (
+              <a key={item.name} href={item.href.startsWith("/") ? import.meta.env.BASE_URL + item.href.slice(1) : item.href} className="block bg-[#F4F0E8] p-7 transition-colors hover:bg-[#ECE5D9] focus-visible:outline-2 focus-visible:outline-offset-2">
+                <h3 className="font-playfair text-2xl">{item.name} <span aria-hidden="true">↗</span></h3>
+                <p className="mt-4 leading-7 text-[#414943]">{item.description}</p>
+                <span className="mt-5 block text-xs uppercase tracking-[0.18em] text-[#554724]">Explore integrated page</span>
+              </a>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-sm leading-6 text-[#46504A]">These preserved writings now appear within the shared review design. Their final fidelity remains subject to Founder acceptance.</p>
+        </div>
+      </section>
+
+      <section id="architecture" className="architecture-reimagined">
+        <div className="architecture-reimagined__hero">
+          <div className="architecture-reimagined__art" aria-hidden="true">
+            <img src={import.meta.env.BASE_URL + "assets/architecture-approved-hero-art-review.webp"} alt="" decoding="async" />
+          </div>
+          <div className="architecture-reimagined__hero-inner">
+            <p className="architecture-reimagined__eyebrow">Architecture</p>
+            <h1>From <em>intention</em><span> to coherent <em>form.</em></span></h1>
+            <p className="architecture-reimagined__lead">five28hertz begins with a simple conviction: what is deeply true should be given the chance to become real.</p>
+          </div>
+        </div>
+        <div className="architecture-reimagined__editorial">
+          <div className="architecture-reimagined__chapter">
+            <div className="architecture-reimagined__index"><span>01</span><small>Living architecture</small></div>
+            <div className="architecture-reimagined__chapter-content">
+              <h2>A living architecture</h2>
+              <p>An idea is held long enough to become coherent. Coherence becomes form. Form becomes an independent expression. Reality then decides what that expression earns the right to become next.</p>
+              <p className="architecture-reimagined__emphasis">The parent holds the source and the frame. Each expression develops its own purpose, experience and path into the world.</p>
+            </div>
+          </div>
+          <div className="architecture-reimagined__chapter architecture-reimagined__chapter--operating">
+            <div className="architecture-reimagined__index"><span>02</span><small>Operating architecture</small></div>
+            <div className="architecture-reimagined__chapter-content">
+              <h2>DreamWeaver OS</h2>
+              <p>DreamWeaver OS is the operating architecture behind five28hertz. It preserves accumulated thought and context, keeps decisions connected to purpose, and helps ideas move from intention into coordinated, verifiable execution.</p>
+            </div>
+          </div>
+          <a className="architecture-reimagined__next" href={import.meta.env.BASE_URL + "expressions/"}>
+            <span className="architecture-reimagined__index"><small>From architecture to expression</small></span>
+            <span className="architecture-reimagined__next-text"><span>An architecture becomes meaningful through what it gives form to.</span><strong>Discover the Brand Expressions ↗</strong></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="expressions" className="expressions-world">
+        <div className="expressions-intro"><div className="expressions-intro__copy">
+          <p className="expressions-kicker">The Brand Expressions</p>
+          <h1>Different expressions. One coherent source.</h1>
+          <p>Each begins from the same parent field, then develops its own purpose, experience and path into the world.</p>
+          
+          </div><a href="#expression-qxt" className="expressions-discover">Meet the expressions <span aria-hidden="true">↓</span></a><div className="expressions-intro__orbital" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/expressions-multiple-forms-cinematic-review.webp"} alt="" decoding="async" /></div>
+        </div>
+        {expressions.map((expression, index) => (
+          <article className={`expression-panel expression-panel--${index}`} id={`expression-${index === 0 ? "qxt" : index === 1 ? "studio" : "argento"}`} key={expression.name}>
+            <div className="expression-panel__inner">
+              <div className="expression-panel__identity">
+                <p className="expression-panel__index">0{index + 1} / 0{expressions.length}</p>
+                <img className="expression-panel__logo" src={import.meta.env.BASE_URL + "assets/" + (index === 0 ? "qxt-world-identity-v0-4-review.png" : index === 1 ? "studio-signature-provisional.svg" : "argento-homes-v2-transparent-review.png")} alt={index === 1 ? "Provisional 528Hz Studio identity candidate" : `${expression.name} logo`} />
+                <h2 className="sr-only">{expression.name}</h2>
+                {index === 1 && <p className="expression-panel__legacy">Provisional Studio identity candidate — current Studio identity pending confirmation</p>}
+              </div>
+              <div className="expression-panel__visual" aria-hidden="true">
+                <img src={import.meta.env.BASE_URL + "assets/expression-" + (index === 0 ? "qxt-competition" : index === 1 ? "studio-resonance" : "argento-arrival") + "-sculpture-review.webp"} alt="" loading="lazy" decoding="async" />
+              </div>
+              <div className="expression-panel__story">
+                <p className="expression-panel__status">{expression.state}</p>
+                <p className="expression-panel__lead">{expression.body}</p>
+                <p className="expression-panel__evidence">{expression.proof}</p>
+                {expression.href && <a className="expression-panel__visit" href={expression.href} target="_blank" rel="noreferrer">Visit {expression.name} <span aria-hidden="true">↗</span></a>}
+              </div>
+            </div>
+            <a className="expression-panel__next" href={index < expressions.length - 1 ? `#expression-${index === 0 ? "studio" : "argento"}` : `${import.meta.env.BASE_URL}evidence/`}>{index < expressions.length - 1 ? "Discover the next expression" : "Continue to Evidence"} <span aria-hidden="true">↓</span></a>
+          </article>
+        ))}
+      </section>
+
+      <section id="evidence" className="evidence-cinematic">
+        <div className="evidence-cinematic__hero">
+          <div className="evidence-cinematic__hero-art" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/evidence-observation-architecture-review.webp"} alt="" decoding="async" /></div>
+          <div className="evidence-cinematic__hero-inner">
+            <p className="evidence-cinematic__eyebrow">Evidence</p>
+            <h1>What has <em>become real</em></h1>
+            <p className="evidence-cinematic__statement">The architecture is not proved by how much it describes. It is proved by what can stand.</p>
+          </div>
+        </div>
+        <div className="evidence-cinematic__ledger">
+          {evidence.map((item, index) => (
+            <motion.article key={item.label} {...reveal} className={"evidence-cinematic__record evidence-cinematic__record--" + index}>
+              <div className="evidence-cinematic__record-heading">
+                <span className="evidence-cinematic__record-index" aria-hidden="true">0{index + 1}</span>
+                <p className="evidence-cinematic__record-label">{item.label}</p>
+              </div>
+              <h2>{item.title}</h2>
+              <p className="evidence-cinematic__record-body">{item.body}</p>
+            </motion.article>
+          ))}
+          <a className="evidence-cinematic__continuation" href={import.meta.env.BASE_URL + "field/"}>
+            <span className="evidence-cinematic__continuation-label">Beyond the evidence</span>
+            <span className="evidence-cinematic__continuation-text">The thinking behind what takes form.</span>
+            <span className="evidence-cinematic__continuation-link">Enter The Field <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="lineage" className="field-section border-t border-black/10 px-6 py-28 md:px-12 md:py-36">
+        <motion.div {...reveal} className="mx-auto max-w-5xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Lineage</p>
+          <h2 className="max-w-4xl font-playfair text-4xl md:text-6xl">Before five28hertz, there was ProAct World.</h2>
+          <div className="mt-10 max-w-3xl space-y-7 text-lg leading-8 text-[#46504A]">
+            <p>For two decades, ProAct World was the Founder's arena for turning strategy into lived experience — across direct marketing, consumer engagement, business intelligence and large-scale execution.</p>
+            <p>That history is not a separate promise about the future. It is part of the experience from which five28hertz learned how ideas meet people, systems and reality.</p>
+            <p className="text-[#17201D]">The name changed. The instinct to turn thought into something people can actually experience did not.</p>
+          </div>
+        </motion.div>
+      </section>
+
+      <section id="contact" className="field-section border-t border-black/10 px-6 py-32 md:px-12 md:py-40">
+        <motion.div {...reveal} className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <p className="max-w-xl font-playfair text-3xl leading-tight md:text-5xl">When something here resonates, the address is enough.</p>
+          <div className="text-right">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#414943]">Quiet contact</p>
+            <a className="mt-4 inline-block text-2xl tracking-tight underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 md:text-3xl" href="mailto:field@five28hertz.com">field@five28hertz.com</a>
+          </div>
+        </motion.div>
+      </section>
+    </div>
+  );
+};
+
+export default ParentField;
