@@ -168,23 +168,26 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
         ))}
       </section>
 
-      <section id="evidence" className="field-section field-section--warm evidence-editorial border-t border-black/10 px-6 md:px-12">
-        <div className="mx-auto max-w-6xl">
-          <motion.div {...reveal} className="max-w-4xl">
-            <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#414943]">Evidence</p>
-            <h2 className="font-playfair text-4xl md:text-6xl">What has become real</h2>
-            <p className="mt-7 text-xl leading-8 text-[#46504A]">The architecture is not proved by how much it describes. It is proved by what can stand.</p>
-          </motion.div>
-
-          <div className="mt-20 grid gap-px bg-black/10 md:grid-cols-3">
-            {evidence.map((item) => (
-              <motion.article key={item.label} {...reveal} className="bg-[#F4F0E8] p-8 md:p-10">
-                <p className="text-xs uppercase tracking-[0.28em] text-[#554724]">{item.label}</p>
-                <h3 className="mt-6 font-playfair text-2xl leading-tight md:text-3xl">{item.title}</h3>
-                <p className="mt-7 leading-7 text-[#414943]">{item.body}</p>
-              </motion.article>
-            ))}
+      <section id="evidence" className="evidence-cinematic">
+        <div className="evidence-cinematic__hero">
+          <div className="evidence-cinematic__hero-art" aria-hidden="true"><img src={import.meta.env.BASE_URL + "assets/evidence-observation-architecture-review.webp"} alt="" decoding="async" /></div>
+          <div className="evidence-cinematic__hero-inner">
+            <p className="evidence-cinematic__eyebrow">Evidence</p>
+            <h1>What has <em>become real</em></h1>
+            <p className="evidence-cinematic__statement">The architecture is not proved by how much it describes. It is proved by what can stand.</p>
           </div>
+        </div>
+        <div className="evidence-cinematic__ledger">
+          {evidence.map((item, index) => (
+            <motion.article key={item.label} {...reveal} className={"evidence-cinematic__record evidence-cinematic__record--" + index}>
+              <div className="evidence-cinematic__record-heading">
+                <span className="evidence-cinematic__record-index" aria-hidden="true">0{index + 1}</span>
+                <p className="evidence-cinematic__record-label">{item.label}</p>
+              </div>
+              <h2>{item.title}</h2>
+              <p className="evidence-cinematic__record-body">{item.body}</p>
+            </motion.article>
+          ))}
         </div>
       </section>
 
