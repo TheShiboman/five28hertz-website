@@ -1920,3 +1920,17 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 @media(min-width:768px){
   .expressions-world .expression-panel__next{margin-left:0}
 }
+
+/* WEB-UX-51 — homepage reading copy uses the same Lora face as the parent editorial pages. */
+.parent-paged[data-active-section="orientation"] .living-hero p.text-lg{
+  font-family:var(--five28-font-reading),"Lora",Georgia,serif;
+  font-weight:400;
+  letter-spacing:-.012em;
+  line-height:1.67;
+}
+@media(max-width:767px){
+  .parent-paged[data-active-section="orientation"] .living-hero p.text-lg{
+    font-size:clamp(1.13rem,4.65vw,1.31rem);
+    line-height:1.68;
+  }
+}
