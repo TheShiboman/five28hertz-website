@@ -12,9 +12,9 @@ const expressions = [
   },
   {
     name: "528Hz Studio",
-    state: "THE VOICE · HORIZON 1",
-    body: "The creative and philosophical expression of five28hertz — a listening room for work that holds space for depth and gives it a voice.",
-    proof: "Beginning with the Founder's own bodies of work; designed to evolve from voice, to studio, to creative network.",
+    state: "INDEPENDENT CREATIVE EXPRESSION",
+    body: "528Hz Studio is a home for creative work shaped by lived experience, curiosity and the questions that stay with us. Stories, sound, conversation or other forms may emerge when there is something worth expressing — not because a calendar demands it. It has its own creative purpose. From time to time, a work may also quietly carry an idea or experience arising within five28hertz or one of its other expressions. That possibility does not make Studio their voice or their marketing channel.",
+    proof: "An independent creative expression with its own purpose and path; work emerges when there is something worth expressing.",
     href: "https://528hz.studio",
   },
   {

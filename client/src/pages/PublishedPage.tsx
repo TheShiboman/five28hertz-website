@@ -54,7 +54,7 @@ export default function PublishedPage({ path }: { path: string }) {
     const intro = firstParagraphs.slice(1).map(x => x[1]);
     const aboutStart = content.indexOf("<p>What this is</p>");
     const archiveStart = content.indexOf("Interior Archive", aboutStart);
-    const about = content.slice(aboutStart + "<p>What this is</p>".length, archiveStart);
+    const about = content.slice(aboutStart + "<p>What this is</p>".length, archiveStart).replace(/<h2>A way to write<\/h2>[\s\S]*$/, "");
     const archiveHtml = content.slice(archiveStart + "Interior Archive".length);
     const archiveIntro = archiveHtml.slice(0, archiveHtml.indexOf('<a href="/interior/'));
     const chapters = Array.from(archiveHtml.matchAll(/<a href="(\/interior\/[^"]+)">(\d\d)(.*?)Essay [^<]*<\/a>/g));
@@ -92,12 +92,12 @@ export default function PublishedPage({ path }: { path: string }) {
         <div className="field-experience__exchange-inner">
           <div className="field-experience__exchange-heading">
             <p className="field-experience__eyebrow">AN OPEN POSSIBILITY</p>
-            <h2 id="field-exchange-title">Correspondence</h2>
+            <h2 id="field-exchange-title">A way to write</h2>
             
           </div>
           <div className="field-experience__exchange-prose">
             <p className="field-experience__exchange-explainer" dangerouslySetInnerHTML={{__html:intro[0]}} />
-            <h3>What this is</h3>
+            <p>If something here has stirred a thought, a question or a possibility you want to share, you can write to field@five28hertz.com.</p><p>There is no application to complete and no particular response to expect. This is simply a door to a human conversation.</p><h3>What this is</h3>
             <div dangerouslySetInnerHTML={{__html:about}} />
             <a className="field-experience__address" href="mailto:field@five28hertz.com">field@five28hertz.com <span aria-hidden="true">↗</span></a>
           </div>
