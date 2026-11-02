@@ -67,16 +67,6 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
             <p className="mt-7 text-xs uppercase tracking-[0.19em] text-[#B5D9D4]">Different expressions. One coherent source.</p>
           </div>
         </div>
-        <div className="relative mx-auto mt-2 max-w-7xl border-t border-[#9FD9CD]/25 pt-7">
-          <p className="mb-5 text-[10px] uppercase tracking-[0.3em] text-[#E7BD8C]">Distinct expressions · coherent at the source</p>
-          <div className="living-hero__expressions grid grid-cols-2 gap-3 md:grid-cols-4">
-            <a href={import.meta.env.BASE_URL + "expressions/"}><span>QXT World</span><small>Cue sports infrastructure</small></a>
-            <a href={import.meta.env.BASE_URL + "expressions/"}><span>528Hz Studio</span><small>Creative expression</small></a>
-            <a href={import.meta.env.BASE_URL + "expressions/"}><span>Argento Homes</span><small>Hospitality experience</small></a>
-            <a href={import.meta.env.BASE_URL + "lineage/"}><span>ExchangeSphere</span><small>Recognition / watch</small></a>
-          </div>
-          <p className="mt-5 text-xs text-[#AFCFCA]">RealEyes remains a sensory subsystem within QXT World, not a separate parent manifestation.</p>
-        </div>
         <div className="core-hero__spectrum absolute inset-x-0 bottom-0 h-1.5" aria-hidden="true" />
       </section>
 

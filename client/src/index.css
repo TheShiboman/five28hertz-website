@@ -1854,3 +1854,69 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
  .field-experience__arrival:after{background:linear-gradient(90deg,rgba(13,36,46,.90) 0%,rgba(14,41,51,.66) 74%,rgba(14,41,51,.38))}
 }
 @media(prefers-reduced-motion:reduce){.field-experience__threshold img{transition:none;animation:none}}
+
+
+/* WEB-UX-50 — Final Founder mobile feedback: long Stewardship lead and distinct expression actions.
+   Scoped adjustments only; desktop visual compositions and approved prose remain unchanged. */
+@media(max-width:767px){
+  .vision-editorial .vision-story__chapter:last-of-type .vision-story__chapter-body > p:first-of-type{
+    font-family:var(--five28-font-reading),Georgia,serif;
+    font-size:clamp(1.16rem,4.9vw,1.38rem);
+    line-height:1.63;
+    letter-spacing:-.012em;
+    font-weight:400;
+    max-width:62ch;
+    overflow-wrap:normal;
+  }
+  .vision-editorial .vision-story__chapter:last-of-type .vision-story__chapter-body > p:not(:first-of-type){
+    font-size:clamp(1.06rem,4.55vw,1.22rem);
+    line-height:1.7;
+  }
+  .expressions-world .expression-panel{
+    justify-content:flex-start;
+    padding-bottom:clamp(2rem,6vw,3rem);
+  }
+  .expressions-world .expression-panel__inner{
+    margin:0 auto;
+  }
+  .expressions-world .expression-panel__next{
+    position:relative;
+    left:auto;
+    bottom:auto;
+    align-self:flex-start;
+    display:inline-flex;
+    flex-shrink:0;
+    max-width:100%;
+    margin-top:clamp(2.2rem,7vw,3.2rem);
+    padding-bottom:.4rem;
+    line-height:1.4;
+  }
+  .expressions-world .expression-panel__visit{
+    display:inline-flex;
+    margin-top:1.65rem;
+    line-height:1.4;
+  }
+}
+
+/* WEB-UX-50: place the continuation after the story at every width, including long Studio copy. */
+.expressions-world .expression-panel__next{
+  position:relative;
+  left:auto;
+  right:auto;
+  bottom:auto;
+  align-self:flex-start;
+  margin-top:clamp(2rem,3.5vh,3rem);
+  flex-shrink:0;
+  max-width:100%;
+  line-height:1.45;
+}
+.expressions-world .expression-panel__inner{
+  margin-top:auto;
+  margin-bottom:0;
+}
+.expressions-world .expression-panel{
+  padding-bottom:clamp(2.4rem,4vw,4.6rem);
+}
+@media(min-width:768px){
+  .expressions-world .expression-panel__next{margin-left:0}
+}
