@@ -1,11 +1,10 @@
 const MinimalIdentityShell = () => {
   const sections = [
-    { id: "existing", label: "Existing site" },
     { id: "vision", label: "Purpose" },
     { id: "architecture", label: "Architecture" },
     { id: "expressions", label: "Expressions" },
     { id: "evidence", label: "Evidence" },
-    { id: "lineage", label: "Lineage" },
+    { id: "field", label: "The Field" },
     { id: "contact", label: "Contact" },
   ];
   const current = window.location.pathname.replace(import.meta.env.BASE_URL, "").replace(/\/$/, "") || "orientation";

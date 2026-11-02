@@ -1823,3 +1823,34 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
  .evidence-cinematic__continuation{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem}
  .evidence-cinematic__continuation-text{flex-basis:auto}
 }
+
+/* WEB-UX-49 — The Field: contemplative architectural threshold, image separate from prose. */
+.field-experience__arrival{overflow:hidden}
+.field-experience__threshold{
+ position:absolute;right:0;top:0;bottom:0;z-index:-1;
+ width:min(71%,1100px);pointer-events:none;overflow:hidden;
+ -webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.8) 29%,black 48%);
+ mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,.8) 29%,black 48%);
+}
+.field-experience__threshold img{
+ width:100%;height:100%;object-fit:cover;object-position:49% center;
+ filter:saturate(.86) brightness(.87);
+}
+.field-experience__arrival:after{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(13,36,46,.73) 0%,rgba(14,41,51,.47) 36%,transparent 79%);
+}
+.field-experience__arrival-inner{z-index:1}
+.field-experience__arrival-copy{max-width:min(59%,770px);position:relative}
+.field-experience__arrival h1{text-shadow:0 4px 35px rgba(7,24,32,.22)}
+@media(max-width:1100px){
+ .field-experience__threshold{width:85%;right:-18%;opacity:.65}
+ .field-experience__arrival-copy{max-width:min(75%,760px)}
+ .field-experience__arrival:after{background:linear-gradient(90deg,rgba(13,36,46,.86) 0%,rgba(14,41,51,.58) 58%,rgba(14,41,51,.08))}
+}
+@media(max-width:650px){
+ .field-experience__threshold{width:125%;right:-63%;opacity:.55}
+ .field-experience__arrival-copy{max-width:100%}
+ .field-experience__arrival:after{background:linear-gradient(90deg,rgba(13,36,46,.90) 0%,rgba(14,41,51,.66) 74%,rgba(14,41,51,.38))}
+}
+@media(prefers-reduced-motion:reduce){.field-experience__threshold img{transition:none;animation:none}}

@@ -62,6 +62,7 @@ export default function PublishedPage({ path }: { path: string }) {
     return <main className="field-experience">
       <section className="field-experience__arrival" aria-labelledby="field-arrival-title">
         <div className="field-experience__atmosphere" aria-hidden="true"><i/><i/><i/></div>
+        <div className="field-experience__threshold" aria-hidden="true"><img src={base + "assets/field-interior-threshold-review.webp"} alt="" decoding="async" /></div>
         <div className="field-experience__arrival-inner">
           <p className="field-experience__eyebrow">FIVE28HERTZ / THE FIELD</p>
           <div className="field-experience__arrival-copy">
