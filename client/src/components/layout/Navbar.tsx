@@ -31,6 +31,7 @@ const Navbar = () => {
     { path: "/legacy", label: "Legacy", onClick: handleScrollToTop("/legacy") },
     { path: "/blog", label: "528Hz Blog & Podcast", onClick: handleScrollToTop("/blog") },
     { path: "/get-involved", label: "Get Involved", onClick: handleScrollToTop("/get-involved") },
+    { path: "/wish-list", label: "✨ My Wish List", onClick: handleScrollToTop("/wish-list") },
   ];
 
   return (

@@ -53,3 +53,15 @@ firebase-debug.log
 firebase-debug.*.log
 ui-debug.loggithub-backup/
 attached_assets/Pasted--type-service-account*
+
+# --- Secrets: never commit (DWOS security review, Oct 2026) ---
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.*.template
+*adminsdk*.json
+serviceAccountKey*.json
+*.pem
+*.p12
+*.pfx

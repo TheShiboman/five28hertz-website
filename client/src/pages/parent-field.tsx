@@ -7,7 +7,7 @@ const expressions = [
     name: "QXT World",
     state: "PRODUCTION CORE · PILOT VALIDATION",
     body: "A connective operating layer for cue sports — bringing players, competition, venues, organizers and the wider ecosystem into one trusted experience.",
-    proof: "Its certified match-persistence foundation and production capabilities are established; full organizer and real-event experience validation remains ahead.",
+    proof: "Its implemented match-persistence and competition capabilities are technical milestones. An end-to-end organizer and real-event experience remains to be independently validated.",
     href: "https://qxtworld.com",
   },
   {
@@ -28,8 +28,8 @@ const expressions = [
 const evidence = [
   {
     label: "QXT World",
-    title: "A certified operating foundation, with real-world validation still ahead.",
-    body: "QXT World has progressed from its first certified competitive-match milestone to a functioning production platform with structured competition state and historical-evidence capabilities. These achievements establish technical capability. Demonstrating the complete experience for organizers, players, officials and witnesses remains a separate validation frontier.",
+    title: "A technical foundation, with real-world experience validation still ahead.",
+    body: "QXT World has developed structured competition, match-persistence and historical-record capabilities. These are implementation milestones, not proof of a complete public experience. The end-to-end journey for organizers, players, officials and witnesses still requires independent real-event validation.",
   },
   {
     label: "528Hz Studio",
