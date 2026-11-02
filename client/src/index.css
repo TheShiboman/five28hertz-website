@@ -1770,3 +1770,56 @@ header nav a[aria-current="page"] {text-decoration:underline;text-underline-offs
 .parent-paged[data-active-section="evidence"] .evidence-cinematic__hero h1{font-size:clamp(3.05rem,4vw,4.3rem);margin:.55rem 0 .5rem;line-height:1.03}
 .parent-paged[data-active-section="evidence"] .evidence-cinematic__statement{font-size:clamp(1.05rem,1.17vw,1.23rem);line-height:1.43;max-width:49ch}
 }
+
+/* WEB-UX-48: Evidence -> The Field, a quiet continuation within the paper ground. */
+.evidence-cinematic__continuation{
+  grid-column:1 / -1;grid-row:2;
+  align-self:stretch;display:flex;align-items:center;gap:clamp(1rem,2vw,2.1rem);
+  padding:.75rem 0;border-top:1px solid rgba(77,88,77,.28);
+  color:#304a49;text-decoration:none;min-width:0;
+}
+.evidence-cinematic__continuation-label{
+  flex:0 0 auto;font:500 .64rem Inter,system-ui,sans-serif;
+  letter-spacing:.19em;text-transform:uppercase;color:#a37850
+}
+.evidence-cinematic__continuation-text{
+  flex:1 1 auto;font-family:var(--five28-font-reading),Georgia,serif;
+  font-size:clamp(.95rem,1.1vw,1.2rem);line-height:1.35
+}
+.evidence-cinematic__continuation-link{
+  flex:0 0 auto;font-family:var(--five28-font-reading),Georgia,serif;
+  font-size:clamp(1rem,1.17vw,1.25rem);border-bottom:1px solid #9d8d77;padding-bottom:.18rem
+}
+.evidence-cinematic__continuation:hover .evidence-cinematic__continuation-link,
+.evidence-cinematic__continuation:focus-visible .evidence-cinematic__continuation-link{color:#a36c43;border-color:#a36c43}
+.evidence-cinematic__continuation:focus-visible{outline:2px solid #a36c43;outline-offset:3px}
+@media(min-width:1180px) and (min-height:740px){
+ .parent-paged[data-active-section="evidence"] > #evidence.evidence-cinematic{
+   grid-template-rows:minmax(238px,35%) minmax(0,65%)
+ }
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__ledger{
+   grid-template-rows:minmax(0,1fr) 48px;align-items:stretch
+ }
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__record{grid-row:1}
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__record-heading{margin-bottom:.65rem}
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__continuation{padding:.55rem 0}
+}
+@media(min-width:1180px) and (min-height:740px) and (max-height:779px){
+ .parent-paged[data-active-section="evidence"] > #evidence.evidence-cinematic{
+   grid-template-rows:238px minmax(0,1fr)
+ }
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__record{padding-top:.75rem;padding-bottom:.25rem}
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__record h2{margin-bottom:.5rem}
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__record-body{line-height:1.4}
+ .parent-paged[data-active-section="evidence"] .evidence-cinematic__ledger{grid-template-rows:minmax(0,1fr) 43px}
+}
+@media(max-width:1179px){
+ .evidence-cinematic__continuation{
+  grid-row:auto;flex-wrap:wrap;gap:.7rem 1.5rem;padding:1.4rem 0 1.8rem
+ }
+ .evidence-cinematic__continuation-text{flex-basis:50%}
+}
+@media(max-width:600px){
+ .evidence-cinematic__continuation{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem}
+ .evidence-cinematic__continuation-text{flex-basis:auto}
+}

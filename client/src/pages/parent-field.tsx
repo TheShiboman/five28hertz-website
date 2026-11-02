@@ -188,6 +188,11 @@ const ParentField = ({ section = "orientation" }: { section?: string }) => {
               <p className="evidence-cinematic__record-body">{item.body}</p>
             </motion.article>
           ))}
+          <a className="evidence-cinematic__continuation" href={import.meta.env.BASE_URL + "field/"}>
+            <span className="evidence-cinematic__continuation-label">Beyond the evidence</span>
+            <span className="evidence-cinematic__continuation-text">The thinking behind what takes form.</span>
+            <span className="evidence-cinematic__continuation-link">Enter The Field <span aria-hidden="true">↗</span></span>
+          </a>
         </div>
       </section>
 
